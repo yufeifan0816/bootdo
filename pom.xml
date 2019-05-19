@@ -236,6 +236,17 @@
             <artifactId>jsoup</artifactId>
             <version>1.9.2</version>
         </dependency>
+        <!--公众号工具包-->
+        <dependency>
+            <groupId>org.weixin4j</groupId>
+            <artifactId>weixin4j-spring</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>com.github.vioao</groupId>
+            <artifactId>wechat-sdk</artifactId>
+            <version>1.0.0</version>
+        </dependency>-->
 
         <!--war包部署需要-->
         <!--<dependency>-->
