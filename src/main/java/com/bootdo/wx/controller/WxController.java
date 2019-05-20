@@ -1,10 +1,14 @@
 package com.bootdo.wx.controller;
 
+import com.bootdo.common.aspect.WebLogAspect;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.weixin4j.component.MessageComponent;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,11 +22,12 @@ import java.util.Arrays;
  * @create: 2019-05-19 14:54
  **/
 @Controller
-@RequestMapping("/wx")
+@RequestMapping("/wxServer2")
 public class WxController {
+    private static final Logger logger = LoggerFactory.getLogger(WebLogAspect.class);
     private final  static String token = "yff";
     @ResponseBody
-    @GetMapping("checkSignature")
+    @GetMapping
     public String checkSignature(HttpServletRequest request, HttpServletResponse response){
         String signature = request.getParameter("signature");
         String timestamp = request.getParameter("timestamp");
@@ -43,8 +48,9 @@ public class WxController {
         }
         return "erro";
     }
-    @PostMapping("checkSignature")
+    @PostMapping
     public void server(HttpServletRequest request, HttpServletResponse response){
+
     }
 
     public static String getSha1(String str){
