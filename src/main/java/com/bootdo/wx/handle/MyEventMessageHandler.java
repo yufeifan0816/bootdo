@@ -1,12 +1,18 @@
 package com.bootdo.wx.handle;
 
+import com.bootdo.wx.domain.WeixinUserDO;
+import com.bootdo.wx.service.WeixinUserService;
 import com.bootdo.wx.utils.WeixinUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.weixin4j.model.message.OutputMessage;
 import org.weixin4j.model.message.event.*;
-import org.weixin4j.model.message.output.TextOutputMessage;
 import org.weixin4j.spi.IEventMessageHandler;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * @program: bootdo
@@ -14,10 +20,21 @@ import org.weixin4j.spi.IEventMessageHandler;
  * @author: yufeiafn@wondersgroup.com
  * @create: 2019-05-22 10:59
  **/
+@Component
 public class MyEventMessageHandler implements IEventMessageHandler {
     private static final Logger logger = LoggerFactory.getLogger(MyEventMessageHandler.class);
+    @Autowired
+    WeixinUserService WeixinUserService;
     @Override
     public OutputMessage subscribe(SubscribeEventMessage msg) {
+        List<WeixinUserDO> byOpenId = WeixinUserService.findByOpenId(msg.getFromUserName());
+        if(byOpenId==null||byOpenId.size()!=0){
+            return WeixinUtils.getSubscribeMsg("蛤蟆皮");
+        }
+        WeixinUserDO weixinUser = new WeixinUserDO();
+        weixinUser.setOpenId(msg.getFromUserName());
+        weixinUser.setCreateTime(new Date());
+        WeixinUserService.save(weixinUser);
         return WeixinUtils.getSubscribeMsg("关注个锤子你");
     }
 

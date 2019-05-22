@@ -1,5 +1,6 @@
 package com.bootdo.wx.config;
 
+import com.bootdo.wx.handle.MyEventMessageHandler;
 import com.bootdo.wx.handle.MyNormalMessageHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -20,8 +21,11 @@ import javax.annotation.Resource;
 public class weixinConfig {
     @Resource
     MyNormalMessageHandler myNormalMessageHandler;
+    @Resource
+    MyEventMessageHandler myEventMessageHandler;
+
     @Bean
     public DefaultMessageHandler MessageHandler(){
-        return new DefaultMessageHandler(myNormalMessageHandler, HandlerFactory.getEventMessageHandler());
+        return new DefaultMessageHandler(myNormalMessageHandler, myEventMessageHandler);
     }
 }

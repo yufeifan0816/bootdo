@@ -30,6 +30,7 @@ spring:
       config: classpath:config/ehcache.xml
 mybatis:
   configuration:
+    #配置开启自动下划线转驼峰命名
     map-underscore-to-camel-case: true
   mapper-locations: mybatis/**/*Mapper.xml
   typeAliasesPackage: com.bootdo.**.domain

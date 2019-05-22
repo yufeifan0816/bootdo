@@ -41,8 +41,8 @@ public class PicUtils {
             //设置水印的坐标
 //            int x = srcImgWidth - 3*getWatermarkLength(waterMarkContent, g);
 //            int y = srcImgHeight - 3*getWatermarkLength(waterMarkContent, g);
-            int x = srcImgWidth/5;
-            int y = srcImgHeight-srcImgHeight/10;
+            int x = srcImgWidth/2-getWatermarkLength(waterMarkContent, g)/2;
+            int y = srcImgHeight-getWatermarkLength(waterMarkContent, g)/(waterMarkContent.length()*2);
             g.drawString(waterMarkContent, x, y);  //画出水印
             g.dispose();
             // 输出图片
