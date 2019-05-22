@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.weixin.dao.WeixinUserDao">
+
+	<select id="get" resultType="com.bootdo.weixin.domain.WeixinUserDO">
+		select `id`,`open_id`,`is_removed`,`create_time`,`remove_time` from weixin_user where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.weixin.domain.WeixinUserDO">
+		select `id`,`open_id`,`is_removed`,`create_time`,`remove_time` from weixin_user
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="openId != null and openId != ''"> and open_id = #{openId} </if>
+		  		  <if test="isRemoved != null and isRemoved != ''"> and is_removed = #{isRemoved} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="removeTime != null and removeTime != ''"> and remove_time = #{removeTime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from weixin_user
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="openId != null and openId != ''"> and open_id = #{openId} </if>
+		  		  <if test="isRemoved != null and isRemoved != ''"> and is_removed = #{isRemoved} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="removeTime != null and removeTime != ''"> and remove_time = #{removeTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.weixin.domain.WeixinUserDO" useGeneratedKeys="true" keyProperty="id">
+		insert into weixin_user
+		(
+			`open_id`, 
+			`is_removed`, 
+			`create_time`, 
+			`remove_time`
+		)
+		values
+		(
+			#{openId}, 
+			#{isRemoved}, 
+			#{createTime}, 
+			#{removeTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.weixin.domain.WeixinUserDO">
+		update weixin_user 
+		<set>
+			<if test="openId != null">`open_id` = #{openId}, </if>
+			<if test="isRemoved != null">`is_removed` = #{isRemoved}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}, </if>
+			<if test="removeTime != null">`remove_time` = #{removeTime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from weixin_user where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from weixin_user where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -1,0 +1,566 @@
+2019-05-14 00:14:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 14]
+2019-05-14 00:44:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 15]
+2019-05-14 01:14:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 16]
+2019-05-14 01:44:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 17]
+2019-05-14 02:14:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 18]
+2019-05-14 02:44:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 19]
+2019-05-14 03:14:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 20]
+2019-05-14 03:44:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 21]
+2019-05-14 04:14:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 22]
+2019-05-14 04:44:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 23]
+2019-05-14 05:14:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 24]
+2019-05-14 05:44:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 25]
+2019-05-14 06:14:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 26]
+2019-05-14 06:44:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 27]
+2019-05-14 07:14:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 28]
+2019-05-14 07:44:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 29]
+2019-05-14 08:14:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 30]
+2019-05-14 08:44:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 31]
+2019-05-14 09:14:33 -WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 0, completed tasks = 32]
+2019-05-14 09:19:12 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-05-14 09:19:12 -FrameworkServlet 'dispatcherServlet': initialization started
+2019-05-14 09:19:12 -FrameworkServlet 'dispatcherServlet': initialization completed in 39 ms
+2019-05-14 09:19:12 -Enabling session validation scheduler...
+2019-05-14 09:19:12 -请求地址 : http://localhost:8888/
+2019-05-14 09:19:12 -HTTP METHOD : GET
+2019-05-14 09:19:12 -CLASS_METHOD : com.bootdo.system.controller.LoginController.welcome
+2019-05-14 09:19:12 -参数 : [{}]
+2019-05-14 09:19:12 -耗时 : 2
+2019-05-14 09:19:12 -返回值 : redirect:/blog
+2019-05-14 09:19:12 -请求地址 : http://localhost:8888/blog
+2019-05-14 09:19:12 -HTTP METHOD : GET
+2019-05-14 09:19:12 -CLASS_METHOD : com.bootdo.blog.controller.BlogController.blog
+2019-05-14 09:19:12 -参数 : []
+2019-05-14 09:19:12 -耗时 : 1
+2019-05-14 09:19:12 -返回值 : blog/index/main
+2019-05-14 09:19:13 -请求地址 : http://localhost:8888/blog/open/list
+2019-05-14 09:19:13 -HTTP METHOD : GET
+2019-05-14 09:19:13 -CLASS_METHOD : com.bootdo.blog.controller.BlogController.opentList
+2019-05-14 09:19:13 -参数 : [{type=article, limit=10, offset=0}]
+2019-05-14 09:19:13 -==>  Preparing: select `cid`,`title`,`slug`,`created`,`modified`,`content`,`type`,`tags`,`categories`,`hits`,`comments_num`,`allow_comment`,`allow_ping`,`allow_feed`,`status`,`author`,`gtm_create`,`gtm_modified` from blog_content WHERE type = ? order by cid desc limit 0, 10 
+2019-05-14 09:19:13 -==> Parameters: article(String)
+2019-05-14 09:19:13 -<==      Total: 10
+2019-05-14 09:19:13 -==>  Preparing: select count(*) from blog_content WHERE type = ? 
+2019-05-14 09:19:13 -==> Parameters: article(String)
+2019-05-14 09:19:13 -<==      Total: 1
+2019-05-14 09:19:13 -耗时 : 143
+2019-05-14 09:19:13 -返回值 : com.bootdo.common.utils.PageUtils@11461d8c
+2019-05-14 09:19:32 -请求地址 : http://localhost:8888/login
+2019-05-14 09:19:32 -HTTP METHOD : GET
+2019-05-14 09:19:32 -CLASS_METHOD : com.bootdo.system.controller.LoginController.login
+2019-05-14 09:19:32 -参数 : [{}]
+2019-05-14 09:19:32 -耗时 : 7
+2019-05-14 09:19:32 -返回值 : login
+2019-05-14 09:20:08 -请求地址 : http://localhost:8888/login
+2019-05-14 09:20:08 -HTTP METHOD : POST
+2019-05-14 09:20:08 -CLASS_METHOD : com.bootdo.system.controller.LoginController.ajaxLogin
+2019-05-14 09:20:08 -参数 : [admin, 111111]
+2019-05-14 09:20:08 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user WHERE username = ? order by user_id desc 
+2019-05-14 09:20:08 -==> Parameters: admin(String)
+2019-05-14 09:20:08 -<==      Total: 1
+2019-05-14 09:20:08 -耗时 : 114
+2019-05-14 09:20:08 -返回值 : {msg=操作成功, code=0}
+2019-05-14 09:20:08 -More than one TaskExecutor bean found within the context, and none is named 'taskExecutor'. Mark one of them as primary or name it 'taskExecutor' (possibly as an alias) in order to use it for async processing: [clientInboundChannelExecutor, clientOutboundChannelExecutor, brokerChannelExecutor, messageBrokerTaskScheduler]
+2019-05-14 09:20:08 -==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2019-05-14 09:20:08 -==> Parameters: 1(Long), admin(String), 登录(String), 114(Integer), com.bootdo.system.controller.LoginController.ajaxLogin()(String), null, 127.0.0.1(String), 2019-05-14 09:20:08.377(Timestamp)
+2019-05-14 09:20:08 -请求地址 : http://localhost:8888/index
+2019-05-14 09:20:08 -HTTP METHOD : GET
+2019-05-14 09:20:08 -CLASS_METHOD : com.bootdo.system.controller.LoginController.index
+2019-05-14 09:20:08 -参数 : [{}]
+2019-05-14 09:20:08 -==>  Preparing: select distinct m.menu_id , parent_id, name, url, perms,`type`,icon,order_num,gmt_create, gmt_modified from sys_menu m left join sys_role_menu rm on m.menu_id = rm.menu_id left join sys_user_role ur on rm.role_id =ur.role_id where ur.user_id = ? and m.type in(0,1) order by m.order_num 
+2019-05-14 09:20:08 -==> Parameters: 1(Long)
+2019-05-14 09:20:08 -<==      Total: 28
+2019-05-14 09:20:08 -==>  Preparing: select `id`,`type`,`url`,`create_date` from sys_file where id = ? 
+2019-05-14 09:20:08 -==> Parameters: 138(Long)
+2019-05-14 09:20:08 -<==      Total: 1
+2019-05-14 09:20:08 -耗时 : 32
+2019-05-14 09:20:08 -返回值 : index_v1
+2019-05-14 09:20:08 -==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2019-05-14 09:20:08 -==> Parameters: 1(Long), admin(String), 请求访问主页(String), 32(Integer), com.bootdo.system.controller.LoginController.index()(String), null, 127.0.0.1(String), 2019-05-14 09:20:08.459(Timestamp)
+2019-05-14 09:20:08 -<==    Updates: 1
+2019-05-14 09:20:08 -<==    Updates: 1
+2019-05-14 09:20:08 -请求地址 : http://localhost:8888/main
+2019-05-14 09:20:08 -HTTP METHOD : GET
+2019-05-14 09:20:08 -CLASS_METHOD : com.bootdo.system.controller.LoginController.main
+2019-05-14 09:20:08 -参数 : []
+2019-05-14 09:20:08 -耗时 : 1
+2019-05-14 09:20:08 -返回值 : main
+2019-05-14 09:20:09 -请求地址 : http://localhost:8888/oa/notify/message
+2019-05-14 09:20:09 -HTTP METHOD : GET
+2019-05-14 09:20:09 -CLASS_METHOD : com.bootdo.oa.controller.NotifyController.message
+2019-05-14 09:20:09 -参数 : []
+2019-05-14 09:20:09 -==>  Preparing: select DISTINCT n.id ,`type`,`title`,`content`,`files`,r.is_read,`status`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id WHERE r.is_read = ? and r.user_id = ? order by is_read ASC, update_date DESC limit ?, ? 
+2019-05-14 09:20:09 -==> Parameters: 0(String), 1(Long), 0(Integer), 3(Integer)
+2019-05-14 09:20:09 -<==      Total: 0
+2019-05-14 09:20:09 -==>  Preparing: select count(*) from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id where r.user_id =? and r.is_read = ? 
+2019-05-14 09:20:09 -==> Parameters: 1(Long), 0(String)
+2019-05-14 09:20:09 -<==      Total: 1
+2019-05-14 09:20:09 -耗时 : 11
+2019-05-14 09:20:09 -返回值 : com.bootdo.common.utils.PageUtils@36ac901d
+2019-05-14 09:20:09 -请求地址 : http://localhost:8888/main
+2019-05-14 09:20:09 -HTTP METHOD : GET
+2019-05-14 09:20:09 -CLASS_METHOD : com.bootdo.system.controller.LoginController.main
+2019-05-14 09:20:09 -参数 : []
+2019-05-14 09:20:09 -耗时 : 0
+2019-05-14 09:20:09 -返回值 : main
+2019-05-14 09:20:17 -==>  Preparing: select distinct m.perms from sys_menu m left join sys_role_menu rm on m.menu_id = rm.menu_id left join sys_user_role ur on rm.role_id = ur.role_id where ur.user_id = ? 
+2019-05-14 09:20:17 -==> Parameters: 1(Long)
+2019-05-14 09:20:17 -<==      Total: 47
+2019-05-14 09:20:17 -请求地址 : http://localhost:8888/common/dict
+2019-05-14 09:20:17 -HTTP METHOD : GET
+2019-05-14 09:20:17 -CLASS_METHOD : com.bootdo.common.controller.DictController.dict
+2019-05-14 09:20:17 -参数 : []
+2019-05-14 09:20:17 -耗时 : 1
+2019-05-14 09:20:17 -返回值 : common/dict/dict
+2019-05-14 09:20:17 -请求地址 : http://localhost:8888/common/dict/type
+2019-05-14 09:20:17 -HTTP METHOD : GET
+2019-05-14 09:20:17 -CLASS_METHOD : com.bootdo.common.controller.DictController.listType
+2019-05-14 09:20:17 -参数 : []
+2019-05-14 09:20:17 -==>  Preparing: select distinct `type` , description from sys_dict 
+2019-05-14 09:20:17 -==> Parameters: 
+2019-05-14 09:20:17 -<==      Total: 31
+2019-05-14 09:20:17 -耗时 : 8
+2019-05-14 09:20:17 -返回值 : [DictDO{id=null, name='null', value='null', type='del_flag', description='删除标记', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='show_hide', description='显示/隐藏', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='yes_no', description='是/否', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='color', description='颜色值', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='theme', description='主题方案', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='sys_area_type', description='区域类型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='sys_office_type', description='机构类型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='sys_office_common', description='快捷通用部门', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='sys_office_grade', description='机构等级', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='sys_data_scope', description='数据范围', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='sys_user_type', description='用户类型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='cms_theme', description='站点主题', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='cms_module', description='栏目模型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='cms_show_modes', description='展现方式', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='cms_del_flag', description='内容状态', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='cms_posid', description='推荐位', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='cms_guestbook', description='留言板分类', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='oa_leave_type', description='请假类型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='sys_log_type', description='日志类型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='act_type', description='流程类型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='act_category', description='流程分类', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='gen_category', description='代码生成分类', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='gen_query_type', description='查询方式', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='gen_show_type', description='字段生成方案', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='gen_java_type', description='Java类型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='sex', description='性别', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='oa_notify_type', description='通知通告类型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='oa_notify_status', description='通知通告状态', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='oa_notify_read', description='通知通告状态', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='blog_type', description='博客类型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}, DictDO{id=null, name='null', value='null', type='hobby', description='爱好', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='null', delFlag='null'}]
+2019-05-14 09:20:17 -请求地址 : http://localhost:8888/common/dict/list
+2019-05-14 09:20:17 -HTTP METHOD : GET
+2019-05-14 09:20:17 -CLASS_METHOD : com.bootdo.common.controller.DictController.list
+2019-05-14 09:20:17 -参数 : [{limit=10, offset=0}]
+2019-05-14 09:20:17 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict order by id desc limit ?, ? 
+2019-05-14 09:20:17 -==> Parameters: 0(Integer), 10(Integer)
+2019-05-14 09:20:17 -<==      Total: 10
+2019-05-14 09:20:17 -==>  Preparing: select count(*) from sys_dict 
+2019-05-14 09:20:17 -==> Parameters: 
+2019-05-14 09:20:17 -<==      Total: 1
+2019-05-14 09:20:17 -耗时 : 7
+2019-05-14 09:20:17 -返回值 : com.bootdo.common.utils.PageUtils@413bf510
+2019-05-14 09:20:21 -请求地址 : http://localhost:8888/common/dict/edit/122
+2019-05-14 09:20:21 -HTTP METHOD : GET
+2019-05-14 09:20:21 -CLASS_METHOD : com.bootdo.common.controller.DictController.edit
+2019-05-14 09:20:21 -参数 : [122, {}]
+2019-05-14 09:20:21 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict where id = ? 
+2019-05-14 09:20:21 -==> Parameters: 122(Long)
+2019-05-14 09:20:21 -<==      Total: 1
+2019-05-14 09:20:21 -耗时 : 3
+2019-05-14 09:20:21 -返回值 : common/dict/edit
+2019-05-14 09:20:27 -请求地址 : http://localhost:8888/common/sysFile
+2019-05-14 09:20:27 -HTTP METHOD : GET
+2019-05-14 09:20:27 -CLASS_METHOD : com.bootdo.common.controller.FileController.sysFile
+2019-05-14 09:20:27 -参数 : [{}]
+2019-05-14 09:20:27 -耗时 : 1
+2019-05-14 09:20:27 -返回值 : common/file/file
+2019-05-14 09:20:27 -请求地址 : http://localhost:8888/common/sysFile/list
+2019-05-14 09:20:27 -HTTP METHOD : GET
+2019-05-14 09:20:27 -CLASS_METHOD : com.bootdo.common.controller.FileController.list
+2019-05-14 09:20:27 -参数 : [{limit=12, offset=0, type=}]
+2019-05-14 09:20:27 -==>  Preparing: select `id`,`type`,`url`,`create_date` from sys_file order by id desc limit ?, ? 
+2019-05-14 09:20:27 -==> Parameters: 0(Integer), 12(Integer)
+2019-05-14 09:20:27 -<==      Total: 9
+2019-05-14 09:20:27 -==>  Preparing: select count(*) from sys_file 
+2019-05-14 09:20:27 -==> Parameters: 
+2019-05-14 09:20:27 -<==      Total: 1
+2019-05-14 09:20:27 -耗时 : 19
+2019-05-14 09:20:27 -返回值 : com.bootdo.common.utils.PageUtils@4c3b0959
+2019-05-14 09:20:31 -请求地址 : http://localhost:8888/common/sysFile/list
+2019-05-14 09:20:31 -HTTP METHOD : GET
+2019-05-14 09:20:31 -CLASS_METHOD : com.bootdo.common.controller.FileController.list
+2019-05-14 09:20:31 -参数 : [{limit=12, offset=0, type=1}]
+2019-05-14 09:20:31 -==>  Preparing: select `id`,`type`,`url`,`create_date` from sys_file WHERE type = ? order by id desc limit ?, ? 
+2019-05-14 09:20:31 -==> Parameters: 1(String), 0(Integer), 12(Integer)
+2019-05-14 09:20:31 -<==      Total: 0
+2019-05-14 09:20:31 -==>  Preparing: select count(*) from sys_file WHERE type = ? 
+2019-05-14 09:20:31 -==> Parameters: 1(String)
+2019-05-14 09:20:31 -<==      Total: 1
+2019-05-14 09:20:31 -耗时 : 5
+2019-05-14 09:20:31 -返回值 : com.bootdo.common.utils.PageUtils@3adccb85
+2019-05-14 09:20:32 -请求地址 : http://localhost:8888/common/sysFile/list
+2019-05-14 09:20:32 -HTTP METHOD : GET
+2019-05-14 09:20:32 -CLASS_METHOD : com.bootdo.common.controller.FileController.list
+2019-05-14 09:20:32 -参数 : [{limit=12, offset=0, type=2}]
+2019-05-14 09:20:32 -==>  Preparing: select `id`,`type`,`url`,`create_date` from sys_file WHERE type = ? order by id desc limit ?, ? 
+2019-05-14 09:20:32 -==> Parameters: 2(String), 0(Integer), 12(Integer)
+2019-05-14 09:20:32 -<==      Total: 0
+2019-05-14 09:20:32 -==>  Preparing: select count(*) from sys_file WHERE type = ? 
+2019-05-14 09:20:32 -==> Parameters: 2(String)
+2019-05-14 09:20:32 -<==      Total: 1
+2019-05-14 09:20:32 -耗时 : 4
+2019-05-14 09:20:32 -返回值 : com.bootdo.common.utils.PageUtils@34727062
+2019-05-14 09:20:32 -请求地址 : http://localhost:8888/common/sysFile/list
+2019-05-14 09:20:32 -HTTP METHOD : GET
+2019-05-14 09:20:32 -CLASS_METHOD : com.bootdo.common.controller.FileController.list
+2019-05-14 09:20:32 -参数 : [{limit=12, offset=0, type=3}]
+2019-05-14 09:20:32 -==>  Preparing: select `id`,`type`,`url`,`create_date` from sys_file WHERE type = ? order by id desc limit ?, ? 
+2019-05-14 09:20:32 -==> Parameters: 3(String), 0(Integer), 12(Integer)
+2019-05-14 09:20:32 -<==      Total: 0
+2019-05-14 09:20:32 -==>  Preparing: select count(*) from sys_file WHERE type = ? 
+2019-05-14 09:20:32 -==> Parameters: 3(String)
+2019-05-14 09:20:32 -<==      Total: 1
+2019-05-14 09:20:32 -耗时 : 2
+2019-05-14 09:20:32 -返回值 : com.bootdo.common.utils.PageUtils@4fdbb49f
+2019-05-14 09:20:33 -请求地址 : http://localhost:8888/common/sysFile/list
+2019-05-14 09:20:33 -HTTP METHOD : GET
+2019-05-14 09:20:33 -CLASS_METHOD : com.bootdo.common.controller.FileController.list
+2019-05-14 09:20:33 -参数 : [{limit=12, offset=0, type=99}]
+2019-05-14 09:20:33 -==>  Preparing: select `id`,`type`,`url`,`create_date` from sys_file WHERE type = ? order by id desc limit ?, ? 
+2019-05-14 09:20:33 -==> Parameters: 99(String), 0(Integer), 12(Integer)
+2019-05-14 09:20:33 -<==      Total: 0
+2019-05-14 09:20:33 -==>  Preparing: select count(*) from sys_file WHERE type = ? 
+2019-05-14 09:20:33 -==> Parameters: 99(String)
+2019-05-14 09:20:33 -<==      Total: 1
+2019-05-14 09:20:33 -耗时 : 3
+2019-05-14 09:20:33 -返回值 : com.bootdo.common.utils.PageUtils@70fe565e
+2019-05-14 09:20:34 -请求地址 : http://localhost:8888/common/sysFile/list
+2019-05-14 09:20:34 -HTTP METHOD : GET
+2019-05-14 09:20:34 -CLASS_METHOD : com.bootdo.common.controller.FileController.list
+2019-05-14 09:20:34 -参数 : [{limit=12, offset=0, type=0}]
+2019-05-14 09:20:34 -==>  Preparing: select `id`,`type`,`url`,`create_date` from sys_file WHERE type = ? order by id desc limit ?, ? 
+2019-05-14 09:20:34 -==> Parameters: 0(String), 0(Integer), 12(Integer)
+2019-05-14 09:20:34 -<==      Total: 9
+2019-05-14 09:20:34 -==>  Preparing: select count(*) from sys_file WHERE type = ? 
+2019-05-14 09:20:34 -==> Parameters: 0(String)
+2019-05-14 09:20:34 -<==      Total: 1
+2019-05-14 09:20:34 -耗时 : 4
+2019-05-14 09:20:34 -返回值 : com.bootdo.common.utils.PageUtils@5e1b6acf
+2019-05-14 09:20:34 -请求地址 : http://localhost:8888/common/sysFile/list
+2019-05-14 09:20:34 -HTTP METHOD : GET
+2019-05-14 09:20:34 -CLASS_METHOD : com.bootdo.common.controller.FileController.list
+2019-05-14 09:20:34 -参数 : [{limit=12, offset=0, type=}]
+2019-05-14 09:20:34 -==>  Preparing: select `id`,`type`,`url`,`create_date` from sys_file order by id desc limit ?, ? 
+2019-05-14 09:20:34 -==> Parameters: 0(Integer), 12(Integer)
+2019-05-14 09:20:34 -<==      Total: 9
+2019-05-14 09:20:34 -==>  Preparing: select count(*) from sys_file 
+2019-05-14 09:20:34 -==> Parameters: 
+2019-05-14 09:20:34 -<==      Total: 1
+2019-05-14 09:20:34 -耗时 : 15
+2019-05-14 09:20:34 -返回值 : com.bootdo.common.utils.PageUtils@6f9dc316
+2019-05-14 09:20:35 -请求地址 : http://localhost:8888/common/sysFile/list
+2019-05-14 09:20:35 -HTTP METHOD : GET
+2019-05-14 09:20:35 -CLASS_METHOD : com.bootdo.common.controller.FileController.list
+2019-05-14 09:20:35 -参数 : [{limit=12, offset=0, type=}]
+2019-05-14 09:20:35 -==>  Preparing: select `id`,`type`,`url`,`create_date` from sys_file order by id desc limit ?, ? 
+2019-05-14 09:20:35 -==> Parameters: 0(Integer), 12(Integer)
+2019-05-14 09:20:35 -<==      Total: 9
+2019-05-14 09:20:35 -==>  Preparing: select count(*) from sys_file 
+2019-05-14 09:20:35 -==> Parameters: 
+2019-05-14 09:20:35 -<==      Total: 1
+2019-05-14 09:20:35 -耗时 : 14
+2019-05-14 09:20:35 -返回值 : com.bootdo.common.utils.PageUtils@3c945551
+2019-05-14 09:20:52 -请求地址 : http://localhost:8888/common/dict/edit/122
+2019-05-14 09:20:52 -HTTP METHOD : GET
+2019-05-14 09:20:52 -CLASS_METHOD : com.bootdo.common.controller.DictController.edit
+2019-05-14 09:20:52 -参数 : [122, {}]
+2019-05-14 09:20:52 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict where id = ? 
+2019-05-14 09:20:52 -==> Parameters: 122(Long)
+2019-05-14 09:20:52 -<==      Total: 1
+2019-05-14 09:20:52 -耗时 : 2
+2019-05-14 09:20:52 -返回值 : common/dict/edit
+2019-05-14 09:28:03 -请求地址 : http://localhost:8888/common/dict/list
+2019-05-14 09:28:03 -HTTP METHOD : GET
+2019-05-14 09:28:03 -CLASS_METHOD : com.bootdo.common.controller.DictController.list
+2019-05-14 09:28:03 -参数 : [{limit=100, offset=0}]
+2019-05-14 09:28:03 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict order by id desc limit ?, ? 
+2019-05-14 09:28:03 -==> Parameters: 0(Integer), 100(Integer)
+2019-05-14 09:28:03 -<==      Total: 100
+2019-05-14 09:28:03 -==>  Preparing: select count(*) from sys_dict 
+2019-05-14 09:28:03 -==> Parameters: 
+2019-05-14 09:28:03 -<==      Total: 1
+2019-05-14 09:28:03 -耗时 : 23
+2019-05-14 09:28:03 -返回值 : com.bootdo.common.utils.PageUtils@22bc2671
+2019-05-14 09:28:40 -请求地址 : http://localhost:8888/common/dict/list
+2019-05-14 09:28:40 -HTTP METHOD : GET
+2019-05-14 09:28:40 -CLASS_METHOD : com.bootdo.common.controller.DictController.list
+2019-05-14 09:28:40 -参数 : [{limit=100, offset=0, type=hobby}]
+2019-05-14 09:28:40 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by id desc limit ?, ? 
+2019-05-14 09:28:40 -==> Parameters: hobby(String), 0(Integer), 100(Integer)
+2019-05-14 09:28:40 -<==      Total: 2
+2019-05-14 09:28:40 -==>  Preparing: select count(*) from sys_dict WHERE type = ? 
+2019-05-14 09:28:40 -==> Parameters: hobby(String)
+2019-05-14 09:28:40 -<==      Total: 1
+2019-05-14 09:28:40 -耗时 : 20
+2019-05-14 09:28:40 -返回值 : com.bootdo.common.utils.PageUtils@19808a8c
+2019-05-14 09:28:43 -请求地址 : http://localhost:8888/common/dict/list
+2019-05-14 09:28:43 -HTTP METHOD : GET
+2019-05-14 09:28:43 -CLASS_METHOD : com.bootdo.common.controller.DictController.list
+2019-05-14 09:28:43 -参数 : [{limit=100, offset=0, type=gen_query_type}]
+2019-05-14 09:28:43 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by id desc limit ?, ? 
+2019-05-14 09:28:43 -==> Parameters: gen_query_type(String), 0(Integer), 100(Integer)
+2019-05-14 09:28:43 -<==      Total: 8
+2019-05-14 09:28:43 -==>  Preparing: select count(*) from sys_dict WHERE type = ? 
+2019-05-14 09:28:43 -==> Parameters: gen_query_type(String)
+2019-05-14 09:28:43 -<==      Total: 1
+2019-05-14 09:28:43 -耗时 : 3
+2019-05-14 09:28:43 -返回值 : com.bootdo.common.utils.PageUtils@73d2381a
+2019-05-14 09:28:55 -请求地址 : http://localhost:8888/common/dict/list
+2019-05-14 09:28:55 -HTTP METHOD : GET
+2019-05-14 09:28:55 -CLASS_METHOD : com.bootdo.common.controller.DictController.list
+2019-05-14 09:28:55 -参数 : [{limit=100, offset=0, type=gen_show_type}]
+2019-05-14 09:28:55 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by id desc limit ?, ? 
+2019-05-14 09:28:55 -==> Parameters: gen_show_type(String), 0(Integer), 100(Integer)
+2019-05-14 09:28:55 -<==      Total: 9
+2019-05-14 09:28:55 -==>  Preparing: select count(*) from sys_dict WHERE type = ? 
+2019-05-14 09:28:55 -==> Parameters: gen_show_type(String)
+2019-05-14 09:28:55 -<==      Total: 1
+2019-05-14 09:28:55 -耗时 : 8
+2019-05-14 09:28:55 -返回值 : com.bootdo.common.utils.PageUtils@3f8e18e5
+2019-05-14 09:29:14 -请求地址 : http://localhost:8888/common/dict/list
+2019-05-14 09:29:14 -HTTP METHOD : GET
+2019-05-14 09:29:14 -CLASS_METHOD : com.bootdo.common.controller.DictController.list
+2019-05-14 09:29:14 -参数 : [{limit=100, offset=0, type=gen_java_type}]
+2019-05-14 09:29:14 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by id desc limit ?, ? 
+2019-05-14 09:29:14 -==> Parameters: gen_java_type(String), 0(Integer), 100(Integer)
+2019-05-14 09:29:14 -<==      Total: 6
+2019-05-14 09:29:14 -==>  Preparing: select count(*) from sys_dict WHERE type = ? 
+2019-05-14 09:29:14 -==> Parameters: gen_java_type(String)
+2019-05-14 09:29:14 -<==      Total: 1
+2019-05-14 09:29:14 -耗时 : 4
+2019-05-14 09:29:14 -返回值 : com.bootdo.common.utils.PageUtils@218d1c26
+2019-05-14 09:29:30 -请求地址 : http://localhost:8888/common/dict/list
+2019-05-14 09:29:30 -HTTP METHOD : GET
+2019-05-14 09:29:30 -CLASS_METHOD : com.bootdo.common.controller.DictController.list
+2019-05-14 09:29:30 -参数 : [{limit=100, offset=0, type=oa_notify_type}]
+2019-05-14 09:29:30 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by id desc limit ?, ? 
+2019-05-14 09:29:30 -==> Parameters: oa_notify_type(String), 0(Integer), 100(Integer)
+2019-05-14 09:29:30 -<==      Total: 3
+2019-05-14 09:29:30 -==>  Preparing: select count(*) from sys_dict WHERE type = ? 
+2019-05-14 09:29:30 -==> Parameters: oa_notify_type(String)
+2019-05-14 09:29:30 -<==      Total: 1
+2019-05-14 09:29:30 -耗时 : 5
+2019-05-14 09:29:30 -返回值 : com.bootdo.common.utils.PageUtils@23b473a0
+2019-05-14 09:29:34 -请求地址 : http://localhost:8888/common/dict/list
+2019-05-14 09:29:34 -HTTP METHOD : GET
+2019-05-14 09:29:34 -CLASS_METHOD : com.bootdo.common.controller.DictController.list
+2019-05-14 09:29:34 -参数 : [{limit=100, offset=0, type=oa_notify_status}]
+2019-05-14 09:29:34 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by id desc limit ?, ? 
+2019-05-14 09:29:34 -==> Parameters: oa_notify_status(String), 0(Integer), 100(Integer)
+2019-05-14 09:29:34 -<==      Total: 3
+2019-05-14 09:29:34 -==>  Preparing: select count(*) from sys_dict WHERE type = ? 
+2019-05-14 09:29:34 -==> Parameters: oa_notify_status(String)
+2019-05-14 09:29:34 -<==      Total: 1
+2019-05-14 09:29:34 -耗时 : 5
+2019-05-14 09:29:34 -返回值 : com.bootdo.common.utils.PageUtils@37959c72
+2019-05-14 09:29:37 -请求地址 : http://localhost:8888/common/dict/list
+2019-05-14 09:29:37 -HTTP METHOD : GET
+2019-05-14 09:29:37 -CLASS_METHOD : com.bootdo.common.controller.DictController.list
+2019-05-14 09:29:37 -参数 : [{limit=100, offset=0, type=blog_type}]
+2019-05-14 09:29:37 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by id desc limit ?, ? 
+2019-05-14 09:29:37 -==> Parameters: blog_type(String), 0(Integer), 100(Integer)
+2019-05-14 09:29:37 -<==      Total: 3
+2019-05-14 09:29:37 -==>  Preparing: select count(*) from sys_dict WHERE type = ? 
+2019-05-14 09:29:37 -==> Parameters: blog_type(String)
+2019-05-14 09:29:37 -<==      Total: 1
+2019-05-14 09:29:37 -耗时 : 3
+2019-05-14 09:29:37 -返回值 : com.bootdo.common.utils.PageUtils@1295a923
+2019-05-14 09:29:49 -请求地址 : http://localhost:8888/common/dict/list
+2019-05-14 09:29:49 -HTTP METHOD : GET
+2019-05-14 09:29:49 -CLASS_METHOD : com.bootdo.common.controller.DictController.list
+2019-05-14 09:29:49 -参数 : [{limit=100, offset=0, type=}]
+2019-05-14 09:29:49 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict order by id desc limit ?, ? 
+2019-05-14 09:29:49 -==> Parameters: 0(Integer), 100(Integer)
+2019-05-14 09:29:49 -<==      Total: 100
+2019-05-14 09:29:49 -==>  Preparing: select count(*) from sys_dict 
+2019-05-14 09:29:49 -==> Parameters: 
+2019-05-14 09:29:49 -<==      Total: 1
+2019-05-14 09:29:49 -耗时 : 15
+2019-05-14 09:29:49 -返回值 : com.bootdo.common.utils.PageUtils@1cbd416e
+2019-05-14 09:31:53 -请求地址 : http://localhost:8888/main
+2019-05-14 09:31:53 -HTTP METHOD : GET
+2019-05-14 09:31:53 -CLASS_METHOD : com.bootdo.system.controller.LoginController.main
+2019-05-14 09:31:53 -参数 : []
+2019-05-14 09:31:53 -耗时 : 1
+2019-05-14 09:31:53 -返回值 : main
+2019-05-14 09:31:57 -==>  Preparing: select distinct m.perms from sys_menu m left join sys_role_menu rm on m.menu_id = rm.menu_id left join sys_user_role ur on rm.role_id = ur.role_id where ur.user_id = ? 
+2019-05-14 09:31:57 -==> Parameters: 1(Long)
+2019-05-14 09:31:57 -<==      Total: 47
+2019-05-14 09:31:57 -请求地址 : http://localhost:8888/sys/role
+2019-05-14 09:31:57 -HTTP METHOD : GET
+2019-05-14 09:31:57 -CLASS_METHOD : com.bootdo.system.controller.RoleController.role
+2019-05-14 09:31:57 -参数 : []
+2019-05-14 09:31:57 -耗时 : 1
+2019-05-14 09:31:57 -返回值 : system/role/role
+2019-05-14 09:31:57 -请求地址 : http://localhost:8888/sys/role/list
+2019-05-14 09:31:57 -HTTP METHOD : GET
+2019-05-14 09:31:57 -CLASS_METHOD : com.bootdo.system.controller.RoleController.list
+2019-05-14 09:31:57 -参数 : []
+2019-05-14 09:31:57 -==>  Preparing: select `role_id`,`role_name`,`role_sign`,`remark`,`user_id_create`,`gmt_create`,`gmt_modified` from sys_role order by role_id desc 
+2019-05-14 09:31:57 -==> Parameters: 
+2019-05-14 09:31:57 -<==      Total: 2
+2019-05-14 09:31:57 -耗时 : 6
+2019-05-14 09:31:57 -返回值 : [RoleDO{roleId=59, roleName='普通用户', roleSign='null', remark='基本用户权限', userIdCreate=null, gmtCreate=null, gmtModified=null, menuIds=null}, RoleDO{roleId=1, roleName='超级用户角色', roleSign='admin', remark='拥有最高权限', userIdCreate=2, gmtCreate=2017-08-12 00:43:52.0, gmtModified=2017-08-12 19:14:59.0, menuIds=null}]
+2019-05-14 09:34:58 -请求地址 : http://localhost:8888/sys/user/
+2019-05-14 09:34:58 -HTTP METHOD : GET
+2019-05-14 09:34:58 -CLASS_METHOD : com.bootdo.system.controller.UserController.user
+2019-05-14 09:34:58 -参数 : [{}]
+2019-05-14 09:34:58 -耗时 : 1
+2019-05-14 09:34:58 -返回值 : system/user/user
+2019-05-14 09:34:58 -请求地址 : http://localhost:8888/system/sysDept/tree
+2019-05-14 09:34:58 -HTTP METHOD : GET
+2019-05-14 09:34:58 -CLASS_METHOD : com.bootdo.system.controller.DeptController.tree
+2019-05-14 09:34:58 -参数 : []
+2019-05-14 09:34:58 -==>  Preparing: select `dept_id`,`parent_id`,`name`,`order_num`,`del_flag` from sys_dept order by dept_id desc 
+2019-05-14 09:34:58 -==> Parameters: 
+2019-05-14 09:34:58 -<==      Total: 10
+2019-05-14 09:34:58 -耗时 : 18
+2019-05-14 09:34:58 -返回值 : {"checked":true,"children":[{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"15","parentId":"13","state":{"opened":true},"text":"测试二部"},{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"14","parentId":"13","state":{"opened":true},"text":"测试一部"}],"hasChildren":true,"hasParent":false,"id":"13","parentId":"0","state":{"opened":true},"text":"测试部"},{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"12","parentId":"11","state":{"opened":true},"text":"产品一部"}],"hasChildren":true,"hasParent":false,"id":"11","parentId":"0","state":{"opened":true},"text":"产品部"},{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"10","parentId":"9","state":{"opened":true},"text":"销售一部"}],"hasChildren":true,"hasParent":false,"id":"9","parentId":"0","state":{"opened":true},"text":"销售部"},{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"8","parentId":"6","state":{"opened":true},"text":"研发二部"},{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"7","parentId":"6","state":{"opened":true},"text":"研發一部"}],"hasChildren":true,"hasParent":false,"id":"6","parentId":"0","state":{"opened":true},"text":"研发部"}],"hasChildren":true,"hasParent":false,"id":"-1","parentId":"","state":{"opened":true},"text":"顶级节点"}
+2019-05-14 09:34:58 -请求地址 : http://localhost:8888/sys/user/list
+2019-05-14 09:34:58 -HTTP METHOD : GET
+2019-05-14 09:34:58 -CLASS_METHOD : com.bootdo.system.controller.UserController.list
+2019-05-14 09:34:58 -参数 : [{limit=10, offset=0, name=, deptId=}]
+2019-05-14 09:34:58 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user order by user_id desc limit ?, ? 
+2019-05-14 09:34:58 -==> Parameters: 0(Integer), 10(Integer)
+2019-05-14 09:34:58 -<==      Total: 10
+2019-05-14 09:34:58 -==>  Preparing: select count(*) from sys_user 
+2019-05-14 09:34:58 -==> Parameters: 
+2019-05-14 09:34:58 -<==      Total: 1
+2019-05-14 09:34:58 -耗时 : 12
+2019-05-14 09:34:58 -返回值 : com.bootdo.common.utils.PageUtils@20ac415e
+2019-05-14 09:35:01 -请求地址 : http://localhost:8888/sys/menu/
+2019-05-14 09:35:01 -HTTP METHOD : GET
+2019-05-14 09:35:01 -CLASS_METHOD : com.bootdo.system.controller.MenuController.menu
+2019-05-14 09:35:01 -参数 : [{}]
+2019-05-14 09:35:01 -耗时 : 0
+2019-05-14 09:35:01 -返回值 : system/menu/menu
+2019-05-14 09:35:01 -请求地址 : http://localhost:8888/sys/menu/list
+2019-05-14 09:35:01 -HTTP METHOD : GET
+2019-05-14 09:35:01 -CLASS_METHOD : com.bootdo.system.controller.MenuController.list
+2019-05-14 09:35:01 -参数 : [{sort=order_num}]
+2019-05-14 09:35:01 -==>  Preparing: select `menu_id`,`parent_id`,`name`,`url`,`perms`,`type`,`icon`,`order_num`,`gmt_create`,`gmt_modified` from sys_menu order by order_num 
+2019-05-14 09:35:01 -==> Parameters: 
+2019-05-14 09:35:01 -<==      Total: 62
+2019-05-14 09:35:01 -耗时 : 106
+2019-05-14 09:35:01 -返回值 : [MenuDO{menuId=51, parentId=50, name='新增', url='', perms='blog:bContent:add', type=2, icon='', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=55, parentId=7, name='编辑', url='', perms='sys:role:edit', type=2, icon='', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=56, parentId=7, name='删除', url='', perms='sys:role:remove', type=2, icon='null', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=58, parentId=50, name='编辑', url='', perms='blog:bContent:edit', type=2, icon='null', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=59, parentId=50, name='删除', url='', perms='blog:bContent:remove', type=2, icon='null', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=60, parentId=50, name='批量删除', url='', perms='blog:bContent:batchRemove', type=2, icon='null', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=61, parentId=2, name='批量删除', url='', perms='sys:menu:batchRemove', type=2, icon='null', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=62, parentId=7, name='批量删除', url='', perms='sys:role:batchRemove', type=2, icon='null', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=85, parentId=84, name='通知公告', url='oa/notify', perms='oa:notify:notify', type=1, icon='fa fa-pencil-square', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=88, parentId=85, name='删除', url='oa/notify/remove', perms='oa:notify:remove', type=2, icon='fa fa-minus', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=89, parentId=85, name='批量删除', url='oa/notify/batchRemove', perms='oa:notify:batchRemove', type=2, icon='', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=90, parentId=84, name='我的通知', url='oa/notify/selfNotify', perms='', type=1, icon='fa fa-envelope-square', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=92, parentId=91, name='在线用户', url='sys/online', perms='', type=1, icon='fa fa-user', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=94, parentId=93, name='模型管理', url='activiti/model', perms='', type=1, icon='fa fa-sort-amount-asc', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=95, parentId=94, name='全部权限', url='', perms='activiti:model', type=2, icon='', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=96, parentId=93, name='流程管理', url='activiti/process', perms='', type=1, icon='fa fa-flag', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=98, parentId=97, name='百度chart', url='/chart/graph_echarts.html', perms='', type=1, icon='fa fa-area-chart', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=99, parentId=96, name='所有权限', url='', perms='act:process', type=2, icon='', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=101, parentId=93, name='待办任务', url='activiti/task/todo', perms='', type=1, icon='', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=104, parentId=77, name='swagger', url='/swagger-ui.html', perms='', type=1, icon='', orderNum=null, gmtCreate=null, gmtModified=null}, MenuDO{menuId=1, parentId=0, name='基础管理', url='', perms='', type=0, icon='fa fa-bars', orderNum=0, gmtCreate=Wed Aug 09 22:49:47 CST 2017, gmtModified=null}, MenuDO{menuId=6, parentId=3, name='用户管理', url='sys/user/', perms='sys:user:user', type=1, icon='fa fa-user', orderNum=0, gmtCreate=Thu Aug 10 14:12:11 CST 2017, gmtModified=null}, MenuDO{menuId=12, parentId=6, name='新增', url='', perms='sys:user:add', type=2, icon='', orderNum=0, gmtCreate=Mon Aug 14 10:51:35 CST 2017, gmtModified=null}, MenuDO{menuId=13, parentId=6, name='编辑', url='', perms='sys:user:edit', type=2, icon='', orderNum=0, gmtCreate=Mon Aug 14 10:52:06 CST 2017, gmtModified=null}, MenuDO{menuId=14, parentId=6, name='删除', url='null', perms='sys:user:remove', type=2, icon='null', orderNum=0, gmtCreate=Mon Aug 14 10:52:24 CST 2017, gmtModified=null}, MenuDO{menuId=15, parentId=7, name='新增', url='', perms='sys:role:add', type=2, icon='', orderNum=0, gmtCreate=Mon Aug 14 10:56:37 CST 2017, gmtModified=null}, MenuDO{menuId=20, parentId=2, name='新增', url='', perms='sys:menu:add', type=2, icon='', orderNum=0, gmtCreate=Mon Aug 14 10:59:32 CST 2017, gmtModified=null}, MenuDO{menuId=21, parentId=2, name='编辑', url='', perms='sys:menu:edit', type=2, icon='', orderNum=0, gmtCreate=Mon Aug 14 10:59:56 CST 2017, gmtModified=null}, MenuDO{menuId=22, parentId=2, name='删除', url='', perms='sys:menu:remove', type=2, icon='', orderNum=0, gmtCreate=Mon Aug 14 11:00:26 CST 2017, gmtModified=null}, MenuDO{menuId=24, parentId=6, name='批量删除', url='', perms='sys:user:batchRemove', type=2, icon='', orderNum=0, gmtCreate=Mon Aug 14 17:27:18 CST 2017, gmtModified=null}, MenuDO{menuId=25, parentId=6, name='停用', url='null', perms='sys:user:disable', type=2, icon='null', orderNum=0, gmtCreate=Mon Aug 14 17:27:43 CST 2017, gmtModified=null}, MenuDO{menuId=26, parentId=6, name='重置密码', url='', perms='sys:user:resetPwd', type=2, icon='', orderNum=0, gmtCreate=Mon Aug 14 17:28:34 CST 2017, gmtModified=null}, MenuDO{menuId=27, parentId=91, name='系统日志', url='common/log', perms='common:log', type=1, icon='fa fa-warning', orderNum=0, gmtCreate=Mon Aug 14 22:11:53 CST 2017, gmtModified=null}, MenuDO{menuId=28, parentId=27, name='刷新', url='null', perms='sys:log:list', type=2, icon='null', orderNum=0, gmtCreate=Mon Aug 14 22:30:22 CST 2017, gmtModified=null}, MenuDO{menuId=29, parentId=27, name='删除', url='null', perms='sys:log:remove', type=2, icon='null', orderNum=0, gmtCreate=Mon Aug 14 22:30:43 CST 2017, gmtModified=null}, MenuDO{menuId=30, parentId=27, name='清空', url='null', perms='sys:log:clear', type=2, icon='null', orderNum=0, gmtCreate=Mon Aug 14 22:31:02 CST 2017, gmtModified=null}, MenuDO{menuId=68, parentId=49, name='发布文章', url='/blog/bContent/add', perms='blog:bContent:add', type=1, icon='fa fa-edit', orderNum=0, gmtCreate=null, gmtModified=null}, MenuDO{menuId=3, parentId=0, name='系统管理', url='null', perms='null', type=0, icon='fa fa-desktop', orderNum=1, gmtCreate=Wed Aug 09 23:06:55 CST 2017, gmtModified=Mon Aug 14 14:13:43 CST 2017}, MenuDO{menuId=7, parentId=3, name='角色管理', url='sys/role', perms='sys:role:role', type=1, icon='fa fa-paw', orderNum=1, gmtCreate=Thu Aug 10 14:13:19 CST 2017, gmtModified=null}, MenuDO{menuId=50, parentId=49, name='文章列表', url='blog/bContent', perms='blog:bContent:bContent', type=1, icon='fa fa-file-image-o', orderNum=1, gmtCreate=null, gmtModified=null}, MenuDO{menuId=57, parentId=91, name='运行监控', url='/druid/index.html', perms='', type=1, icon='fa fa-caret-square-o-right', orderNum=1, gmtCreate=null, gmtModified=null}, MenuDO{menuId=74, parentId=73, name='增加', url='/system/sysDept/add', perms='system:sysDept:add', type=2, icon='null', orderNum=1, gmtCreate=null, gmtModified=null}, MenuDO{menuId=78, parentId=1, name='数据字典', url='/common/dict', perms='common:dict:dict', type=1, icon='fa fa-book', orderNum=1, gmtCreate=null, gmtModified=null}, MenuDO{menuId=86, parentId=85, name='新增', url='oa/notify/add', perms='oa:notify:add', type=2, icon='fa fa-plus', orderNum=1, gmtCreate=null, gmtModified=null}, MenuDO{menuId=2, parentId=3, name='系统菜单', url='sys/menu/', perms='sys:menu:menu', type=1, icon='fa fa-th-list', orderNum=2, gmtCreate=Wed Aug 09 22:55:15 CST 2017, gmtModified=null}, MenuDO{menuId=71, parentId=1, name='文件管理', url='/common/sysFile', perms='common:sysFile:sysFile', type=1, icon='fa fa-folder-open', orderNum=2, gmtCreate=null, gmtModified=null}, MenuDO{menuId=75, parentId=73, name='刪除', url='system/sysDept/remove', perms='system:sysDept:remove', type=2, icon='null', orderNum=2, gmtCreate=null, gmtModified=null}, MenuDO{menuId=79, parentId=78, name='增加', url='/common/dict/add', perms='common:dict:add', type=2, icon='null', orderNum=2, gmtCreate=null, gmtModified=null}, MenuDO{menuId=80, parentId=78, name='编辑', url='/common/dict/edit', perms='common:dict:edit', type=2, icon='null', orderNum=2, gmtCreate=null, gmtModified=null}, MenuDO{menuId=87, parentId=85, name='编辑', url='oa/notify/edit', perms='oa:notify:edit', type=2, icon='fa fa-pencil-square-o', orderNum=2, gmtCreate=null, gmtModified=null}, MenuDO{menuId=48, parentId=77, name='代码生成', url='common/generator', perms='common:generator', type=1, icon='fa fa-code', orderNum=3, gmtCreate=null, gmtModified=null}, MenuDO{menuId=73, parentId=3, name='部门管理', url='/system/sysDept', perms='system:sysDept:sysDept', type=1, icon='fa fa-users', orderNum=3, gmtCreate=null, gmtModified=null}, MenuDO{menuId=76, parentId=73, name='编辑', url='/system/sysDept/edit', perms='system:sysDept:edit', type=2, icon='null', orderNum=3, gmtCreate=null, gmtModified=null}, MenuDO{menuId=81, parentId=78, name='删除', url='/common/dict/remove', perms='common:dict:remove', type=2, icon='', orderNum=3, gmtCreate=null, gmtModified=null}, MenuDO{menuId=72, parentId=77, name='计划任务', url='common/job', perms='common:taskScheduleJob', type=1, icon='fa fa-hourglass-1', orderNum=4, gmtCreate=null, gmtModified=null}, MenuDO{menuId=77, parentId=0, name='系统工具', url='', perms='', type=0, icon='fa fa-gear', orderNum=4, gmtCreate=null, gmtModified=null}, MenuDO{menuId=83, parentId=78, name='批量删除', url='/common/dict/batchRemove', perms='common:dict:batchRemove', type=2, icon='', orderNum=4, gmtCreate=null, gmtModified=null}, MenuDO{menuId=84, parentId=0, name='办公管理', url='', perms='', type=0, icon='fa fa-laptop', orderNum=5, gmtCreate=null, gmtModified=null}, MenuDO{menuId=91, parentId=0, name='系统监控', url='', perms='', type=0, icon='fa fa-video-camera', orderNum=5, gmtCreate=null, gmtModified=null}, MenuDO{menuId=49, parentId=0, name='博客管理', url='', perms='', type=0, icon='fa fa-rss', orderNum=6, gmtCreate=null, gmtModified=null}, MenuDO{menuId=93, parentId=0, name='工作流程', url='', perms='', type=0, icon='fa fa-print', orderNum=6, gmtCreate=null, gmtModified=null}, MenuDO{menuId=97, parentId=0, name='图表管理', url='', perms='', type=0, icon='fa fa-bar-chart', orderNum=7, gmtCreate=null, gmtModified=null}]
+2019-05-14 09:35:11 -请求地址 : http://localhost:8888/sys/menu/edit/1
+2019-05-14 09:35:11 -HTTP METHOD : GET
+2019-05-14 09:35:11 -CLASS_METHOD : com.bootdo.system.controller.MenuController.edit
+2019-05-14 09:35:11 -参数 : [{}, 1]
+2019-05-14 09:35:11 -==>  Preparing: select `menu_id`,`parent_id`,`name`,`url`,`perms`,`type`,`icon`,`order_num`,`gmt_create`,`gmt_modified` from sys_menu where menu_id = ? 
+2019-05-14 09:35:11 -==> Parameters: 1(Long)
+2019-05-14 09:35:11 -<==      Total: 1
+2019-05-14 09:35:11 -耗时 : 3
+2019-05-14 09:35:11 -返回值 : system/menu/edit
+2019-05-14 09:35:11 -==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2019-05-14 09:35:11 -==> Parameters: 1(Long), admin(String), 编辑菜单(String), 4(Integer), com.bootdo.system.controller.MenuController.edit()(String), null, 127.0.0.1(String), 2019-05-14 09:35:11.521(Timestamp)
+2019-05-14 09:35:11 -<==    Updates: 1
+2019-05-14 09:36:07 -请求地址 : http://localhost:8888/oa/notify/selfNotify
+2019-05-14 09:36:07 -HTTP METHOD : GET
+2019-05-14 09:36:07 -CLASS_METHOD : com.bootdo.oa.controller.NotifyController.selefNotify
+2019-05-14 09:36:07 -参数 : []
+2019-05-14 09:36:07 -耗时 : 0
+2019-05-14 09:36:07 -返回值 : oa/notify/selfNotify
+2019-05-14 09:36:07 -请求地址 : http://localhost:8888/oa/notify/selfList
+2019-05-14 09:36:07 -HTTP METHOD : GET
+2019-05-14 09:36:07 -CLASS_METHOD : com.bootdo.oa.controller.NotifyController.selfList
+2019-05-14 09:36:07 -参数 : [{limit=10, offset=0}]
+2019-05-14 09:36:07 -==>  Preparing: select DISTINCT n.id ,`type`,`title`,`content`,`files`,r.is_read,`status`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id WHERE r.user_id = ? order by is_read ASC, update_date DESC limit ?, ? 
+2019-05-14 09:36:07 -==> Parameters: 1(Long), 0(Integer), 10(Integer)
+2019-05-14 09:36:07 -<==      Total: 5
+2019-05-14 09:36:07 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user where user_id = ? 
+2019-05-14 09:36:07 -==> Parameters: 1(Long)
+2019-05-14 09:36:07 -<==      Total: 1
+2019-05-14 09:36:07 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user where user_id = ? 
+2019-05-14 09:36:07 -==> Parameters: 1(Long)
+2019-05-14 09:36:07 -<==      Total: 1
+2019-05-14 09:36:07 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user where user_id = ? 
+2019-05-14 09:36:07 -==> Parameters: 1(Long)
+2019-05-14 09:36:07 -<==      Total: 1
+2019-05-14 09:36:07 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user where user_id = ? 
+2019-05-14 09:36:07 -==> Parameters: 1(Long)
+2019-05-14 09:36:07 -<==      Total: 1
+2019-05-14 09:36:07 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user where user_id = ? 
+2019-05-14 09:36:07 -==> Parameters: 1(Long)
+2019-05-14 09:36:07 -<==      Total: 1
+2019-05-14 09:36:07 -==>  Preparing: select count(*) from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id where r.user_id =? and r.is_read = ? 
+2019-05-14 09:36:07 -==> Parameters: 1(Long), null
+2019-05-14 09:36:07 -<==      Total: 1
+2019-05-14 09:36:07 -耗时 : 28
+2019-05-14 09:36:07 -返回值 : com.bootdo.common.utils.PageUtils@45fd30da
+2019-05-14 09:36:10 -请求地址 : http://localhost:8888/oa/notify
+2019-05-14 09:36:10 -HTTP METHOD : GET
+2019-05-14 09:36:10 -CLASS_METHOD : com.bootdo.oa.controller.NotifyController.oaNotify
+2019-05-14 09:36:10 -参数 : []
+2019-05-14 09:36:10 -耗时 : 0
+2019-05-14 09:36:10 -返回值 : oa/notify/notify
+2019-05-14 09:36:10 -请求地址 : http://localhost:8888/oa/notify/list
+2019-05-14 09:36:10 -HTTP METHOD : GET
+2019-05-14 09:36:10 -CLASS_METHOD : com.bootdo.oa.controller.NotifyController.list
+2019-05-14 09:36:10 -参数 : [{limit=10, offset=0}]
+2019-05-14 09:36:10 -==>  Preparing: select `id`,`type`,`title`,`content`,`files`,`status`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from oa_notify order by id desc limit ?, ? 
+2019-05-14 09:36:10 -==> Parameters: 0(Integer), 10(Integer)
+2019-05-14 09:36:10 -<==      Total: 5
+2019-05-14 09:36:10 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE value = ? and type = ? order by id desc 
+2019-05-14 09:36:10 -==> Parameters: 3(String), oa_notify_type(String)
+2019-05-14 09:36:10 -<==      Total: 1
+2019-05-14 09:36:10 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE value = ? and type = ? order by id desc 
+2019-05-14 09:36:10 -==> Parameters: 3(String), oa_notify_type(String)
+2019-05-14 09:36:10 -<==      Total: 1
+2019-05-14 09:36:10 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE value = ? and type = ? order by id desc 
+2019-05-14 09:36:10 -==> Parameters: 3(String), oa_notify_type(String)
+2019-05-14 09:36:10 -<==      Total: 1
+2019-05-14 09:36:10 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE value = ? and type = ? order by id desc 
+2019-05-14 09:36:10 -==> Parameters: 3(String), oa_notify_type(String)
+2019-05-14 09:36:10 -<==      Total: 1
+2019-05-14 09:36:10 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE value = ? and type = ? order by id desc 
+2019-05-14 09:36:10 -==> Parameters: 3(String), oa_notify_type(String)
+2019-05-14 09:36:10 -<==      Total: 1
+2019-05-14 09:36:10 -==>  Preparing: select count(*) from oa_notify 
+2019-05-14 09:36:10 -==> Parameters: 
+2019-05-14 09:36:10 -<==      Total: 1
+2019-05-14 09:36:10 -耗时 : 136
+2019-05-14 09:36:10 -返回值 : com.bootdo.common.utils.PageUtils@5952079b
+2019-05-14 09:36:21 -请求地址 : http://localhost:8888/common/generator
+2019-05-14 09:36:21 -HTTP METHOD : GET
+2019-05-14 09:36:21 -CLASS_METHOD : com.bootdo.common.controller.GeneratorController.generator
+2019-05-14 09:36:21 -参数 : []
+2019-05-14 09:36:21 -耗时 : 2
+2019-05-14 09:36:21 -返回值 : common/generator/list
+2019-05-14 09:36:21 -请求地址 : http://localhost:8888/common/generator/list
+2019-05-14 09:36:21 -HTTP METHOD : GET
+2019-05-14 09:36:21 -CLASS_METHOD : com.bootdo.common.controller.GeneratorController.list
+2019-05-14 09:36:21 -参数 : []
+2019-05-14 09:36:21 -==>  Preparing: select table_name tableName, engine, table_comment tableComment, create_time createTime from information_schema.tables where table_schema = (select database()) 
+2019-05-14 09:36:21 -==> Parameters: 
+2019-05-14 09:36:21 -<==      Total: 40
+2019-05-14 09:36:21 -耗时 : 115
+2019-05-14 09:36:21 -返回值 : [{engine=InnoDB, createTime=2018-12-21 23:42:30.0, tableComment=, tableName=act_evt_log}, {engine=InnoDB, createTime=2018-12-21 23:42:31.0, tableComment=, tableName=act_ge_bytearray}, {engine=InnoDB, createTime=2018-12-21 23:42:32.0, tableComment=, tableName=act_ge_property}, {engine=InnoDB, createTime=2018-12-21 23:42:32.0, tableComment=, tableName=act_hi_actinst}, {engine=InnoDB, createTime=2018-12-21 23:42:32.0, tableComment=, tableName=act_hi_attachment}, {engine=InnoDB, createTime=2018-12-21 23:42:33.0, tableComment=, tableName=act_hi_comment}, {engine=InnoDB, createTime=2018-12-21 23:42:33.0, tableComment=, tableName=act_hi_detail}, {engine=InnoDB, createTime=2018-12-21 23:42:33.0, tableComment=, tableName=act_hi_identitylink}, {engine=InnoDB, createTime=2018-12-21 23:42:34.0, tableComment=, tableName=act_hi_procinst}, {engine=InnoDB, createTime=2018-12-21 23:42:35.0, tableComment=, tableName=act_hi_taskinst}, {engine=InnoDB, createTime=2018-12-21 23:42:35.0, tableComment=, tableName=act_hi_varinst}, {engine=InnoDB, createTime=2018-12-21 23:42:35.0, tableComment=, tableName=act_id_group}, {engine=InnoDB, createTime=2018-12-21 23:42:36.0, tableComment=, tableName=act_id_info}, {engine=InnoDB, createTime=2018-12-21 23:42:36.0, tableComment=, tableName=act_id_membership}, {engine=InnoDB, createTime=2018-12-21 23:42:36.0, tableComment=, tableName=act_id_user}, {engine=InnoDB, createTime=2018-12-21 23:42:37.0, tableComment=, tableName=act_procdef_info}, {engine=InnoDB, createTime=2018-12-21 23:42:37.0, tableComment=, tableName=act_re_deployment}, {engine=InnoDB, createTime=2018-12-21 23:42:37.0, tableComment=, tableName=act_re_model}, {engine=InnoDB, createTime=2018-12-21 23:42:38.0, tableComment=, tableName=act_re_procdef}, {engine=InnoDB, createTime=2018-12-21 23:42:38.0, tableComment=, tableName=act_ru_event_subscr}, {engine=InnoDB, createTime=2018-12-21 23:42:39.0, tableComment=, tableName=act_ru_execution}, {engine=InnoDB, createTime=2018-12-21 23:42:39.0, tableComment=, tableName=act_ru_identitylink}, {engine=InnoDB, createTime=2018-12-21 23:42:40.0, tableComment=, tableName=act_ru_job}, {engine=InnoDB, createTime=2018-12-21 23:42:40.0, tableComment=, tableName=act_ru_task}, {engine=InnoDB, createTime=2018-12-21 23:42:40.0, tableComment=, tableName=act_ru_variable}, {engine=InnoDB, createTime=2018-12-21 23:42:40.0, tableComment=文章内容, tableName=blog_content}, {engine=InnoDB, createTime=2018-12-21 23:42:42.0, tableComment=通知通告, tableName=oa_notify}, {engine=InnoDB, createTime=2018-12-21 23:42:42.0, tableComment=通知通告发送记录, tableName=oa_notify_record}, {engine=InnoDB, createTime=2018-12-21 23:42:43.0, tableComment=审批流程测试表, tableName=salary}, {engine=InnoDB, createTime=2018-12-21 23:42:44.0, tableComment=部门管理, tableName=sys_dept}, {engine=InnoDB, createTime=2018-12-21 23:42:45.0, tableComment=字典表, tableName=sys_dict}, {engine=InnoDB, createTime=2018-12-21 23:42:52.0, tableComment=文件上传, tableName=sys_file}, {engine=InnoDB, createTime=2018-12-21 23:42:52.0, tableComment=系统日志, tableName=sys_log}, {engine=InnoDB, createTime=2018-12-21 23:42:53.0, tableComment=菜单管理, tableName=sys_menu}, {engine=InnoDB, createTime=2018-12-21 23:42:57.0, tableComment=角色, tableName=sys_role}, {engine=InnoDB, createTime=2018-12-21 23:42:57.0, tableComment=角色与菜单对应关系, tableName=sys_role_menu}, {engine=MyISAM, createTime=2018-12-21 23:43:14.0, tableComment=, tableName=sys_task}, {engine=InnoDB, createTime=2018-12-21 23:43:14.0, tableComment=, tableName=sys_user}, {engine=InnoDB, createTime=2018-12-21 23:43:15.0, tableComment=, tableName=sys_user_plus}, {engine=InnoDB, createTime=2018-12-21 23:43:15.0, tableComment=用户与角色对应关系, tableName=sys_user_role}]
+2019-05-14 09:36:46 -请求地址 : http://localhost:8888/common/generator/code/act_evt_log
+2019-05-14 09:36:46 -HTTP METHOD : GET
+2019-05-14 09:36:46 -CLASS_METHOD : com.bootdo.common.controller.GeneratorController.code
+2019-05-14 09:36:46 -参数 : [org.apache.shiro.web.servlet.ShiroHttpServletRequest@6b7975db, org.apache.shiro.web.servlet.ShiroHttpServletResponse@3910d568, act_evt_log]
+2019-05-14 09:36:46 -==>  Preparing: select table_name tableName, engine, table_comment tableComment, create_time createTime from information_schema.tables where table_schema = (select database()) and table_name = ? 
+2019-05-14 09:36:46 -==> Parameters: act_evt_log(String)
+2019-05-14 09:36:46 -<==      Total: 1
+2019-05-14 09:36:46 -==>  Preparing: select column_name columnName, data_type dataType, column_comment columnComment, column_key columnKey, extra from information_schema.columns where table_name = ? and table_schema = (select database()) order by ordinal_position 
+2019-05-14 09:36:46 -==> Parameters: act_evt_log(String)
+2019-05-14 09:36:46 -<==      Total: 12
+2019-05-14 09:36:46 -耗时 : 216
+2019-05-14 09:36:46 -返回值 : null
+2019-05-14 09:44:33 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 384]
+2019-05-14 10:14:33 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 817]
+2019-05-14 10:19:12 -Validating all active sessions...
+2019-05-14 10:19:12 -Finished session validation.  [1] sessions were stopped.
+2019-05-14 10:44:33 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 1250]
+2019-05-14 11:14:33 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 1683]
+2019-05-14 11:19:12 -Validating all active sessions...
+2019-05-14 11:19:12 -Finished session validation.  No sessions were stopped.
+2019-05-14 11:44:33 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 2116]
+2019-05-14 12:14:33 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 2549]
+2019-05-14 12:19:12 -Validating all active sessions...
+2019-05-14 12:19:12 -Finished session validation.  No sessions were stopped.
+2019-05-14 12:44:33 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 2982]
+2019-05-14 13:14:33 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 3415]
+2019-05-14 13:19:12 -Validating all active sessions...
+2019-05-14 13:19:12 -Finished session validation.  No sessions were stopped.
+2019-05-14 13:44:33 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 3848]
+2019-05-14 14:14:33 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 4281]
+2019-05-14 14:19:12 -Validating all active sessions...
+2019-05-14 14:19:12 -Finished session validation.  No sessions were stopped.
+2019-05-14 14:44:33 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 4714]
+2019-05-14 15:14:33 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 5147]
+2019-05-14 15:19:12 -Validating all active sessions...
+2019-05-14 15:19:12 -Finished session validation.  No sessions were stopped.
+2019-05-14 15:44:33 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 5580]
+2019-05-14 16:14:33 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 6013]
+2019-05-14 16:19:12 -Validating all active sessions...
+2019-05-14 16:19:12 -Finished session validation.  No sessions were stopped.
+2019-05-14 16:44:33 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 6446]
+2019-05-14 17:14:33 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 6879]
+2019-05-14 17:19:12 -Validating all active sessions...
+2019-05-14 17:19:12 -Finished session validation.  No sessions were stopped.
