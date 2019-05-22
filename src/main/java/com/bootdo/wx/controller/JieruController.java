@@ -25,4 +25,5 @@ import java.util.Arrays;
 @RequestMapping("/wxServer")
 public class JieruController extends WeixinJieruController {
 
+
 }

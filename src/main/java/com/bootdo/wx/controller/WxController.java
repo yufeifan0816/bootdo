@@ -1,8 +1,11 @@
 package com.bootdo.wx.controller;
 
 import com.bootdo.common.aspect.WebLogAspect;
+import com.bootdo.common.redis.RedisRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +15,7 @@ import org.weixin4j.component.MessageComponent;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.Serializable;
 import java.security.MessageDigest;
 import java.util.Arrays;
 
@@ -48,9 +52,8 @@ public class WxController {
         }
         return "erro";
     }
-    @PostMapping
+    @RequestMapping("test")
     public void server(HttpServletRequest request, HttpServletResponse response){
-
     }
 
     public static String getSha1(String str){

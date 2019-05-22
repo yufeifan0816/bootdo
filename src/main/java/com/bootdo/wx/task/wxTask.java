@@ -19,7 +19,7 @@ import org.weixin4j.WeixinException;
 public class wxTask {
     @Autowired
     private RedisRegistry redisRegistry;
-    @Scheduled(cron = "0 0/59 * * * ? *")
+    @Scheduled(cron = "0 0 0/1 * * ? ")
     public void job1() throws WeixinException {
         Weixin weixin = new Weixin();
         String access_token = weixin.getToken().getAccess_token();

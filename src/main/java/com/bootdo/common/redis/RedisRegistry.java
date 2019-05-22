@@ -28,9 +28,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public final class RedisRegistry {
-
     @Autowired
     private RedisTemplate<Serializable, Object> redisTemplate;
+
 
     /**
      * 批量删除对应的value
@@ -169,5 +169,9 @@ public final class RedisRegistry {
 
     public void setRedisTemplate(RedisTemplate<Serializable, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
+    }
+
+    public RedisTemplate<Serializable, Object> getRedisTemplate() {
+        return redisTemplate;
     }
 }
