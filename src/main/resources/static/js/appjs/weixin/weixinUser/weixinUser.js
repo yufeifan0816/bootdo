@@ -57,7 +57,11 @@ function load() {
 								},
 																{
 									field : 'isRemoved', 
-									title : '是否取消关注'
+									title : '是否取消关注',
+									formatter : function(value, row, index) {
+                                        if(value==1)return '关注';
+                                        if(value==2)return '已取消';
+									}
 								},
 																{
 									field : 'createTime', 
