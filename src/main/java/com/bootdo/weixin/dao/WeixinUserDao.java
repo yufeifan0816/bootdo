@@ -1,15 +1,13 @@
-package com.bootdo.wx.dao;
+package com.bootdo.weixin.dao;
 
-import com.bootdo.wx.domain.WeixinUser;
-import com.bootdo.wx.domain.WeixinUserDO;
+import com.bootdo.weixin.domain.WeixinUserDO;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Mapper;
-
 /**
- * 
+ * 关注微信公众号的用户信息
  * @author yff
  * @email 1992lcg@163.com
  * @date 2019-05-22 17:51:52
@@ -31,5 +29,5 @@ public interface WeixinUserDao {
 	
 	int batchRemove(Long[] ids);
 
-    List<WeixinUser> findByOpenId(String fromUserName);
+    List<WeixinUserDO> findByOpenId(String fromUserName);
 }

@@ -1,7 +1,7 @@
-package com.bootdo.wx.handle;
+package com.bootdo.weixin.handle;
 
 import com.bootdo.common.redis.RedisRegistry;
-import com.bootdo.wx.utils.PicUtils;
+import com.bootdo.weixin.utils.PicUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,13 +1,10 @@
-package com.bootdo.wx.config;
+package com.bootdo.weixin.config;
 
-import com.bootdo.wx.handle.MyEventMessageHandler;
-import com.bootdo.wx.handle.MyNormalMessageHandler;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.bootdo.weixin.handle.MyEventMessageHandler;
+import com.bootdo.weixin.handle.MyNormalMessageHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.weixin4j.spi.DefaultMessageHandler;
-import org.weixin4j.spi.HandlerFactory;
-import org.weixin4j.spi.INormalMessageHandler;
 
 import javax.annotation.Resource;
 

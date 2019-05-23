@@ -1,15 +1,13 @@
-package com.bootdo.wx.service.impl;
+package com.bootdo.weixin.service.impl;
 
-import com.bootdo.wx.domain.WeixinUser;
+import com.bootdo.weixin.dao.WeixinUserDao;
+import com.bootdo.weixin.domain.WeixinUserDO;
+import com.bootdo.weixin.service.WeixinUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
-
-import com.bootdo.wx.dao.WeixinUserDao;
-import com.bootdo.wx.domain.WeixinUserDO;
-import com.bootdo.wx.service.WeixinUserService;
 
 
 
@@ -54,7 +52,7 @@ public class WeixinUserServiceImpl implements WeixinUserService {
 	}
 
 	@Override
-	public List<WeixinUser> findByOpenId(String fromUserName) {
+	public List<WeixinUserDO> findByOpenId(String fromUserName) {
 		return weixinUserDao.findByOpenId(fromUserName);
 	}
 

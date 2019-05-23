@@ -53,15 +53,15 @@ function load() {
 								},
 																{
 									field : 'openId', 
-									title : 'openid是公众号的普通用户的唯一标识。' 
+									title : 'openid'
 								},
 																{
 									field : 'isRemoved', 
-									title : '是否取消关注0取消/1未取消' 
+									title : '是否取消关注'
 								},
 																{
 									field : 'createTime', 
-									title : '' 
+									title : '关注时间'
 								},
 																{
 									field : 'removeTime', 

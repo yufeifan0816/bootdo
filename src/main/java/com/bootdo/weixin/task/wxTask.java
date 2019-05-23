@@ -1,8 +1,6 @@
-package com.bootdo.wx.task;
+package com.bootdo.weixin.task;
 
 import com.bootdo.common.redis.RedisRegistry;
-import com.bootdo.common.redis.shiro.RedisManager;
-import com.bootdo.common.redis.shiro.RedisSessionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

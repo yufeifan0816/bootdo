@@ -1,6 +1,5 @@
-package com.bootdo.wx.utils;
+package com.bootdo.weixin.utils;
 
-import com.bootdo.wx.handle.MyEventMessageHandler;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

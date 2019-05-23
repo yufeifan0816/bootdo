@@ -1,6 +1,6 @@
-package com.bootdo.wx.service;
+package com.bootdo.weixin.service;
 
-import com.bootdo.wx.domain.WeixinUserDO;
+import com.bootdo.weixin.domain.WeixinUserDO;
 
 import java.util.List;
 import java.util.Map;

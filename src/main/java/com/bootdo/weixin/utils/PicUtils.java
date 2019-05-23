@@ -1,4 +1,4 @@
-package com.bootdo.wx.utils;
+package com.bootdo.weixin.utils;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

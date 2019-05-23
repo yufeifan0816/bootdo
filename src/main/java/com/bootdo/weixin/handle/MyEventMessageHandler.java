@@ -1,8 +1,8 @@
-package com.bootdo.wx.handle;
+package com.bootdo.weixin.handle;
 
-import com.bootdo.wx.domain.WeixinUserDO;
-import com.bootdo.wx.service.WeixinUserService;
-import com.bootdo.wx.utils.WeixinUtils;
+import com.bootdo.weixin.domain.WeixinUserDO;
+import com.bootdo.weixin.service.WeixinUserService;
+import com.bootdo.weixin.utils.WeixinUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,22 +25,34 @@ public class MyEventMessageHandler implements IEventMessageHandler {
     private static final Logger logger = LoggerFactory.getLogger(MyEventMessageHandler.class);
     @Autowired
     WeixinUserService WeixinUserService;
+    /**关注事件*/
     @Override
     public OutputMessage subscribe(SubscribeEventMessage msg) {
         List<WeixinUserDO> byOpenId = WeixinUserService.findByOpenId(msg.getFromUserName());
         if(byOpenId==null||byOpenId.size()!=0){
-            return WeixinUtils.getSubscribeMsg("蛤蟆皮");
+            WeixinUserDO weixinUserDO = byOpenId.get(0);
+            weixinUserDO.setIsRemoved(1);
+            WeixinUserService.update(weixinUserDO);
+            return WeixinUtils.getSubscribeMsg("你他妈又来了");
         }
         WeixinUserDO weixinUser = new WeixinUserDO();
         weixinUser.setOpenId(msg.getFromUserName());
+        weixinUser.setIsRemoved(1);
         weixinUser.setCreateTime(new Date());
         WeixinUserService.save(weixinUser);
+        logger.info("用户:"+msg.getFromUserName()+"关注了我的公众号");
         return WeixinUtils.getSubscribeMsg("关注个锤子你");
     }
-
+    /**取消关注事件*/
     @Override
     public OutputMessage unSubscribe(UnSubscribeEventMessage msg) {
-        return null;
+        List<WeixinUserDO> byOpenId = WeixinUserService.findByOpenId(msg.getFromUserName());
+        WeixinUserDO weixinUserDO = byOpenId.get(0);
+        weixinUserDO.setIsRemoved(0);
+        weixinUserDO.setRemoveTime(new Date());
+        WeixinUserService.update( byOpenId.get(0));
+        logger.info("用户:"+msg.getFromUserName()+"取消关注了");
+        return WeixinUtils.getSubscribeMsg("取消了个锤子你");
     }
 
     @Override

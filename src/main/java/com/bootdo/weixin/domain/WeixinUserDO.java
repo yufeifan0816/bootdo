@@ -1,4 +1,4 @@
-package com.bootdo.wx.domain;
+package com.bootdo.weixin.domain;
 
 import java.io.Serializable;
 import java.util.Date;
