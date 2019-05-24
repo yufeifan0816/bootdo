@@ -2,9 +2,35 @@
 <html>
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
+<style type="text/css">
+	.roomClass{
+		height: 200px;
+		width: 100%;
+	}
+	.room{
+		padding-left:40px;
+	}
+</style>
 <body class="gray-bg">
-
-	<script type="text/javascript" src="/js/appjs/xjbg/room/roomMng.js"></script>
-
+	<h1>开房列表</h1>
+	<div class="row">
+		<div class="col-sm-3 room">
+			<button type="button" class="btn btn-success col-sm-3 roomClass">301</button>
+		</div>
+		<div class="col-sm-3 room">
+			<button type="button" class="btn btn-success col-sm-3 roomClass" >302</button>
+		</div>
+		<div class="col-sm-3 room">
+			<button type="button" class="btn btn-success col-sm-3 roomClass" >302</button>
+		</div>
+		<div class="col-sm-3 room">
+			<button type="button" class="btn btn-success col-sm-3 roomClass" >302</button>
+		</div>
+	</div>
+	<script th:inline="javascript">
+        var rooms = [[${rooms}]];
+        var roomTypes = [[${roomTypes}]];
+	</script>
+	<script type="text/javascript"  src="/js/appjs/xjbg/room/roomMng.js"></script>
 </body>
 </html>

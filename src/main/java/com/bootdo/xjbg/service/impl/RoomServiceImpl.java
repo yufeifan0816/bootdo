@@ -57,5 +57,10 @@ public class RoomServiceImpl implements RoomService {
 	public int batchRemove(Integer[] ids){
 		return roomDao.batchRemove(ids);
 	}
-	
+
+	@Override
+	public List<RoomDO> getAll() {
+		return roomDao.getAll();
+	}
+
 }

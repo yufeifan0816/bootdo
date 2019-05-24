@@ -27,4 +27,7 @@ public interface RoomService {
 	int remove(Integer id);
 	
 	int batchRemove(Integer[] ids);
+
+	List<RoomDO> getAll();
+
 }

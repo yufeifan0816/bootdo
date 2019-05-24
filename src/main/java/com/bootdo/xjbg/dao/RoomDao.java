@@ -29,4 +29,6 @@ public interface RoomDao {
 	int remove(Integer id);
 	
 	int batchRemove(Integer[] ids);
+
+    List<RoomDO> getAll();
 }

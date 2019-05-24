@@ -6,6 +6,9 @@
 	<select id="get" resultType="com.bootdo.xjbg.domain.RoomDO">
 		select `id`,`room_no`,`room_type`,`floor`,`room_state`,`price`,`create_time`,`update_time`,`create_user`,`update_user` from xjbg_room where id = #{value}
 	</select>
+	<select id="getAll" resultType="com.bootdo.xjbg.domain.RoomDO">
+		select `id`,`room_no`,`room_type`,`floor`,`room_state`,`price`,`create_time`,`update_time`,`create_user`,`update_user` from xjbg_room
+	</select>
 
 	<select id="list" resultType="com.bootdo.xjbg.domain.RoomDO">
 		select `id`,`room_no`,`room_type`,`floor`,`room_state`,`price`,`create_time`,`update_time`,`create_user`,`update_user` from xjbg_room
