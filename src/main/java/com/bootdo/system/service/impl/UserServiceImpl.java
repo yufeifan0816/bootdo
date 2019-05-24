@@ -253,4 +253,9 @@ public class UserServiceImpl implements UserService {
         return result;
     }
 
+    @Override
+    public List<UserDO> listAllUser() {
+        return userMapper.listAllUser();
+    }
+
 }

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.xjbg.dao.RoomDao">
+
+	<select id="get" resultType="com.bootdo.xjbg.domain.RoomDO">
+		select `id`,`room_no`,`room_type`,`floor`,`room_state`,`price`,`create_time`,`update_time`,`create_user`,`update_user` from xjbg_room where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.xjbg.domain.RoomDO">
+		select `id`,`room_no`,`room_type`,`floor`,`room_state`,`price`,`create_time`,`update_time`,`create_user`,`update_user` from xjbg_room
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="roomNo != null and roomNo != ''"> and room_no = #{roomNo} </if>
+		  		  <if test="roomType != null and roomType != ''"> and room_type = #{roomType} </if>
+		  		  <if test="floor != null and floor != ''"> and floor = #{floor} </if>
+		  		  <if test="roomState != null and roomState != ''"> and room_state = #{roomState} </if>
+		  		  <if test="price != null and price != ''"> and price = #{price} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		  		  <if test="createUser != null and createUser != ''"> and create_user = #{createUser} </if>
+		  		  <if test="updateUser != null and updateUser != ''"> and update_user = #{updateUser} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by room_no desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from xjbg_room
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="roomNo != null and roomNo != ''"> and room_no = #{roomNo} </if>
+		  		  <if test="roomType != null and roomType != ''"> and room_type = #{roomType} </if>
+		  		  <if test="floor != null and floor != ''"> and floor = #{floor} </if>
+		  		  <if test="roomState != null and roomState != ''"> and room_state = #{roomState} </if>
+		  		  <if test="price != null and price != ''"> and price = #{price} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		  		  <if test="createUser != null and createUser != ''"> and create_user = #{createUser} </if>
+		  		  <if test="updateUser != null and updateUser != ''"> and update_user = #{updateUser} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.xjbg.domain.RoomDO">
+		insert into xjbg_room
+		(
+			`id`, 
+			`room_no`, 
+			`room_type`, 
+			`floor`, 
+			`room_state`, 
+			`price`, 
+			`create_time`, 
+			`update_time`, 
+			`create_user`, 
+			`update_user`
+		)
+		values
+		(
+			#{id}, 
+			#{roomNo}, 
+			#{roomType}, 
+			#{floor}, 
+			#{roomState}, 
+			#{price}, 
+			#{createTime}, 
+			#{updateTime}, 
+			#{createUser}, 
+			#{updateUser}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.xjbg.domain.RoomDO">
+		update xjbg_room 
+		<set>
+			<if test="roomNo != null">`room_no` = #{roomNo}, </if>
+			<if test="roomType != null">`room_type` = #{roomType}, </if>
+			<if test="floor != null">`floor` = #{floor}, </if>
+			<if test="roomState != null">`room_state` = #{roomState}, </if>
+			<if test="price != null">`price` = #{price}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}, </if>
+			<if test="updateTime != null">`update_time` = #{updateTime}, </if>
+			<if test="createUser != null">`create_user` = #{createUser}, </if>
+			<if test="updateUser != null">`update_user` = #{updateUser}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from xjbg_room where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from xjbg_room where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

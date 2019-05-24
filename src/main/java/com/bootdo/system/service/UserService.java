@@ -51,4 +51,12 @@ public interface UserService {
 	 * @throws Exception
 	 */
     Map<String, Object> updatePersonalImg(MultipartFile file, String avatar_data, Long userId) throws Exception;
+
+	/***
+	 * @Author yufeifan@wondersgroup.com
+	 * @Description 所有用户
+	 * @Date 13:35 2019/5/24
+	 * @return java.util.List<com.bootdo.system.domain.UserDO>
+	 **/
+	List<UserDO> listAllUser();
 }
