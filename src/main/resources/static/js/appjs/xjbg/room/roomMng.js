@@ -1,20 +1,38 @@
 $(function () {
-    var rowBeging = '<div class="row">';
-    var rowEnd = '</div>';
-    var cloBeging = '<div class="col-sm-3 room">';
-    var cloEnd = '</div>';
-    var btnBeging = '<button type="button" class="btn btn-success col-sm-3 roomClass">';
-    var btnEnd = '</button>';
+    for (var key in rooms) {
+        //第k层
+        var rommList = rooms[key];
+        var floorHtml = $('<label class="col-sm-12 bg-danger text-center" style="height: 50px font-size: 40px">' + key + '楼</label>')
+        var rowCurrent = $('<div class="row"></div>');
+        rowCurrent.attr('id', 'floor' + key);
+        for (var i = 0; i < rommList.length; i++) {
+            var roomTypeName = '';
+            var room = rommList[i];
+            for (var j = 0; j < roomTypes.length; j++) {
+                if (room.roomType == roomTypes[j].value)
+                    roomTypeName = roomTypes[j].name
+            }
+            var roomCurrent = $('<div class="col-sm-3 room"><button type="button" onclick=" btnOnClick('+room.roomNo+')" class="btn  col-sm-3 roomClass"><p class="font1" style="font-size: 50px"></p><h1 class="font2"></h1></button></div>');
+            var p = roomCurrent.find('p')[0];
+            var h2 = roomCurrent.find('h1')[0];
+            var btn = roomCurrent.find('button')[0];
+            $(btn).attr('id',room.roomNo );
+            p.innerHTML = roomTypeName;
+            h2.innerHTML = room.roomNo;
 
-    for (var i = 0; i <rooms.length ; i++) {
-        var room = rooms[i];
-        var roomTypeName = '';
-        for (var j = 0; j <roomTypes.length ; j++) {
-            if(room.roomType==roomTypes.value)
-                roomTypeName = roomTypes.name
+            if (room.roomState == 1) {
+                $(btn).css('background-color', '#00B83F')
+            } else if (room.roomState == 2) {
+                $(btn).css('background-color', '#dc5b31')
+            }
+            rowCurrent.append(roomCurrent)
         }
-        var html = cloBeging+btnBeging+'<h2>'+room.roomNo+'</h2>'+btnEnd+cloEnd;
-
+        $(".gray-bg").append(floorHtml).append(rowCurrent);
     }
 
+
 });
+
+function btnOnClick(roomNo) {
+   alert(roomNo);
+}

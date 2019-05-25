@@ -1,9 +1,6 @@
 package com.bootdo.xjbg.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.bootdo.common.domain.DictDO;
 import com.bootdo.common.service.DictService;
@@ -65,11 +62,29 @@ public class RoomController {
             }else{
                 roomDOS.add(room);
             }
-
         }
+
+        sortList(map);
         this.addDict(model);
         model.addAttribute("rooms",map);
         return "xjbg/room/roomMng";
+    }
+
+    private void sortList(Map<Integer,List<RoomDO>> map) {
+        Set<Map.Entry<Integer, List<RoomDO>>> entries = map.entrySet();
+        for (Map.Entry<Integer, List<RoomDO>> entry:entries) {
+            List<RoomDO> value = entry.getValue();
+            value.sort(new Comparator<RoomDO>() {
+                @Override
+                public int compare(RoomDO o1, RoomDO o2) {
+                    if(Integer.valueOf(o1.getRoomNo())>Integer.valueOf(o2.getRoomNo())){
+                        return 1;
+                    }else {
+                        return -1;
+                    }
+                }
+            });
+        }
     }
 
     public void addDict(Model model) {
