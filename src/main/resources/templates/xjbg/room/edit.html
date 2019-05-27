@@ -22,7 +22,8 @@
                             <div class="col-sm-8">
                                 <select data-placeholder="--选择房间类型--" name="roomType" id="roomType"
                                         class="form-control chosen-select" tabindex="2" required>
-                                    <option th:each="roomType : ${roomTypes}" th:value="${roomType.value}" th:text="${roomType.name}" ></option>
+                                    <option th:each="roomType : ${roomTypes}" th:value="${roomType.value}"
+                                            th:text="${roomType.name}" th:selected="${roomType.value } == ${room.roomType}" ></option>
                                 </select>
                             </div>
                         </div>
@@ -31,7 +32,8 @@
                             <div class="col-sm-8">
                                 <select data-placeholder="--选择楼层--" name="floor" id="floor"
                                         class="form-control chosen-select" tabindex="2" required>
-                                    <option th:each="floor : ${floors}" th:value="${floor.value}" th:text="${floor.name}" ></option>
+                                    <option th:each="floor : ${floors}" th:value="${floor.value}"
+                                            th:text="${floor.name}" th:selected="${floor.value } == ${room.floor}"></option>
                                 </select>
                             </div>
                         </div>
@@ -40,7 +42,8 @@
                             <div class="col-sm-8">
                                 <select data-placeholder="--选择状态--" name="roomState" id="roomState"
                                         class="form-control chosen-select" tabindex="2" required>
-                                    <option th:each="roomState : ${roomStates}" th:value="${roomState.value}" th:text="${roomState.name}" ></option>
+                                    <option th:each="roomState : ${roomStates}" th:value="${roomState.value}"
+                                            th:text="${roomState.name}" th:selected="${roomState.value } == ${room.roomState}"></option>
                                 </select>
                             </div>
                         </div>
@@ -49,27 +52,27 @@
                             <div class="col-sm-8">
                                 <select data-placeholder="--选择标价--" name="price" id="price"
                                         class="form-control chosen-select" tabindex="2" required>
-                                    <option value="50">50元</option>
-                                    <option value="60">60元</option>
-                                    <option value="70">70元</option>
-                                    <option value="80">80元</option>
-                                    <option value="90">90元</option>
-                                    <option value="100">100元</option>
-                                    <option value="110">110元</option>
-                                    <option value="120">120元</option>
-                                    <option value="130">130元</option>
-                                    <option value="140">140元</option>
-                                    <option value="150">150元</option>
-                                    <option value="160">160元</option>
-                                    <option value="170">170元</option>
-                                    <option value="180">180元</option>
-                                    <option value="190">190元</option>
-                                    <option value="200">200元</option>
-                                    <option value="220">220元</option>
-                                    <option value="240">240元</option>
-                                    <option value="260">260元</option>
-                                    <option value="280">280元</option>
-                                    <option value="300">300元</option>
+                                    <option value="50" th:selected="${room.price ==50 }">50元</option>
+                                    <option value="60" th:selected="${room.price ==60 }">60元</option>
+                                    <option value="70" th:selected="${room.price ==70 }">70元</option>
+                                    <option value="80" th:selected="${room.price ==80 }">80元</option>
+                                    <option value="90" th:selected="${room.price ==90 }">90元</option>
+                                    <option value="100" th:selected="${room.price ==100 }">100元</option>
+                                    <option value="110" th:selected="${room.price ==110 }">110元</option>
+                                    <option value="120" th:selected="${room.price ==120 }">120元</option>
+                                    <option value="130" th:selected="${room.price ==130 }">130元</option>
+                                    <option value="140" th:selected="${room.price ==140 }">140元</option>
+                                    <option value="150" th:selected="${room.price ==150 }">150元</option>
+                                    <option value="160" th:selected="${room.price ==160 }">160元</option>
+                                    <option value="170" th:selected="${room.price ==170 }">170元</option>
+                                    <option value="180" th:selected="${room.price ==180 }">180元</option>
+                                    <option value="190" th:selected="${room.price ==190 }">190元</option>
+                                    <option value="200" th:selected="${room.price ==200 }">200元</option>
+                                    <option value="220" th:selected="${room.price ==220 }">220元</option>
+                                    <option value="240" th:selected="${room.price ==240 }">240元</option>
+                                    <option value="260" th:selected="${room.price ==260 }">260元</option>
+                                    <option value="280" th:selected="${room.price ==280 }">280元</option>
+                                    <option value="300" th:selected="${room.price ==300 }">300元</option>
                                 </select>
                             </div>
                         </div>
