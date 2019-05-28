@@ -3,35 +3,40 @@
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
 <style>
-    *{
-        padding: 0;
-        margin: 0;
+    .add_div {
+        width: 400px;
+        height: 500px;
+        border: solid #ccc 1px;
+        margin-top: 40px;
+        margin-left: 170px;
+        padding-left: 20px;
     }
-    ul{
-        width: 1200px;
-        margin: 30px auto;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
+
+    .file-list {
+        height: 125px;
+        display: none;
+        list-style-type: none;
     }
-    ul li{
-        background: #00a2d4;
-        list-style: none;
-        flex-grow:10;
-        width: 300px;
-        height: 300px;
-        margin-right: 20px;
-        margin-bottom: 20px;
-        border: 1px solid #f2f2f2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
+    .file-list img {
+        max-width: 70px;
+        vertical-align: middle;
+    }
+
+    .file-list .file-item {
+        margin-bottom: 10px;
+        float: left;
+        margin-left: 20px;
+    }
+
+
+    .file-list .file-item .file-del {
+        display: block;
+        margin-left: 20px;
+        margin-top: 5px;
         cursor: pointer;
-        background-repeat: no-repeat;
-        background-size: cover;
-        box-sizing: border-box;
     }
+
 </style>
 <body class="gray-bg">
 <div class="wrapper wrapper-content ">

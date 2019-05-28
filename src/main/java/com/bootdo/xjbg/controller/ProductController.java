@@ -1,5 +1,6 @@
 package com.bootdo.xjbg.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -74,11 +75,18 @@ public class ProductController {
 	@ResponseBody
 	@PostMapping("/save")
 	@RequiresPermissions("xjbg:product:add")
-	public R save(ProductDO product, MultipartFile[] productPic){
-		if(productService.save(product)>0){
-			return R.ok();
-		}
-		return R.error();
+	public R save(ProductDO product, MultipartFile[] pic){
+        R r = new R();
+        try {
+            String path = productService.uploadPic(pic);
+            product.setProductPic(path);
+            productService.save(product);
+        } catch (IOException e) {
+            r.put("code",100);
+            r.put("msg","文件上传出错");
+            e.printStackTrace();
+        }
+        return  r;
 	}
 	/**
 	 * 修改

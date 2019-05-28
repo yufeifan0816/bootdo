@@ -1,7 +1,9 @@
 package com.bootdo.xjbg.service;
 
 import com.bootdo.xjbg.domain.ProductDO;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -27,4 +29,12 @@ public interface ProductService {
 	int remove(Long id);
 	
 	int batchRemove(Long[] ids);
+	/**
+	 * @Author yufeifan@wondersgroup.com
+	 * @Description //文件上传
+	 * @Date 10:57 2019/5/28
+	 * @Param [pic]
+	 * @return void
+	 **/
+    String  uploadPic(MultipartFile[] pic) throws IOException;
 }

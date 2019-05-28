@@ -97,13 +97,21 @@ $(function () {
     //点击上传按钮事件：
     $button.on('click', function () {
         var formData = new FormData();
-        for (var i = 0, len = fileList.length; i < len; i++) {
-            //console.log(fileList[i]);
-            formData.append('upfile[]', fileList[i],fileList[i].name);
-        }
+        var picObject = fileList[0];
+        debugger;
+        var dataArray = $("#signupForm").serializeArray();
+        $.each(dataArray, function () {
+            formData.append(this.name,this.value) ;
+        });
+        formData.append('pic',picObject);
         var request = new XMLHttpRequest();
         request.open("POST", "/xjbg/product/save");
-        $.ajax({
+        request.onload = function () {
+            alert("上传完成!");
+
+        };
+        request.send(formData);
+    /*    $.ajax({
             cache: true,
             type: "POST",
             url: "/xjbg/product/save",
@@ -124,6 +132,6 @@ $(function () {
                 }
 
             }
-        });
+        });*/
     })
 })
