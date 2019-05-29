@@ -135,6 +135,16 @@ public class RoomController {
         model.addAttribute("room", room);
         return "xjbg/room/edit";
     }
+    @GetMapping("/operation/{roomId}")
+    @RequiresPermissions("xjbg:room:room")
+    String operation(@PathVariable("roomId") Integer id, Model model) {
+        this.addDict(model);
+        List<DictDO> orderType = dictService.listByType("order_type");
+        model.addAttribute("orderTypes", orderType);
+        RoomDO room = roomService.get(id);
+        model.addAttribute("room", room);
+        return "xjbg/room/operation";
+    }
 
     /**
      * 保存

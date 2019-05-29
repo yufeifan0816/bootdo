@@ -3,72 +3,50 @@
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
 <body class="gray-bg">
-	<div class="wrapper wrapper-content ">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="ibox float-e-margins">
-					<div class="ibox-content">
-						<form class="form-horizontal m-t" id="signupForm">
-						<input id="id" name="id" th:value="${product.id}"  type="hidden">
-							<div class="form-group">	
-								<label class="col-sm-3 control-label">商品名称：</label>
-								<div class="col-sm-8">
-									<input id="productName" name="productName" th:value="${product.productName}" class="form-control" type="text">
-								</div>
+<div class="wrapper wrapper-content ">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-content">
+					<form class="form-horizontal m-t" id="signupForm">
+						<div class="form-group">
+							<label class="col-sm-3 control-label">商品名称：</label>
+							<div class="col-sm-8">
+								<input id="productName" name="productName"  th:value="${product.productName}" class="form-control" type="text">
 							</div>
-														<div class="form-group">	
-								<label class="col-sm-3 control-label">进价：</label>
-								<div class="col-sm-8">
-									<input id="purchasePrice" name="purchasePrice" th:value="${product.purchasePrice}" class="form-control" type="text">
-								</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">进价：</label>
+							<div class="col-sm-8">
+								<input id="purchasePrice" name="purchasePrice"  th:value="${product.purchasePrice}" class="form-control" type="text">
 							</div>
-														<div class="form-group">	
-								<label class="col-sm-3 control-label">售价：</label>
-								<div class="col-sm-8">
-									<input id="sellingPrice" name="sellingPrice" th:value="${product.sellingPrice}" class="form-control" type="text">
-								</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">售价：</label>
+							<div class="col-sm-8">
+								<input id="sellingPrice" name="sellingPrice" th:value="${product.sellingPrice}" class="form-control" type="text">
 							</div>
-														<div class="form-group">	
-								<label class="col-sm-3 control-label">商品图片地址：</label>
-								<div class="col-sm-8">
-									<input id="productPic" name="productPic" th:value="${product.productPic}" class="form-control" type="text">
-								</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">商品图片:</label>
+							<div class="col-sm-8">
+								<input type="file" name="productPic" id="productPic" multiple="multiple"/>
+								<ul class="file-list ">
+									<img th:src="${product.productPic}"  width="100px"/> >
+								</ul>
 							</div>
-														<div class="form-group">	
-								<label class="col-sm-3 control-label">：</label>
-								<div class="col-sm-8">
-									<input id="createTime" name="createTime" th:value="${product.createTime}" class="form-control" type="text">
-								</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-8 col-sm-offset-3">
+								<button id="submit" type="submit" class="btn btn-primary">提交</button>
 							</div>
-														<div class="form-group">	
-								<label class="col-sm-3 control-label">：</label>
-								<div class="col-sm-8">
-									<input id="createUser" name="createUser" th:value="${product.createUser}" class="form-control" type="text">
-								</div>
-							</div>
-														<div class="form-group">	
-								<label class="col-sm-3 control-label">：</label>
-								<div class="col-sm-8">
-									<input id="updateTime" name="updateTime" th:value="${product.updateTime}" class="form-control" type="text">
-								</div>
-							</div>
-														<div class="form-group">	
-								<label class="col-sm-3 control-label">：</label>
-								<div class="col-sm-8">
-									<input id="updateUser" name="updateUser" th:value="${product.updateUser}" class="form-control" type="text">
-								</div>
-							</div>
-																					<div class="form-group">
-								<div class="col-sm-8 col-sm-offset-3">
-									<button type="submit" class="btn btn-primary">提交</button>
-								</div>
-							</div>
-						</form>
-					</div>
+						</div>
+					</form>
 				</div>
 			</div>
+		</div>
 	</div>
-	</div>
+</div>
 	<div th:include="include::footer"></div>
 	<script type="text/javascript" src="/js/appjs/xjbg/product/edit.js">
 	</script>

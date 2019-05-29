@@ -47,20 +47,22 @@ function load() {
                         checkbox: true
                     },
                     {
-                        field: 'id',
-                        title: ''
-                    },
-                    {
                         field: 'productName',
                         title: '商品名称'
                     },
                     {
                         field: 'purchasePrice',
-                        title: '进价'
+                        title: '进价',
+                        formatter:function (value,row,index) {
+                            return value+"元";
+                        }
                     },
                     {
                         field: 'sellingPrice',
-                        title: '售价'
+                        title: '售价',
+                        formatter:function (value,row,index) {
+                            return value+"元";
+                        }
                     },
                     {
                         field: 'productPic',
