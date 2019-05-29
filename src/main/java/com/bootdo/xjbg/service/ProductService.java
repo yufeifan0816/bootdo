@@ -36,5 +36,5 @@ public interface ProductService {
 	 * @Param [pic]
 	 * @return void
 	 **/
-    String  uploadPic(MultipartFile[] pic) throws IOException;
+    String  uploadPic(MultipartFile[] pic) throws Exception;
 }

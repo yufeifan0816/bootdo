@@ -1,5 +1,7 @@
 package com.bootdo.xjbg.service.impl;
 
+import com.bootdo.common.config.BootdoConfig;
+import com.bootdo.common.utils.FileUtil;
 import com.bootdo.common.utils.ShiroUtils;
 import com.bootdo.common.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class ProductServiceImpl implements ProductService {
+
+    @Autowired
+    private BootdoConfig bootdoConfig;
+
 	@Autowired
 	private ProductDao productDao;
 	
@@ -61,14 +67,11 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public String uploadPic(MultipartFile[] pic) throws IOException {
+	public String uploadPic(MultipartFile[] pic) throws Exception {
 		MultipartFile multipartFile = pic[0];
-		String[] split = StringUtils.split(multipartFile.getOriginalFilename(), ".");
-		String suffix = split[1];
-		String path = "/pic/product/"+UUID.randomUUID()+"."+suffix;
-		File file = new File(path);
-		multipartFile.transferTo(file);
-		return path;
+        String fileName = FileUtil.renameToUUID(multipartFile.getOriginalFilename());
+        FileUtil.uploadFile(multipartFile.getBytes(),bootdoConfig.getProductPath(),fileName);
+		return BootdoConfig.PRODUCT_PATH+fileName;
 	}
 
 }

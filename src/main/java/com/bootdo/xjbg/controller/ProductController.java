@@ -81,7 +81,7 @@ public class ProductController {
             String path = productService.uploadPic(pic);
             product.setProductPic(path);
             productService.save(product);
-        } catch (IOException e) {
+        } catch (Exception e) {
             r.put("code",100);
             r.put("msg","文件上传出错");
             e.printStackTrace();

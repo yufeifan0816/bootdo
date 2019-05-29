@@ -3,7 +3,6 @@ $().ready(function () {
 });
 
 
-
 function validateRule() {
     var icon = "<i class='fa fa-times-circle'></i> ";
     $("#signupForm").validate({
@@ -98,25 +97,45 @@ $(function () {
     $button.on('click', function () {
         var formData = new FormData();
         var picObject = fileList[0];
-        debugger;
+
         var dataArray = $("#signupForm").serializeArray();
         $.each(dataArray, function () {
-            formData.append(this.name,this.value) ;
+            formData.append(this.name, this.value);
         });
-        formData.append('pic',picObject);
-        var request = new XMLHttpRequest();
+        formData.append('pic', picObject);
+        /*var request = new XMLHttpRequest();
         request.open("POST", "/xjbg/product/save");
-        request.onload = function () {
-            alert("上传完成!");
+        request.onreadyStateChange = function () {
+            alert(request.status);
+              if (request.status === 304 || (request.status >= 200 && request.status < 300)) {
+                  var result = request.responseText;
+                  debugger;
+                  if (data.code == 0) {
+                      parent.layer.msg("操作成功");
+                      parent.reLoad();
+                      var index = parent.layer.getFrameIndex(window.name); // 获取窗口索引
+                      parent.layer.close(index);
 
-        };
+                  } else {
+                      parent.layer.alert(data.msg)
+                  }
+              } else {
+                  console.log('type: error, errCode:', xhr.status)
+              }
+
+        }
         request.send(formData);
-    /*    $.ajax({
+*/
+
+
+        $.ajax({
             cache: true,
-            type: "POST",
+            type: "post",
             url: "/xjbg/product/save",
-            data: formData,// 你的formid
+            data: formData,
             async: false,
+            processData: false,
+            contentType: false,
             error: function (request) {
                 parent.layer.alert("Connection error");
             },
@@ -132,6 +151,7 @@ $(function () {
                 }
 
             }
-        });*/
-    })
+        });
+        }
+    )
 })
