@@ -74,4 +74,14 @@ public class ProductServiceImpl implements ProductService {
 		return BootdoConfig.PRODUCT_PATH+fileName;
 	}
 
+	@Override
+	public void rmPic(String path) throws Exception {
+		String realyPaht =  bootdoConfig.getProductPath() + path.replace(BootdoConfig.PRODUCT_PATH,"");
+		File file = new File(realyPaht);
+		if(file.exists()){
+			file.delete();
+		}
+
+	}
+
 }

@@ -94,8 +94,21 @@ public class ProductController {
 	@ResponseBody
 	@RequestMapping("/update")
 	@RequiresPermissions("xjbg:product:edit")
-	public R update( ProductDO product){
-		productService.update(product);
+	public R update( ProductDO product,MultipartFile[] pic){
+		R r = new R();
+		try {
+			if(pic!=null&&pic.length!=0){
+				productService.rmPic(product.getProductPic());
+				String path = productService.uploadPic(pic);
+				product.setProductPic(path);
+			}
+			productService.update(product);
+		} catch (Exception e) {
+			r.put("code",100);
+			r.put("msg","文件上传出错");
+			e.printStackTrace();
+		}
+
 		return R.ok();
 	}
 	
@@ -106,6 +119,13 @@ public class ProductController {
 	@ResponseBody
 	@RequiresPermissions("xjbg:product:remove")
 	public R remove( Long id){
+		ProductDO product = productService.get(id);
+		try {
+			//删除本地图片
+			productService.rmPic(product.getProductPic());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		if(productService.remove(id)>0){
 		return R.ok();
 		}

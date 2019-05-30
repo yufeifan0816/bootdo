@@ -1,18 +1,22 @@
 package com.bootdo.system.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.bootdo.common.annotation.Log;
 import com.bootdo.common.config.Constant;
 import com.bootdo.common.controller.BaseController;
 import com.bootdo.common.domain.Tree;
 import com.bootdo.common.utils.R;
 import com.bootdo.system.domain.MenuDO;
+import com.bootdo.system.domain.RoleDO;
 import com.bootdo.system.service.MenuService;
+import com.bootdo.system.service.RoleService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -36,7 +40,7 @@ public class MenuController extends BaseController {
 	@RequestMapping("/list")
 	@ResponseBody
 	List<MenuDO> list(@RequestParam Map<String, Object> params) {
-		List<MenuDO> menus = menuService.list(params);
+		final List<MenuDO> menus = menuService.list(params);
 		return menus;
 	}
 
@@ -125,6 +129,7 @@ public class MenuController extends BaseController {
 	@ResponseBody
 	Tree<MenuDO> tree(@PathVariable("roleId") Long roleId) {
 		Tree<MenuDO> tree = menuService.getTree(roleId);
+		System.out.println(JSONObject.toJSONString(tree));
 		return tree;
 	}
 }

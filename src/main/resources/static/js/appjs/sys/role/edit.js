@@ -9,21 +9,21 @@ $.validator.setDefaults({
 		update();
 	}
 });
-function loadMenuTree(menuTree) {
-	$('#menuTree').jstree({
-		"plugins" : [ "wholerow", "checkbox" ],
-		'core' : {
-			'data' : menuTree
-		},
-		"checkbox" : {
-			//"keep_selected_style" : false,
-			//"undetermined" : true
-			//"three_state" : false,
-			//"cascade" : ' up'
-		}
-	});
-	$('#menuTree').jstree('open_all');
-}
+	function loadMenuTree(menuTree) {
+		$('#menuTree').jstree({
+			"plugins" : [ "wholerow", "checkbox" ],
+			'core' : {
+				'data' : menuTree
+			},
+			"checkbox" : {
+				//"keep_selected_style" : false,
+				//"undetermined" : true
+				//"three_state" : false,
+				//"cascade" : ' up'
+			}
+		});
+		$('#menuTree').jstree('open_all');
+	}
 function getAllSelectNodes() {
 	var ref = $('#menuTree').jstree(true); // 获得整个树
 	menuIds = ref.get_selected(); // 获得所有选中节点的，返回值为数组

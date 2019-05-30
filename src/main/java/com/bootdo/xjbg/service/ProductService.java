@@ -37,4 +37,6 @@ public interface ProductService {
 	 * @return void
 	 **/
     String  uploadPic(MultipartFile[] pic) throws Exception;
+
+	void  rmPic(String path) throws Exception;
 }
