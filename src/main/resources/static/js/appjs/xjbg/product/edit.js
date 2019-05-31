@@ -43,7 +43,7 @@ $(function () {
             }
         }
     }
-})
+});
 function update() {
     var formData = new FormData();
     var picObject = $("#picPath")[0].files[0];

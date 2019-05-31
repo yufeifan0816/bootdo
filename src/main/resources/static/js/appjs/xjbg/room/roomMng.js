@@ -18,7 +18,7 @@ $(function () {
             var h2 = roomCurrent.find('h1')[0];
             var btn = roomCurrent.find('button')[0];
             $(btn).attr('id',room.roomNo );
-            p.innerHTML = roomTypeName;
+          /*  p.innerHTML = roomTypeName;*/
             h2.innerHTML = room.roomNo;
 
             if (room.roomState == 1) {
@@ -44,3 +44,4 @@ function btnOnClick(roomId) {
         content: prefix + '/operation/'+roomId
     });
 }
+

@@ -2,6 +2,9 @@
 <html>
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
+<script>
+
+</script>
 <body class="gray-bg">
 <div class="wrapper wrapper-content ">
     <div class="row">
@@ -26,7 +29,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" style="padding: 8px 0px">
                                 <div class="col-sm-6">
                                     <label class="col-sm-3 control-label" style="width: 30%">入住类型：</label>
                                     <select name="orderType" id="orderType" style="width: 68%"
@@ -41,15 +44,43 @@
                                            th:value="${room.price}" class="form-control" type="text">
                                 </div>
                             </div>
+                            <div class="row" style="padding: 8px 0px">
+                                <div class="col-sm-6">
+                                    <button id="addProduct" class="btn btn-info" >添加商品</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" >
+                                <table class="table table-condensed table-bordered" width="100%">
+                                    <thead>
+                                    <tr class="success">
+                                        <th width="30%">商品名称</th>
+                                        <th width="30%">图片</th>
+                                        <th width="30%">数量</th>
+                                    </tr>
+                                    </thead>
+                                    <tr>
+                                        <th > <select name="orderType"  style="width: 68%"
+                                                      class="form-control chosen-select" tabindex="2" required>
+                                            <option th:each="orderType : ${orderTypes}" th:value="${orderType.value}"
+                                                    th:text="${orderType.name}"></option>
+                                        </select></th>
+                                        <th >
+                                            <img src='/productPic/6f67daf6-f310-4e50-9b81-6f81eef22f39.jpg' alt='aaa' width="80px" >
+                                        </th>
+                                        <th >
+                                            <div style="width: 100% ;height: 100%">
+                                                <a class="btn  icon-plus " href="#" mce_href="#" title="编辑" ><i class="fa fa-edit"></i></a>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
-
                         <div class="form-group">
-
                             <div class="col-sm-8 col-sm-offset-3">
                                 <button id="submit" type="submit" class="btn btn-primary">提交</button>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
@@ -57,7 +88,8 @@
     </div>
 </div>
 <div th:include="include::footer"></div>
-<script type="text/javascript" src="/js/appjs/xjbg/product/edit.js">
+
+<script type="text/javascript" src="/js/appjs/xjbg/room/operation.js">
 </script>
 </body>
 </html>
