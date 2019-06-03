@@ -3,7 +3,6 @@
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
 <script>
-
 </script>
 <body class="gray-bg">
 <div class="wrapper wrapper-content ">
@@ -59,17 +58,21 @@
                                     </tr>
                                     </thead>
                                     <tr>
-                                        <th > <select name="orderType"  style="width: 68%"
+                                        <th > <select id="selectProduct" name="orderType"  style="width: 68%" onchange="add_product($(this));"
                                                       class="form-control chosen-select" tabindex="2" required>
-                                            <option th:each="orderType : ${orderTypes}" th:value="${orderType.value}"
-                                                    th:text="${orderType.name}"></option>
+                                            <option value="">--选择商品--</option>
+                                            <option th:each="product : ${products}" th:value="${product.id}"
+                                                    th:text="${product.productName}">
+                                            </option>
                                         </select></th>
                                         <th >
-                                            <img src='/productPic/6f67daf6-f310-4e50-9b81-6f81eef22f39.jpg' alt='aaa' width="80px" >
+                                            <img src='' alt='[找不到图片]' width="80px" >
                                         </th>
                                         <th >
-                                            <div style="width: 100% ;height: 100%">
-                                                <a class="btn  icon-plus " href="#" mce_href="#" title="编辑" ><i class="fa fa-edit"></i></a>
+                                            <div style="width: 100% ;height: 100% ">
+                                                <a class="btn   " href="#" mce_href="#"  ><i class="fa fa-minus"></i></a>
+                                                <input type="text" style="width: 70px"/>
+                                                <a class="btn   " href="#" mce_href="#"><i class="fa fa-plus"></i></a>
                                             </div>
                                         </th>
                                     </tr>
@@ -88,7 +91,9 @@
     </div>
 </div>
 <div th:include="include::footer"></div>
-
+<script th:inline="javascript">
+    var products = [[${products}]];
+</script>
 <script type="text/javascript" src="/js/appjs/xjbg/room/operation.js">
 </script>
 </body>

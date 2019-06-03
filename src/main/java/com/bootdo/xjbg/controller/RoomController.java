@@ -6,6 +6,8 @@ import com.bootdo.common.domain.DictDO;
 import com.bootdo.common.service.DictService;
 import com.bootdo.system.domain.UserDO;
 import com.bootdo.system.service.UserService;
+import com.bootdo.xjbg.domain.ProductDO;
+import com.bootdo.xjbg.service.ProductService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -39,6 +41,8 @@ public class RoomController {
     private DictService dictService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private ProductService productService;
 
 
     @GetMapping()
@@ -51,9 +55,9 @@ public class RoomController {
     @GetMapping("roomMng")
     @RequiresPermissions("xjbg:room:roomMng")
     String roomMng(Model model) {
-        List<RoomDO> romms = roomService.getAll();
+        List<RoomDO> rooms = roomService.getAll();
         Map<Integer, List<RoomDO>> map = new HashMap<Integer, List<RoomDO>>();
-        for (RoomDO room : romms) {
+        for (RoomDO room : rooms) {
             List<RoomDO> roomDOS = map.get(room.getFloor());
             if (roomDOS == null || roomDOS.size() == 0) {
                 List<RoomDO> list = new ArrayList<>();
@@ -67,6 +71,7 @@ public class RoomController {
         sortList(map);
         this.addDict(model);
         model.addAttribute("rooms",map);
+
         return "xjbg/room/roomMng";
     }
 
@@ -139,10 +144,12 @@ public class RoomController {
     @RequiresPermissions("xjbg:room:room")
     String operation(@PathVariable("roomId") Integer id, Model model) {
         this.addDict(model);
+        List<ProductDO> products = productService.list(new HashMap<>());
         List<DictDO> orderType = dictService.listByType("order_type");
         model.addAttribute("orderTypes", orderType);
         RoomDO room = roomService.get(id);
         model.addAttribute("room", room);
+        model.addAttribute("products",products);
         return "xjbg/room/operation";
     }
 
