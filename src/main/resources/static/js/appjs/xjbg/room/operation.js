@@ -1,19 +1,33 @@
-//var productHtml = "<tr><th ><select id=\"selectProduct\" name=\"orderType\"  style=\"width: 68%\" onchange=\"add_product($(this));\" class=\"form-control chosen-select\" tabindex=\"2\" required><option value=\"\">--选择商品--</option><option th:each=\"product : ${products}\" th:value=\"${product.id}\" th:text=\"${product.productName}\"></option></select></th><th ><img src='' alt='[找不到图片]' width=\"80px\" ></th><th ><div style=\"width: 100% ;height: 100% \"><a class=\"btn \" href=\"#\" mce_href=\"#\" onclick=\"subtract($(this))\"><i class=\"fa fa-minus\"></i></a><input type=\"text\" style=\"width: 70px \" value=\"0\" ><a class=\"btn   \" href=\"#\" mce_href=\"#\"  onclick=\"add($(this))\"><i class=\"fa fa-plus\"></i></a></div></th></tr>"
 var tr = $("tr")[1];;
 $(function () {
     $("#addProduct").on("click", addProduct);
 });
+//添加一条商品
 function addProduct() {
-    // newTr.attr("hidden",false);
+    var target = true;
+    $(".productId").each(function(i, val) {
+      if(!val.value||val.value==""){
+          layer.alert("请选择商品!")
+         target = false;
+      }
+    });
+    if(!target)return;
     var tbody = $("tbody")[0];
-    debugger;
-    $(tbody).append(tr);
+    $(tbody).append('<tr>'+$(tr).html()+'</tr>');
 }
+//删除一条商品
+function delProduct(self) {
+    var tr = self.parents("tr");
+    tr.remove();
+    console.log(tr);
+}
+//数量加1
 function add(self) {
     var num = $(self.prev());
     var result = parseInt(num.val()) + 1;
     num.val(result);
 }
+//数量-1
 function subtract(self) {
     var num = $(self.next());
     var v = num.val();
@@ -21,18 +35,70 @@ function subtract(self) {
     var result = parseInt(num.val()) - 1
     num.val(result);
 }
+//选择商品
 var add_product = function (self) {
     var value = self.val();
     var src = "";
+    var prodictId = "";
     for (var i = 0; i < products.length; i++) {
         if (value == products[i].id) {
             src = products[i].productPic;
+            prodictId  = products[i].id;
         }
     }
     //获取父节点
-    var th = self.parents("th")[0]
+    var th = $(self.parents("th")[0])
     //获取兄弟节点的子节点
-    var img = $(th).next().children()[0];
+    var img = th.next().children()[0];
     $(img).attr("src", src);
+    th.prev().children().val(prodictId);
 }
 
+
+function save(){
+    var formData = new FormData();
+    var orderItems = new Array();
+    /**封装工单信息**/
+    var order = {};
+    order['roomId'] = room.id;
+    order['orderType'] = $("#orderType").val();
+    order['price'] = $("#price").val();
+    order['paidUp'] = 1;
+    /**封装工单明细*/
+    var ths = $("#pTable").children();
+    ths.each(function(i,val){
+        var orderItem = {};
+        var a = $(val).find(".productId");
+        //商品id
+        orderItem['productId'] = $(val).find(".productId").val();
+        //商品数量
+        orderItem['productAccount'] = $(val).find(".number").val();
+        orderItems.push(orderItem);
+    });
+    debugger;
+    formData.append("order",order);
+    formData.append("orderItems",orderItems);
+    $.ajax({
+        cache : true,
+        type : "POST",
+        url : "/xjbg/room/kaifan",
+        data :formData,
+        async : false,
+        processData:false,
+        error : function(request) {
+            parent.layer.alert("Connection error");
+        },
+        success : function(data) {
+            if (data.code == 0) {
+                parent.layer.msg("操作成功");
+                parent.reLoad();
+                var index = parent.layer.getFrameIndex(window.name); // 获取窗口索引
+                parent.layer.close(index);
+
+            } else {
+                parent.layer.alert(data.msg)
+            }
+
+        }
+    });
+}

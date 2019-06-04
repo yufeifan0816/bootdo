@@ -2,10 +2,13 @@ package com.bootdo.xjbg.controller;
 
 import java.util.*;
 
+import com.alibaba.fastjson.JSONObject;
 import com.bootdo.common.domain.DictDO;
 import com.bootdo.common.service.DictService;
 import com.bootdo.system.domain.UserDO;
 import com.bootdo.system.service.UserService;
+import com.bootdo.xjbg.domain.OrderDO;
+import com.bootdo.xjbg.domain.OrderItemDO;
 import com.bootdo.xjbg.domain.ProductDO;
 import com.bootdo.xjbg.service.ProductService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -199,6 +202,16 @@ public class RoomController {
     public R remove(@RequestParam("ids[]") Integer[] ids) {
         roomService.batchRemove(ids);
         return R.ok();
+    }
+    /**
+     * 删除
+     */
+    @PostMapping("/kaifan")
+    @ResponseBody
+    public R kaifan(@RequestParam(value = "order")OrderDO order , @RequestParam(value = "orderItems") List<OrderItemDO> orderItems) {
+        System.out.println(JSONObject.toJSONString(order));
+        System.out.println(JSONObject.toJSONString(orderItems));
+        return new R();
     }
 
 }
