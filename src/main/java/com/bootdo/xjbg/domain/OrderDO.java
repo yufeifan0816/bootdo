@@ -2,7 +2,7 @@ package com.bootdo.xjbg.domain;
 
 import java.io.Serializable;
 import java.util.Date;
-
+import java.util.List;
 
 
 /**
@@ -35,6 +35,16 @@ public class OrderDO implements Serializable {
 	private Date updateTime;
 	//
 	private String updateUser;
+
+	private List<OrderItemDO> orderItems;
+
+	public List<OrderItemDO> getOrderItems() {
+		return orderItems;
+	}
+
+	public void setOrderItems(List<OrderItemDO> orderItems) {
+		this.orderItems = orderItems;
+	}
 
 	/**
 	 * 设置：工单id

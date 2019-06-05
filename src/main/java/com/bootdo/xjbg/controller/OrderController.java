@@ -1,8 +1,20 @@
 package com.bootdo.xjbg.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.alibaba.fastjson.JSONObject;
+import com.bootdo.common.controller.BaseController;
+import com.bootdo.common.domain.DictDO;
+import com.bootdo.common.service.DictService;
+import com.bootdo.system.domain.UserDO;
+import com.bootdo.system.service.UserService;
+import com.bootdo.xjbg.domain.OrderItemDO;
+import com.bootdo.xjbg.domain.ProductDO;
+import com.bootdo.xjbg.domain.RoomDO;
+import com.bootdo.xjbg.service.ProductService;
+import com.bootdo.xjbg.service.RoomService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -31,10 +43,17 @@ import com.bootdo.common.utils.R;
  
 @Controller
 @RequestMapping("/xjbg/order")
-public class OrderController {
+public class OrderController extends BaseController {
 	@Autowired
 	private OrderService orderService;
-	
+	@Autowired
+	private RoomService roomService;
+	@Autowired
+	private DictService dictService;
+	@Autowired
+	private UserService userService;
+	@Autowired
+	private ProductService productService;
 	@GetMapping()
 	@RequiresPermissions("xjbg:order:order")
 	String Order(){
@@ -113,5 +132,45 @@ public class OrderController {
 		orderService.batchRemove(ids);
 		return R.ok();
 	}
-	
+	/**
+	 * 开房
+	 */
+	@PostMapping("/kaifang")
+	@ResponseBody
+	public R kaifang(@RequestBody OrderDO order) {
+		R r = new R();
+		try {
+			orderService.addOrder(order);
+		} catch (Exception e) {
+			r.put("code",500);
+			r.put("msg","服务器出错,请开管理员排除");
+			e.printStackTrace();
+		}
+		return new R();
+	}
+
+	@GetMapping("/operation/{roomId}")
+	@RequiresPermissions("xjbg:room:room")
+	String operation(@PathVariable("roomId") Integer id, Model model) {
+		setDeictsToModle(model,new String[]{"order_type","room_type"});
+		List<ProductDO> products = productService.list(new HashMap<>());
+		List<DictDO> orderType = dictService.listByType("order_type");
+		model.addAttribute("orderTypes", orderType);
+		List<DictDO> roomTypes = dictService.listByType("room_type");
+		RoomDO room = roomService.get(id);
+		model.addAttribute("room", room);
+		model.addAttribute("products",products);
+		return "xjbg/order/operation";
+	}
+	@GetMapping("/modification/{roomId}")
+	@RequiresPermissions("xjbg:room:room")
+	String modification(@PathVariable("roomId") Integer id, Model model) {
+		setDeictsToModle(model,new String[]{"order_type","room_type"});
+		RoomDO room = roomService.get(id);
+		List<ProductDO> products = productService.list(new HashMap<>());
+		model.addAttribute("room", room);
+		model.addAttribute("products",products);
+		return "xjbg/order/modification";
+	}
+
 }

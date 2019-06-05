@@ -113,5 +113,5 @@ public class OrderItemController {
 		orderItemService.batchRemove(ids);
 		return R.ok();
 	}
-	
+
 }

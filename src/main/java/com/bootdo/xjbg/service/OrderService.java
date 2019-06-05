@@ -27,4 +27,12 @@ public interface OrderService {
 	int remove(Long id);
 	
 	int batchRemove(Long[] ids);
+	/**
+	 * @Author yufeifan@wondersgroup.com
+	 * @Description //添加开房记录
+	 * @Date 16:15 2019/6/5
+	 * @Param [order]
+	 * @return void
+	 **/
+    void addOrder(OrderDO order);
 }

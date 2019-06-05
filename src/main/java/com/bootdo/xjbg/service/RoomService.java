@@ -29,5 +29,12 @@ public interface RoomService {
 	int batchRemove(Integer[] ids);
 
 	List<RoomDO> getAll();
-
+	/***
+	 * @Author yufeifan@wondersgroup.com
+	 * @Description //修改房间状态
+	 * @Date 16:23 2019/6/5
+	 * @Param [roomId, i]
+	 * @return void
+	 **/
+    void alterStrat(Long roomId, int roomState);
 }

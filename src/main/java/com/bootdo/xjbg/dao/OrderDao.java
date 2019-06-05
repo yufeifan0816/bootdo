@@ -21,8 +21,8 @@ public interface OrderDao {
 	List<OrderDO> list(Map<String,Object> map);
 	
 	int count(Map<String,Object> map);
-	
-	int save(OrderDO order);
+
+	Long save(OrderDO order);
 	
 	int update(OrderDO order);
 	

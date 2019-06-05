@@ -62,5 +62,12 @@ public class RoomServiceImpl implements RoomService {
 	public List<RoomDO> getAll() {
 		return roomDao.getAll();
 	}
+	/**修改房间状态**/
+	@Override
+	public void alterStrat(Long roomId, int roomState) {
+		RoomDO roomDO = roomDao.get(roomId.intValue());
+		roomDO.setRoomState(roomState);
+		roomDao.update(roomDO);
+	}
 
 }
