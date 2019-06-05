@@ -1,9 +1,13 @@
 package com.bootdo.xjbg.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
+import com.bootdo.common.aspect.LogAspect;
 import com.bootdo.common.utils.ShiroUtils;
 import com.bootdo.xjbg.dao.OrderItemDao;
 import com.bootdo.xjbg.domain.OrderItemDO;
 import com.bootdo.xjbg.service.RoomService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +23,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class OrderServiceImpl implements OrderService {
+	 private static final Logger logger = LoggerFactory.getLogger(OrderServiceImpl.class);
+
 	@Autowired
 	private OrderDao orderDao;
 	@Autowired
@@ -65,7 +71,7 @@ public class OrderServiceImpl implements OrderService {
     /**开房**/
     @Override
     public void addOrder(OrderDO order) {
-
+		order.setOrderState("1");//当前工单
         List<OrderItemDO> orderItems = order.getOrderItems();
         order.setCreateTime(new Date());
         order.setCreateUser(ShiroUtils.getUserName());
@@ -79,5 +85,19 @@ public class OrderServiceImpl implements OrderService {
         //修改房间状态
         roomService.alterStrat(order.getRoomId(),3);
     }
+
+	/***
+	 *根据房间id查询开房信息
+	 * @param id
+	 * @return
+	 */
+	@Override
+	public OrderDO findByRoomId(Integer id) {
+		OrderDO orderDO = orderDao.findByRoomId(id);
+		List<OrderItemDO> OrderItems = orderItemDao.findByOrderId(orderDO.getId().intValue());
+		orderDO.setOrderItems(OrderItems);
+		logger.info(JSONObject.toJSONString(orderDO));
+		return orderDO;
+	}
 
 }

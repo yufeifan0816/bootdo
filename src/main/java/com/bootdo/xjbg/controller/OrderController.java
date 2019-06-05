@@ -148,7 +148,7 @@ public class OrderController extends BaseController {
 		}
 		return new R();
 	}
-
+	/**进入开房界面*/
 	@GetMapping("/operation/{roomId}")
 	@RequiresPermissions("xjbg:room:room")
 	String operation(@PathVariable("roomId") Integer id, Model model) {
@@ -162,12 +162,16 @@ public class OrderController extends BaseController {
 		model.addAttribute("products",products);
 		return "xjbg/order/operation";
 	}
+
+	/**修改开房信息*/
 	@GetMapping("/modification/{roomId}")
 	@RequiresPermissions("xjbg:room:room")
 	String modification(@PathVariable("roomId") Integer id, Model model) {
 		setDeictsToModle(model,new String[]{"order_type","room_type"});
 		RoomDO room = roomService.get(id);
+		OrderDO orderDO = orderService.findByRoomId(id);
 		List<ProductDO> products = productService.list(new HashMap<>());
+		model.addAttribute("order", orderDO);
 		model.addAttribute("room", room);
 		model.addAttribute("products",products);
 		return "xjbg/order/modification";

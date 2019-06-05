@@ -30822,3 +30822,60 @@ org.weixin4j.WeixinException: 40164:操作异常
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
 	at java.lang.Thread.run(Thread.java:745)
+2019-06-03 22:00:41 -==>  Preparing: select distinct m.perms from sys_menu m left join sys_role_menu rm on m.menu_id = rm.menu_id left join sys_user_role ur on rm.role_id = ur.role_id where ur.user_id = ? 
+2019-06-03 22:00:41 -==> Parameters: 1(Long)
+2019-06-03 22:00:41 -<==      Total: 58
+2019-06-03 22:00:41 -请求地址 : http://localhost:8888/xjbg/room/operation/1
+2019-06-03 22:00:41 -HTTP METHOD : GET
+2019-06-03 22:00:41 -CLASS_METHOD : com.bootdo.xjbg.controller.RoomController.operation
+2019-06-03 22:00:41 -参数 : [1, {}]
+2019-06-03 22:00:41 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by 'value' desc 
+2019-06-03 22:00:41 -==> Parameters: room_type(String)
+2019-06-03 22:00:41 -<==      Total: 7
+2019-06-03 22:00:41 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by 'value' desc 
+2019-06-03 22:00:41 -==> Parameters: floor(String)
+2019-06-03 22:00:41 -<==      Total: 5
+2019-06-03 22:00:41 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by 'value' desc 
+2019-06-03 22:00:41 -==> Parameters: room_state(String)
+2019-06-03 22:00:41 -<==      Total: 2
+2019-06-03 22:00:41 -==>  Preparing: select * from sys_user 
+2019-06-03 22:00:41 -==> Parameters: 
+2019-06-03 22:00:41 -<==      Total: 11
+2019-06-03 22:00:41 -==>  Preparing: select `id`,`product_name`,`purchase_price`,`selling_price`,`product_pic`,`create_time`,`create_user`,`update_time`,`update_user` from xjbg_product order by id desc 
+2019-06-03 22:00:41 -==> Parameters: 
+2019-06-03 22:00:41 -<==      Total: 5
+2019-06-03 22:00:41 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by 'value' desc 
+2019-06-03 22:00:41 -==> Parameters: order_type(String)
+2019-06-03 22:00:41 -<==      Total: 3
+2019-06-03 22:00:41 -==>  Preparing: select `id`,`room_no`,`room_type`,`floor`,`room_state`,`price`,`create_time`,`update_time`,`create_user`,`update_user` from xjbg_room where id = ? 
+2019-06-03 22:00:41 -==> Parameters: 1(Integer)
+2019-06-03 22:00:41 -<==      Total: 1
+2019-06-03 22:00:41 -耗时 : 15
+2019-06-03 22:00:41 -返回值 : xjbg/room/operation
+2019-06-03 22:00:46 -请求地址 : http://localhost:8888/xjbg/room/operation/3
+2019-06-03 22:00:46 -HTTP METHOD : GET
+2019-06-03 22:00:46 -CLASS_METHOD : com.bootdo.xjbg.controller.RoomController.operation
+2019-06-03 22:00:46 -参数 : [3, {}]
+2019-06-03 22:00:46 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by 'value' desc 
+2019-06-03 22:00:46 -==> Parameters: room_type(String)
+2019-06-03 22:00:46 -<==      Total: 7
+2019-06-03 22:00:46 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by 'value' desc 
+2019-06-03 22:00:46 -==> Parameters: floor(String)
+2019-06-03 22:00:46 -<==      Total: 5
+2019-06-03 22:00:46 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by 'value' desc 
+2019-06-03 22:00:46 -==> Parameters: room_state(String)
+2019-06-03 22:00:46 -<==      Total: 2
+2019-06-03 22:00:46 -==>  Preparing: select * from sys_user 
+2019-06-03 22:00:46 -==> Parameters: 
+2019-06-03 22:00:46 -<==      Total: 11
+2019-06-03 22:00:46 -==>  Preparing: select `id`,`product_name`,`purchase_price`,`selling_price`,`product_pic`,`create_time`,`create_user`,`update_time`,`update_user` from xjbg_product order by id desc 
+2019-06-03 22:00:46 -==> Parameters: 
+2019-06-03 22:00:46 -<==      Total: 5
+2019-06-03 22:00:46 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by 'value' desc 
+2019-06-03 22:00:46 -==> Parameters: order_type(String)
+2019-06-03 22:00:46 -<==      Total: 3
+2019-06-03 22:00:46 -==>  Preparing: select `id`,`room_no`,`room_type`,`floor`,`room_state`,`price`,`create_time`,`update_time`,`create_user`,`update_user` from xjbg_room where id = ? 
+2019-06-03 22:00:46 -==> Parameters: 3(Integer)
+2019-06-03 22:00:46 -<==      Total: 1
+2019-06-03 22:00:46 -耗时 : 16
+2019-06-03 22:00:46 -返回值 : xjbg/room/operation

@@ -79,9 +79,11 @@ function load() {
                         title: '房间状态',
                         formatter: function (value, row, index) {
                             if (value == 1) {
-                                return '<span class="label label-primary">正常</span>';
+                                return '<span class="label label-primary">空房</span>';
                             } else if (value == 2) {
                                 return '<span class="label label-danger">维修中</span>';
+                            }else if (value == 3) {
+                                return '<span class="label label-warning">有客</span>';
                             }
                             return value;
                         }

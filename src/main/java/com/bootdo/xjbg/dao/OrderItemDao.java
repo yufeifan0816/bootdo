@@ -1,5 +1,6 @@
 package com.bootdo.xjbg.dao;
 
+import com.bootdo.xjbg.domain.OrderDO;
 import com.bootdo.xjbg.domain.OrderItemDO;
 
 import java.util.List;
@@ -29,4 +30,6 @@ public interface OrderItemDao {
 	int remove(Long id);
 	
 	int batchRemove(Long[] ids);
+
+    List<OrderItemDO> findByOrderId(Integer roomId);
 }

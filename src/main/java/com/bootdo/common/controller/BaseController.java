@@ -29,7 +29,7 @@ public class BaseController {
 	}
 	public void setDeictsToModle(Model modle,String[] types){
 		for (String type : types) {
-			modle.addAttribute(StringUtils.camelCaseName(type),dictService.listByType(type));
+			modle.addAttribute(StringUtils.camelCaseName(type)+"s",dictService.listByType(type));
 		}
 	}
 

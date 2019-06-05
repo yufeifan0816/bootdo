@@ -35,4 +35,11 @@ public interface OrderService {
 	 * @return void
 	 **/
     void addOrder(OrderDO order);
+
+	/**
+	 * 根据房间id查询开房信息
+	 * @param id
+	 * @return
+	 */
+    OrderDO findByRoomId(Integer id);
 }

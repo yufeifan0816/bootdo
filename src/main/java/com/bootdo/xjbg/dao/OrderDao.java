@@ -29,4 +29,10 @@ public interface OrderDao {
 	int remove(Long id);
 	
 	int batchRemove(Long[] ids);
+	/***
+	 *根据房间id查询开房信息
+	 * @param roomId
+	 * @return
+	 */
+    OrderDO findByRoomId(Integer roomId);
 }

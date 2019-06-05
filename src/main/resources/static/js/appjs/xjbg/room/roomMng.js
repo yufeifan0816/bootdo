@@ -17,7 +17,7 @@ function  load(){
                 if (room.roomType == roomTypes[j].value)
                     roomTypeName = roomTypes[j].name
             }
-            var roomCurrent = $('<div class="col-sm-3 room"><button type="button" onclick=" btnOnClick('+room.id+','+room.state+')" class="btn  col-sm-3 roomClass"><p class="font1" style="font-size: 50px"></p><h1 class="font2"></h1></button></div>');
+            var roomCurrent = $('<div class="col-sm-3 room"><button type="button" onclick=" btnOnClick('+room.id+','+room.roomState+')" class="btn  col-sm-3 roomClass"><p class="font1" style="font-size: 50px"></p><h1 class="font2"></h1></button></div>');
             var p = roomCurrent.find('p')[0];
             var h2 = roomCurrent.find('h1')[0];
             var btn = roomCurrent.find('button')[0];
@@ -42,23 +42,22 @@ function  load(){
 
 }
 function btnOnClick(roomId,state) {
-    if(state==1){
+    if (state == 1) {
         add(roomId);
-    }else if(state==2){
+    } else if (state == 2) {
         parent.layer.alert("房间正在维修");
-    }else if(state==3) {
+    } else if (state == 3) {
         layer.open({
             type: 2,
             title: '修改',
             maxmin: true,
             shadeClose: false, // 点击遮罩关闭层
             area: ['800px', '520px'],
-            content: prefix + '/modification/'+roomId
+            content: prefix + '/modification/' + roomId
         });
     }
 
 }
-
 function add(roomId){
     layer.open({
         type: 2,
