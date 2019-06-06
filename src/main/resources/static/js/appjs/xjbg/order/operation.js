@@ -1,6 +1,8 @@
-var tr = $("tr")[1];;
+var tr = $("tr")[1];
+var tbody = $("tbody");
 $(function () {
     $("#addProduct").on("click", addProduct);
+    calBalance();
 });
 //添加一条商品
 function addProduct() {
@@ -14,18 +16,21 @@ function addProduct() {
     if(!target)return;
     var tbody = $("tbody")[0];
     $(tbody).append('<tr>'+$(tr).html()+'</tr>');
+    calBalance();
 }
 //删除一条商品
 function delProduct(self) {
     var tr = self.parents("tr");
     tr.remove();
     console.log(tr);
+    calBalance();
 }
 //数量加1
 function add(self) {
     var num = $(self.prev());
     var result = parseInt(num.val()) + 1;
     num.val(result);
+    calBalance();
 }
 //数量-1
 function subtract(self) {
@@ -34,6 +39,7 @@ function subtract(self) {
     if (v <= 0) return;
     var result = parseInt(num.val()) - 1
     num.val(result);
+    calBalance()
 }
 //选择商品
 var add_product = function (self) {
@@ -52,6 +58,7 @@ var add_product = function (self) {
     var img = th.next().children()[0];
     $(img).attr("src", src);
     th.prev().children().val(prodictId);
+    calBalance()
 }
 
 function save(){
@@ -61,7 +68,7 @@ function save(){
     order.roomId = room.id;
     order.orderType = $("#orderType").val();
     order.price = $("#price").val();
-    order.paidUp = 1;
+    order.paidUp = $("#paidUp").val();
     /**封装工单明细*/
     var ths = $("#pTable").children();
     ths.each(function(i,val){
@@ -97,4 +104,38 @@ function save(){
             }
         }
     });
+}
+/**计算余额并更新到界面*/
+function calBalance(){
+    var price = calPrice();
+    var balance = parseInt($("#paidUp").val())-price;
+    if(balance&&balance<0){
+        $("#countPrice").css("color","red")
+        $("#balance").css("color","red")
+    }
+    $("#countPrice").text(price+'元');
+    $("#balance").text(balance+'元');
+}
+/**计算消费总价格总价格*/
+function calPrice(){
+    var account = 0;
+    var roomPrice = $("#price").val();
+    var trs = tbody.children()
+    console.log(trs);
+    trs.each(function (i,val) {
+        var number =  $(val).find(".number").val()//商品数量
+        var productId =  $(val).find(".productId").val();//商品id
+        var price =  getPriceById(productId);
+        account+=(price*number);
+    });
+    account+=parseInt(roomPrice);
+    return account;
+}
+function  getPriceById(productId) {
+    for (var j = 0; j < products.length; j++) {
+        if (parseInt(productId) == products[j].id) {
+            return products[j].sellingPrice;
+        }
+    }
+    return 0;
 }

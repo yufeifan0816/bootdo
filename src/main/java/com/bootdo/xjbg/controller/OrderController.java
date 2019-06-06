@@ -132,6 +132,21 @@ public class OrderController extends BaseController {
 		orderService.batchRemove(ids);
 		return R.ok();
 	}
+
+	/**进入开房界面*/
+	@GetMapping("/operation/{roomId}")
+	@RequiresPermissions("xjbg:room:room")
+	String operation(@PathVariable("roomId") Integer id, Model model) {
+		setDeictsToModle(model,new String[]{"order_type","room_type"});
+		List<ProductDO> products = productService.list(new HashMap<>());
+		List<DictDO> orderType = dictService.listByType("order_type");
+		model.addAttribute("orderTypes", orderType);
+		List<DictDO> roomTypes = dictService.listByType("room_type");
+		RoomDO room = roomService.get(id);
+		model.addAttribute("room", room);
+		model.addAttribute("products",products);
+		return "xjbg/order/operation";
+	}
 	/**
 	 * 开房
 	 */
@@ -148,22 +163,7 @@ public class OrderController extends BaseController {
 		}
 		return new R();
 	}
-	/**进入开房界面*/
-	@GetMapping("/operation/{roomId}")
-	@RequiresPermissions("xjbg:room:room")
-	String operation(@PathVariable("roomId") Integer id, Model model) {
-		setDeictsToModle(model,new String[]{"order_type","room_type"});
-		List<ProductDO> products = productService.list(new HashMap<>());
-		List<DictDO> orderType = dictService.listByType("order_type");
-		model.addAttribute("orderTypes", orderType);
-		List<DictDO> roomTypes = dictService.listByType("room_type");
-		RoomDO room = roomService.get(id);
-		model.addAttribute("room", room);
-		model.addAttribute("products",products);
-		return "xjbg/order/operation";
-	}
-
-	/**修改开房信息*/
+	/**修改开房信息界面*/
 	@GetMapping("/modification/{roomId}")
 	@RequiresPermissions("xjbg:room:room")
 	String modification(@PathVariable("roomId") Integer id, Model model) {
@@ -175,6 +175,22 @@ public class OrderController extends BaseController {
 		model.addAttribute("room", room);
 		model.addAttribute("products",products);
 		return "xjbg/order/modification";
+	}
+	/**
+	 * 修改开房信息
+	 */
+	@PostMapping("/updateOrder")
+	@ResponseBody
+	public R updateOrder(@RequestBody OrderDO order) {
+		R r = new R();
+		try {
+			orderService.updateOrder(order);
+		} catch (Exception e) {
+			r.put("code",500);
+			r.put("msg","服务器出错,请开管理员排除");
+			e.printStackTrace();
+		}
+		return new R();
 	}
 
 }

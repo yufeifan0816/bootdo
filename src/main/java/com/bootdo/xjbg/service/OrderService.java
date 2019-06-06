@@ -42,4 +42,12 @@ public interface OrderService {
 	 * @return
 	 */
     OrderDO findByRoomId(Integer id);
+	/**
+	 * @Author yufeifan@wondersgroup.com
+	 * @Description //修改开房记录
+	 * @Date 16:15 2019/6/5
+	 * @Param [order]
+	 * @return void
+	 **/
+	void updateOrder(OrderDO order);
 }

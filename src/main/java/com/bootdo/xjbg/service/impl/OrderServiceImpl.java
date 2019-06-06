@@ -49,7 +49,6 @@ public class OrderServiceImpl implements OrderService {
 	}
 	
 	@Override
-    @Transactional
 	public int save(OrderDO order){
         return 0;
 	}
@@ -70,6 +69,7 @@ public class OrderServiceImpl implements OrderService {
 	}
     /**开房**/
     @Override
+	@Transactional
     public void addOrder(OrderDO order) {
 		order.setOrderState("1");//当前工单
         List<OrderItemDO> orderItems = order.getOrderItems();
@@ -98,6 +98,32 @@ public class OrderServiceImpl implements OrderService {
 		orderDO.setOrderItems(OrderItems);
 		logger.info(JSONObject.toJSONString(orderDO));
 		return orderDO;
+	}
+
+	@Override
+	@Transactional
+	public void updateOrder(OrderDO order) {
+		List<OrderItemDO> orderItems = order.getOrderItems();
+		order.setUpdateTime(new Date());
+		order.setUpdateUser(ShiroUtils.getUserName());
+		orderDao.update(order);
+		for (OrderItemDO orderItem : orderItems) {
+			Long id = orderItem.getId();
+			if(id ==null||id ==0L){
+				orderItem.setCreateUser(ShiroUtils.getUserName());
+				orderItem.setCreateTime(new Date());
+				orderItem.setOrderId(order.getId());
+				orderItemDao.save(orderItem);
+			}else{
+				orderItem.setUpdateTime(new Date());
+				orderItem.setUpdateUser(ShiroUtils.getUserName());
+				orderItemDao.update(orderItem);
+			}
+
+
+		}
+		//修改房间状态
+		roomService.alterStrat(order.getRoomId(),3);
 	}
 
 }

@@ -39,7 +39,6 @@ function  load(){
         }
         $(".gray-bg").append(floorHtml).append(rowCurrent);
     }
-
 }
 function btnOnClick(roomId,state) {
     if (state == 1) {
@@ -47,16 +46,20 @@ function btnOnClick(roomId,state) {
     } else if (state == 2) {
         parent.layer.alert("房间正在维修");
     } else if (state == 3) {
-        layer.open({
-            type: 2,
-            title: '修改',
-            maxmin: true,
-            shadeClose: false, // 点击遮罩关闭层
-            area: ['800px', '520px'],
-            content: prefix + '/modification/' + roomId
-        });
+        eadit(roomId);
     }
 
+}
+
+function eadit(roomId){
+    layer.open({
+        type: 2,
+        title: '修改',
+        maxmin: true,
+        shadeClose: false, // 点击遮罩关闭层
+        area: ['1000px', '650px'],
+        content: prefix + '/modification/' + roomId
+    });
 }
 function add(roomId){
     layer.open({
@@ -64,7 +67,7 @@ function add(roomId){
         title: '开房',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
-        area: ['800px', '520px'],
+        area: ['1000px', '520px'],
         content: prefix + '/operation/'+roomId
     });
 }

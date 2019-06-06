@@ -92,8 +92,6 @@
             <if test="price != null">`price` = #{price},</if>
             <if test="paidUp != null">`paid_up` = #{paidUp},</if>
             <if test="orderState != null">`order_state` = #{orderState},</if>
-            <if test="createTime != null">`create_time` = #{createTime},</if>
-            <if test="createUser != null">`create_user` = #{createUser},</if>
             <if test="updateTime != null">`update_time` = #{updateTime},</if>
             <if test="updateUser != null">`update_user` = #{updateUser}</if>
         </set>

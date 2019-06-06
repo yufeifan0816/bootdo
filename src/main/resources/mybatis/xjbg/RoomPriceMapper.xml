@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.xjbg.dao.RoomPriceDao">
+
+	<select id="get" resultType="com.bootdo.xjbg.domain.RoomPriceDO">
+		select `room_id`,`order_type`,`price`,`create_user`,`create_time`,`update_user`,`update_time` from xjbg_room_price where room_id = #{value}
+	</select>
+
+	<select id="list"  resultMap="RoomPriceResultMap">
+		select t1.room_id,t1.order_type,t1.price price2 ,t2.* from xjbg_room_price t1,xjbg_room t2
+        <where>  
+		  		  <if test="roomId != null and roomId != ''"> and room_id = #{roomId} </if>
+		  		  <if test="orderType != null and orderType != ''"> and order_type = #{orderType} </if>
+		  		  <if test="price != null and price != ''"> and price = #{price} </if>
+		  		  <if test="createUser != null and createUser != ''"> and create_user = #{createUser} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="updateUser != null and updateUser != ''"> and update_user = #{updateUser} </if>
+		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by room_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<resultMap id="RoomPriceResultMap" type="com.bootdo.xjbg.domain.RoomPriceDO">
+		<result property="roomId" column="room_id"/>
+		<result property="orderType" column="order_type"/>
+		<result property="price" column="price2"/>
+		<association property="room" javaType="com.bootdo.xjbg.domain.RoomDO">
+			<id property="id" column="id"/>
+			<result  property="roomNo" column="room_no"/>
+			<result  property="roomType" column="room_type"/>
+			<result  property="floor" column="floor"/>
+			<result  property="roomState" column="room_state"/>
+			<result  property="price" column="price"/>
+		</association>
+	</resultMap>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from xjbg_room_price
+		 <where>  
+		  		  <if test="roomId != null and roomId != ''"> and room_id = #{roomId} </if>
+		  		  <if test="orderType != null and orderType != ''"> and order_type = #{orderType} </if>
+		  		  <if test="price != null and price != ''"> and price = #{price} </if>
+		  		  <if test="createUser != null and createUser != ''"> and create_user = #{createUser} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="updateUser != null and updateUser != ''"> and update_user = #{updateUser} </if>
+		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.xjbg.domain.RoomPriceDO">
+		insert into xjbg_room_price
+		(
+			`room_id`, 
+			`order_type`, 
+			`price`, 
+			`create_user`, 
+			`create_time`, 
+			`update_user`, 
+			`update_time`
+		)
+		values
+		(
+			#{roomId}, 
+			#{orderType}, 
+			#{price}, 
+			#{createUser}, 
+			#{createTime}, 
+			#{updateUser}, 
+			#{updateTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.xjbg.domain.RoomPriceDO">
+		update xjbg_room_price 
+		<set>
+			<if test="orderType != null">`order_type` = #{orderType}, </if>
+			<if test="price != null">`price` = #{price}, </if>
+			<if test="createUser != null">`create_user` = #{createUser}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}, </if>
+			<if test="updateUser != null">`update_user` = #{updateUser}, </if>
+			<if test="updateTime != null">`update_time` = #{updateTime}</if>
+		</set>
+		where room_id = #{roomId}
+	</update>
+	
+	<delete id="remove">
+		delete from xjbg_room_price where room_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from xjbg_room_price where room_id in 
+		<foreach item="roomId" collection="array" open="(" separator="," close=")">
+			#{roomId}
+		</foreach>
+	</delete>
+
+</mapper>

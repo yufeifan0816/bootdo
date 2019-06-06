@@ -1,28 +1,28 @@
 var tr = $("tr")[1];
-var trHtml = $("tr")[1].innerHTML;
 var tbody = $("tbody");
 $(function () {
     $("#addProduct").on("click", addProduct);
+    $("#paidUp").blur(function () {
+        calBalance();
+    });
     //初始化工单商品
     var orderItems = order.orderItems;
     for (var i = 0; i < orderItems.length; i++) {
+        tbody.prepend('<tr>' + $(tr).html() + '</tr>');
+        var newTr = $(tbody.children()[0]);
         var src = "";
         var item = orderItems[i];
-        var newTr =$(tr);
-        var te =$(tr).html();
-        var te2 =  newTr.html();
-        newTr.find(".orderItemId").val(item.id);
-        newTr.find(".productId").val(item.productId);
-        newTr.find(".number").val(item.productAccount);
         for (var j = 0; j < products.length; j++) {
             if (item.productId == products[j].id) {
                 src = products[j].productPic;
             }
         }
-        debugger;
+        newTr.find(".orderItemId").val(item.id);
+        newTr.find(".productId").val(item.productId);
+        newTr.find(".number").val(item.productAccount);
         newTr.find(".productPic").attr("src", src)
-        tbody.prepend('<tr>' + newTr.html() + '</tr>')
     }
+    calBalance()
 });
 
 //添加一条商品
@@ -37,13 +37,34 @@ function addProduct() {
     if (!target) return;
     var tbody = $("tbody")[0];
     $(tbody).append('<tr>' + $(tr).html() + '</tr>');
+    calBalance()
 }
 
 //删除一条商品
 function delProduct(self) {
-    var tr = self.parents("tr");
-    tr.remove();
-    console.log(tr);
+    layer.confirm("确认删除这件商品", function (index) {
+        var tr = self.parents("tr");
+        var orderItemId = tr.find(".orderItemId").val();
+        if (orderItemId) {
+            //后台删除
+            $.post("/xjbg/orderItem/remove", {"id": orderItemId}, function (result) {
+                if (result.code == 0) {
+                    tr.remove();
+                    layer.close(index);
+                } else {
+                    layer.close(index);
+                    layer.alert("删除失败:" + result.msg)
+                }
+            });
+            calBalance();
+        } else {
+            tr.remove();
+            layer.close(index);
+            calBalance();
+        }
+    });
+    calBalance();
+
 }
 
 //数量加1
@@ -51,6 +72,7 @@ function add(self) {
     var num = $(self.prev());
     var result = parseInt(num.val()) + 1;
     num.val(result);
+    calBalance()
 }
 
 //数量-1
@@ -60,17 +82,16 @@ function subtract(self) {
     if (v <= 0) return;
     var result = parseInt(num.val()) - 1
     num.val(result);
+    calBalance()
 }
 
 //选择商品
 var add_product = function (self) {
     var value = self.val();
     var src = "";
-    var prodictId = "";
     for (var i = 0; i < products.length; i++) {
         if (value == products[i].id) {
             src = products[i].productPic;
-            prodictId = products[i].id;
         }
     }
     //获取父节点
@@ -78,26 +99,33 @@ var add_product = function (self) {
     //获取兄弟节点的子节点
     var img = th.next().children()[0];
     $(img).attr("src", src);
-    th.prev().children().val(prodictId);
+    calBalance()
 }
 
-function save() {
+function upload() {
     var orderItems = new Array();
     /**封装工单信息**/
     var order = {};
+    order.id = $("#id").val();
     order.roomId = room.id;
     order.orderType = $("#orderType").val();
     order.price = $("#price").val();
-    order.paidUp = 1;
+    order.paidUp = $("#paidUp").val();
+    ;
     /**封装工单明细*/
     var ths = $("#pTable").children();
     ths.each(function (i, val) {
         var orderItem = {};
-        var a = $(val).find(".productId");
+        var productId = $(val).find(".productId").val();
+        var productAccount = $(val).find(".number").val();
+        var orderItemId = $(val).find(".orderItemId").val();
+        if (!productId || productId == "") return true;
+        //明细
+        orderItem.id = orderItemId;
         //商品id
-        orderItem['productId'] = $(val).find(".productId").val();
+        orderItem.productId = productId;
         //商品数量
-        orderItem['productAccount'] = $(val).find(".number").val();
+        orderItem.productAccount = productAccount;
         orderItems.push(orderItem);
     });
     order.orderItems = orderItems;
@@ -106,7 +134,7 @@ function save() {
         cache: true,
         dataType: "json",
         type: "POST",
-        url: "/xjbg/order/kaifang",
+        url: "/xjbg/order/updateOrder",
         data: JSON.stringify(order),
         async: false,
         error: function (request) {
@@ -124,4 +152,42 @@ function save() {
             }
         }
     });
+}
+
+/**计算余额并更新到界面*/
+function calBalance() {
+    var price = calPrice();
+    var balance = parseInt($("#paidUp").val()) - price;
+    if (balance && balance < 0) {
+        $("#countPrice").css("color", "red")
+        $("#balance").css("color", "red")
+    }
+    $("#countPrice").text(price + '元');
+    $("#balance").text(balance + '元');
+}
+
+/**计算消费总价格总价格*/
+function calPrice() {
+    var account = 0;
+    var roomPrice = $("#price").val();
+    var trs = tbody.children()
+    console.log(trs);
+    trs.each(function (i, val) {
+        var number = $(val).find(".number").val()//商品数量
+        var productId = $(val).find(".productId").val();//商品id
+        var price = getPriceById(productId);
+        account += (price * number);
+    });
+    account += parseInt(roomPrice);
+    return account;
+}
+
+/**根据商品id获取价格**/
+function getPriceById(productId) {
+    for (var j = 0; j < products.length; j++) {
+        if (parseInt(productId) == products[j].id) {
+            return products[j].sellingPrice;
+        }
+    }
+    return 0;
 }

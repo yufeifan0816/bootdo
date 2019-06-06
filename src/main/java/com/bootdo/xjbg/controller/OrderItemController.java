@@ -95,7 +95,7 @@ public class OrderItemController {
 	 */
 	@PostMapping( "/remove")
 	@ResponseBody
-	@RequiresPermissions("xjbg:orderItem:remove")
+	@RequiresPermissions("xjbg:room:roomMng")
 	public R remove( Long id){
 		if(orderItemService.remove(id)>0){
 		return R.ok();
