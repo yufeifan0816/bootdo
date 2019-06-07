@@ -105,6 +105,7 @@ function save(){
         }
     });
 }
+
 /**计算余额并更新到界面*/
 function calBalance(){
     var price = calPrice();
@@ -138,4 +139,15 @@ function  getPriceById(productId) {
         }
     }
     return 0;
+}
+
+
+/**选择入住类型,动态改变房间价格*/
+function changePrice(self) {
+    var orderType = self.val()
+    $.post("/xjbg/roomPrice/getPrice", {"roomId": room.id, "orderType": orderType}, function (result) {
+        $("#price").val(result);
+    })
+    calBalance()
+
 }

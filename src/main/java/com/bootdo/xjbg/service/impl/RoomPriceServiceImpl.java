@@ -3,6 +3,7 @@ package com.bootdo.xjbg.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -51,5 +52,13 @@ public class RoomPriceServiceImpl implements RoomPriceService {
 	public int batchRemove(Long[] roomIds){
 		return roomPriceDao.batchRemove(roomIds);
 	}
-	
+	/**根据房间id 和入住类型查询价格*/
+	@Override
+	public Integer getPrice(Long roomId, String orderType) {
+		Map<String, Object> param = new HashMap<>();
+		param.put("roomId",roomId);
+		param.put("orderType",orderType);
+		return roomPriceDao.getPrice(param);
+	}
+
 }

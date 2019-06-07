@@ -27,4 +27,12 @@ public interface RoomPriceService {
 	int remove(Long roomId);
 	
 	int batchRemove(Long[] roomIds);
+
+	/**
+	 * 根据房间id 和入住类型查询价格
+	 * @param roomId
+	 * @param orderType
+	 * @return
+	 */
+    Integer getPrice(Long roomId, String orderType);
 }

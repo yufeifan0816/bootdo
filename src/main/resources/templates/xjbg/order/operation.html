@@ -31,7 +31,7 @@
                             <div class="row" style="padding: 8px 0px">
                                 <div class="col-sm-6">
                                     <label class="col-sm-3 control-label" style="width: 30%">入住类型：</label>
-                                    <select name="orderType" id="orderType" style="width: 68%"
+                                    <select name="orderType" id="orderType" style="width: 68%" onchange="changePrice($(this));"
                                             class="form-control chosen-select" tabindex="2" required>
                                         <option th:each="orderType : ${orderTypes}" th:value="${orderType.value}"
                                                 th:text="${orderType.name}"></option>

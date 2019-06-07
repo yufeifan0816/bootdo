@@ -29,4 +29,6 @@ public interface RoomPriceDao {
 	int remove(Long room_id);
 	
 	int batchRemove(Long[] roomIds);
+
+    Integer getPrice(Map<String,Object> map);
 }

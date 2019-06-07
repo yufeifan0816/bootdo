@@ -25,6 +25,16 @@ $(function () {
     calBalance()
 });
 
+/**选择入住类型,动态改变房间价格*/
+function changePrice(self) {
+    var orderType = self.val()
+    $.post("/xjbg/roomPrice/getPrice", {"roomId": room.id, "orderType": orderType}, function (result) {
+        $("#price").val(result);
+    })
+    calBalance()
+
+}
+
 //添加一条商品
 function addProduct() {
     var target = true;
@@ -171,7 +181,6 @@ function calPrice() {
     var account = 0;
     var roomPrice = $("#price").val();
     var trs = tbody.children()
-    console.log(trs);
     trs.each(function (i, val) {
         var number = $(val).find(".number").val()//商品数量
         var productId = $(val).find(".productId").val();//商品id

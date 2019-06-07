@@ -43,7 +43,8 @@ public class RoomPriceController extends BaseController {
 	
 	@GetMapping()
 	@RequiresPermissions("xjbg:roomPrice:roomPrice")
-	String RoomPrice(){
+	String RoomPrice(Model model){
+		this.setDeictsToModle(model,new String[]{"order_type","room_type"});
 	    return "xjbg/roomPrice/roomPrice";
 	}
 	
@@ -122,5 +123,13 @@ public class RoomPriceController extends BaseController {
 		roomPriceService.batchRemove(roomIds);
 		return R.ok();
 	}
-	
+	/**
+	 * 根据房间id 和入住类型查询价格
+	 */
+	@PostMapping( "/getPrice")
+	@ResponseBody
+	public Integer getPrice(Long roomId,String orderType){
+		return roomPriceService.getPrice(roomId,orderType);
+	}
+
 }
