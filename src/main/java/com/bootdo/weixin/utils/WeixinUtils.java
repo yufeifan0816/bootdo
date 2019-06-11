@@ -10,6 +10,7 @@ import org.weixin4j.model.message.MediaType;
 import org.weixin4j.model.message.OutputMessage;
 import org.weixin4j.model.message.output.ImageOutputMessage;
 import org.weixin4j.model.message.output.TextOutputMessage;
+import sun.net.www.content.image.png;
 
 import java.io.File;
 import java.util.UUID;
@@ -23,6 +24,7 @@ import java.util.UUID;
 public class WeixinUtils {
     private static final Logger logger = LoggerFactory.getLogger(WeixinUtils.class);
     private static  Weixin weixin  ;
+    private static String separator =System.getProperty("file.separator");
 
     public synchronized static Weixin getWeixinInstance() {
         if (weixin == null) {
@@ -32,8 +34,8 @@ public class WeixinUtils {
     }
 
     public static OutputMessage getSubscribeMsg(String msg) {
-        String picPath = "D:\\yff\\gt\\2.png";
-        String picPath2 = "D:\\yff\\gt\\" + UUID.randomUUID() + ".png";
+        String picPath = separator+"yff"+separator+"wxpic"+separator+"2.png ";
+        String picPath2 = separator+"yff"+separator+"wxpic"+separator+ UUID.randomUUID() + ".png";
         PicUtils.DfAddWaterMark(picPath, picPath2, msg);
         return updatePicRtMsg(picPath2);
     }

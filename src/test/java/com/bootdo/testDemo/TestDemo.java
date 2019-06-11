@@ -6,10 +6,15 @@ public class TestDemo {
    private static int num =100;
 
    public static void main(String[] args) {
-      CarBiuld carBiuld = new CarBiuld();
+     /* CarBiuld carBiuld = new CarBiuld();
       carBiuld.setSequence("process2");
       carBiuld.setSequence("process4");
       carBiuld.setSequence("process3");
-      carBiuld.getModel().run();
+      carBiuld.getModel().run();*/
+     try {
+      return;
+     }finally {
+        System.out.println(111);
+     }
    }
 }
