@@ -64,11 +64,22 @@ function load() {
                     },
                     {
                         field: 'orderType',
-                        title: '入住类型'
+                        title: '入住类型',
+                        formatter: function (value, row, index) {
+                            for (var i = 0; i < orderTypes.length; i++) {
+                                if (value == orderTypes[i].value) {
+                                    return orderTypes[i].name;
+                                }
+                            }
+                            return value;
+                        }
                     },
                     {
                         field: 'price',
-                        title: '价格'
+                        title: '价格',
+                        formatter: function (value, row, index) {
+                            return value+"元";
+                        }
                     },
 
                     {

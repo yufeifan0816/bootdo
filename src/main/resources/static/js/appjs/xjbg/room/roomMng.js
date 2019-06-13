@@ -3,7 +3,8 @@ $(function () {
     load();
 
 });
-function  load(){
+
+function load() {
     for (var key in rooms) {
         //第k层
         var rommList = rooms[key];
@@ -17,12 +18,12 @@ function  load(){
                 if (room.roomType == roomTypes[j].value)
                     roomTypeName = roomTypes[j].name
             }
-            var roomCurrent = $('<div class="col-sm-3 room"><button type="button" onclick=" btnOnClick('+room.id+','+room.roomState+')" class="btn  col-sm-3 roomClass"><p class="font1" style="font-size: 50px"></p><h1 class="font2"></h1></button></div>');
+            var roomCurrent = $('<div class="col-sm-3 room"><button type="button" onclick=" btnOnClick(' + room.id + ',' + room.roomState + ')" class="btn  col-sm-3 roomClass"><p class="font1" style="font-size: 50px"></p><h1 class="font2"></h1></button></div>');
             var p = roomCurrent.find('p')[0];
             var h2 = roomCurrent.find('h1')[0];
             var btn = roomCurrent.find('button')[0];
-            $(btn).attr('id',room.roomNo );
-            /*  p.innerHTML = roomTypeName;*/
+            $(btn).attr('id', room.roomNo);
+            p.innerHTML = roomTypeName;
             h2.innerHTML = room.roomNo;
             /**根据房间间状态设置不同颜色*/
             if (room.roomState == 1) {
@@ -31,7 +32,7 @@ function  load(){
             } else if (room.roomState == 2) {
                 //维修
                 $(btn).css('background-color', '#dc5b31')
-            }else if (room.roomState == 3) {
+            } else if (room.roomState == 3) {
                 //有客
                 $(btn).css('background-color', '#FF8C00')
             }
@@ -40,7 +41,8 @@ function  load(){
         $(".gray-bg").append(floorHtml).append(rowCurrent);
     }
 }
-function btnOnClick(roomId,state) {
+
+function btnOnClick(roomId, state) {
     if (state == 1) {
         add(roomId);
     } else if (state == 2) {
@@ -51,7 +53,7 @@ function btnOnClick(roomId,state) {
 
 }
 
-function eadit(roomId){
+function eadit(roomId) {
     layer.open({
         type: 2,
         title: '修改',
@@ -61,13 +63,14 @@ function eadit(roomId){
         content: prefix + '/modification/' + roomId
     });
 }
-function add(roomId){
+
+function add(roomId) {
     layer.open({
         type: 2,
         title: '开房',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['1000px', '520px'],
-        content: prefix + '/operation/'+roomId
+        content: prefix + '/operation/' + roomId
     });
 }

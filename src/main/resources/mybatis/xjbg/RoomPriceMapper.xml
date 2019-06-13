@@ -7,8 +7,14 @@
 		select `room_id`,`order_type`,`price`,`create_user`,`create_time`,`update_user`,`update_time` from xjbg_room_price where room_id = #{value}
 	</select>
 
+	<select id="getPrice" resultType="java.lang.Integer">
+		select price from xjbg_room_price where room_id = #{roomId} and order_type = #{orderType}
+	</select>
+
 	<select id="list"  resultMap="RoomPriceResultMap">
-		select t1.room_id,t1.order_type,t1.price price2 ,t2.* from xjbg_room_price t1,xjbg_room t2
+		select t1.room_id,t1.order_type,t1.price price2 ,t2.* from xjbg_room_price t1
+		left  join xjbg_room t2 on  t1.room_id = t2.id
+
         <where>  
 		  		  <if test="roomId != null and roomId != ''"> and room_id = #{roomId} </if>
 		  		  <if test="orderType != null and orderType != ''"> and order_type = #{orderType} </if>

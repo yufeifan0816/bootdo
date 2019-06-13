@@ -56,6 +56,10 @@
 		</div>
 	</div>
 	<div th:include="include :: footer"></div>
+	<script th:inline="javascript">
+        var roomTypes = [[${roomTypes}]];
+        var orderTypes = [[${orderTypes}]];
+	</script>
 	<script type="text/javascript" src="/js/appjs/xjbg/roomPrice/roomPrice.js"></script>
 </body>
 </html>
