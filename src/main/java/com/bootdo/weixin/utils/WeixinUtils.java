@@ -24,7 +24,7 @@ import java.util.UUID;
 public class WeixinUtils {
     private static final Logger logger = LoggerFactory.getLogger(WeixinUtils.class);
     private static  Weixin weixin  ;
-    private static String separator =System.getProperty("file.separator");
+    public static String separator =System.getProperty("file.separator");
 
     public synchronized static Weixin getWeixinInstance() {
         if (weixin == null) {
@@ -34,9 +34,13 @@ public class WeixinUtils {
     }
 
     public static OutputMessage getSubscribeMsg(String msg) {
-        String picPath = separator+"yff"+separator+"wxpic"+separator+"2.png ";
-        String picPath2 = separator+"yff"+separator+"wxpic"+separator+ UUID.randomUUID() + ".png";
+        String picPath = "yff"+separator+"wxpic"+separator+"2.png";
+        String picPath2 = "yff"+separator+"wxpic"+separator+ UUID.randomUUID() + ".png";
         PicUtils.DfAddWaterMark(picPath, picPath2, msg);
+        if(logger.isInfoEnabled()){
+            logger.info("path1:"+picPath);
+            logger.info("path2:"+picPath2);
+        }
         return updatePicRtMsg(picPath2);
     }
     public static OutputMessage updatePicRtMsg(String picPath){

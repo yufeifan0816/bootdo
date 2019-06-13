@@ -29,7 +29,7 @@ import java.util.UUID;
 @Component
 public class MyNormalMessageHandler implements INormalMessageHandler {
     private static final Logger logger = LoggerFactory.getLogger(MyNormalMessageHandler.class);
-
+    private static String separator =System.getProperty("file.separator");
     private static Weixin weixin = new Weixin();
     @Autowired
     RedisRegistry redisRegistry;
@@ -40,7 +40,6 @@ public class MyNormalMessageHandler implements INormalMessageHandler {
     @PostConstruct
     public void init() throws WeixinException {
     }
-
     /**
      * @return org.weixin4j.model.message.OutputMessage
      * @Author yufeifan@wondersgroup.com
@@ -53,11 +52,15 @@ public class MyNormalMessageHandler implements INormalMessageHandler {
         logger.info("ClientUser:"+textInputMessage.getFromUserName());
         MediaComponent media = weixin.media();
         String content = textInputMessage.getContent();
-        String picPath = "D:\\yff\\gt\\123.png";
-        String picPath2 = "D:\\yff\\gt\\"+UUID.randomUUID() +".png";
+        String picPath = "yff"+separator+"wxpic"+separator+"123.png";
+        String picPath2 = "yff"+separator+"wxpic"+UUID.randomUUID() +".png";
         PicUtils.DfAddWaterMark(picPath,picPath2,content);
-        File file = new File(picPath2);
+        File file = new File(PicUtils.fDir,picPath2);
         String mediaId="";
+        if(logger.isInfoEnabled()){
+            logger.info("path1:"+picPath);
+            logger.info("path2:"+picPath2);
+        }
         if(file.isFile() && file.exists()){
             try {
                  mediaId = media.upload(MediaType.Image, file);

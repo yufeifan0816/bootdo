@@ -13,6 +13,7 @@ import java.io.FileOutputStream;
  * @create: 2019-05-21 19:00
  **/
 public class PicUtils {
+    public static File fDir = new File(File.separator);
     /**
      * @param srcImgPath 源图片路径
      * @param tarImgPath 保存的图片路径
@@ -27,7 +28,7 @@ public class PicUtils {
 
         try {
             // 读取原图片信息
-            File srcImgFile = new File(srcImgPath);//得到文件
+            File srcImgFile = new File(fDir,srcImgPath);//得到文件
             Image srcImg = ImageIO.read(srcImgFile);//文件转化为图片
             int srcImgWidth = srcImg.getWidth(null);//获取图片的宽
             int srcImgHeight = srcImg.getHeight(null);//获取图片的高
@@ -46,14 +47,14 @@ public class PicUtils {
             g.drawString(waterMarkContent, x, y);  //画出水印
             g.dispose();
             // 输出图片
-            FileOutputStream outImgStream = new FileOutputStream(tarImgPath);
+            FileOutputStream outImgStream = new FileOutputStream(new File(fDir,tarImgPath));
             ImageIO.write(bufImg, "jpg", outImgStream);
             System.out.println("添加水印完成");
             outImgStream.flush();
             outImgStream.close();
 
         } catch (Exception e) {
-            // TODO: handle exception
+           e.printStackTrace();
         }
     }
     public static int getWatermarkLength(String waterMarkContent, Graphics2D g) {
