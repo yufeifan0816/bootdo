@@ -12,7 +12,7 @@ import java.util.Map;
 import com.bootdo.xjbg.dao.RoomDao;
 import com.bootdo.xjbg.domain.RoomDO;
 import com.bootdo.xjbg.service.RoomService;
-
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
@@ -64,6 +64,7 @@ public class RoomServiceImpl implements RoomService {
 	}
 	/**修改房间状态**/
 	@Override
+	@Transactional
 	public void alterStrat(Long roomId, int roomState) {
 		RoomDO roomDO = roomDao.get(roomId.intValue());
 		roomDO.setRoomState(roomState);

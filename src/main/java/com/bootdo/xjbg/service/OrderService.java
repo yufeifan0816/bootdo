@@ -1,6 +1,9 @@
 package com.bootdo.xjbg.service;
 
+import com.bootdo.common.utils.Query;
 import com.bootdo.xjbg.domain.OrderDO;
+import com.bootdo.xjbg.vo.OrderVo;
+import com.github.pagehelper.Page;
 
 import java.util.List;
 import java.util.Map;
@@ -50,4 +53,30 @@ public interface OrderService {
 	 * @return void
 	 **/
 	void updateOrder(OrderDO order);
+	/***
+	 * @Author yufeifan@wondersgroup.com
+	 * @Description 退房结账
+	 * @Date 16:05 2019/8/7
+	 * @Param [orderId]
+	 * @return void
+	 **/
+	OrderDO checkOut(Integer orderId, String checkOutUser, String isDebt)throws Exception;
+	/**
+	 * @Author yufeifan@wondersgroup.com
+	 * @Description //分页查询工单列表
+	 * @Date 17:07 2019/8/8
+	 * @Param [query]
+	 * @return java.util.List<com.bootdo.xjbg.vo.OrderVo>
+	 **/
+    List<OrderVo> orderList(Map<String, Object> map);
+	/**
+	 * @Author yufeifan@wondersgroup.com
+	 * @Description //续住
+	 * @Date 17:55 2019/9/1
+	 * @Param [orderId] 工单id
+	 * @return com.bootdo.xjbg.domain.OrderDO
+	 **/
+    OrderDO renew(Long orderId);
+
+	Page<OrderVo> pageQuery(int offset, int limit, Map param);
 }

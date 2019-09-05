@@ -5,6 +5,7 @@ import com.bootdo.xjbg.domain.OrderDO;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.xjbg.vo.OrderVo;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -35,4 +36,12 @@ public interface OrderDao {
 	 * @return
 	 */
     OrderDO findByRoomId(Integer roomId);
+	/**
+	 * @Author yufeifan@wondersgroup.com
+	 * @Description //查询工单列表
+	 * @Date 17:10 2019/8/8
+	 * @Param [map]
+	 * @return java.util.List<com.bootdo.xjbg.vo.OrderVo>
+	 **/
+	List<OrderVo> orderList(Map<String,Object> map);
 }

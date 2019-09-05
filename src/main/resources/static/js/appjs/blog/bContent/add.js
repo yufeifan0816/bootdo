@@ -22,6 +22,7 @@ function save(status) {
 	$("#status").val(status);
 	var content_sn = $("#content_sn").summernote('code');
 	$("#content").val(content_sn);
+	console.log(content_sn);
 	$.ajax({
 		cache : true,
 		type : "POST",

@@ -4,7 +4,7 @@
 <mapper namespace="com.bootdo.xjbg.dao.OrderDao">
 
     <select id="get" resultType="com.bootdo.xjbg.domain.OrderDO">
-		select `id`,`room_id`,`order_type`,`price`,`paid_up`,`order_state`,`create_time`,`create_user`,`update_time`,`update_user` from xjbg_order where id = #{value}
+		select `id`,`room_id`,`order_type`,`price`,`paid_up`,`order_state`,`create_time`,`create_user`,`update_time`,`update_user`,`days`,checkOut_user,checkOut_time from xjbg_order where id = #{value}
 	</select>
     <select id="findByRoomId" resultType="com.bootdo.xjbg.domain.OrderDO">
 		select `id`,`room_id`,`order_type`,`price`,`paid_up`,`order_state`,`create_time`,`create_user`,`update_time`,`update_user`
@@ -12,40 +12,52 @@
 		where room_id = #{roomId} and order_state='1'
 	</select>
 
-    <select id="list" resultType="com.bootdo.xjbg.domain.OrderDO">
+    <select id="orderList" resultType="com.bootdo.xjbg.vo.OrderVo">
         select
-        `id`,`room_id`,`order_type`,`price`,`paid_up`,`order_state`,`create_time`,`create_user`,`update_time`,`update_user`
-        from xjbg_order
-        <where>
-            <if test="id != null and id != ''">and id = #{id}</if>
-            <if test="roomId != null and roomId != ''">and room_id = #{roomId}</if>
-            <if test="orderType != null and orderType != ''">and order_type = #{orderType}</if>
-            <if test="price != null and price != ''">and price = #{price}</if>
-            <if test="paidUp != null and paidUp != ''">and paid_up = #{paidUp}</if>
-            <if test="orderState != null and orderState != ''">and order_state = #{orderState}</if>
-            <if test="createTime != null and createTime != ''">and create_time = #{createTime}</if>
-            <if test="createUser != null and createUser != ''">and create_user = #{createUser}</if>
-            <if test="updateTime != null and updateTime != ''">and update_time = #{updateTime}</if>
-            <if test="updateUser != null and updateUser != ''">and update_user = #{updateUser}</if>
-        </where>
+        t2.room_no roomNo,
+        t2.room_type roomType,
+        t1.order_type orderType,
+        t2.price roomPrice,
+        t1.price realityPrice,
+        t3.otherConsumption,
+        t1.price+t3.otherConsumption totalFee,
+        t1.create_time checkInTime,
+        t1.days checkInDays,
+        t1.checkOut_time checkOutTime,
+        t1.create_user inOption,
+        t1.checkOut_user OutOption,
+        t1.isDebt isDebt
+        from xjbg_order t1
+        inner join xjbg_room t2 on t1.room_id = t2.id
+        inner join (select ord.id orderId ,IFNULL( sum(item.product_account*product.selling_price),0)
+        otherConsumption from xjbg_order ord left join xjbg_order_item item on ord.id=item.order_id  left join xjbg_product product on item.product_id = product.id group
+        by ord.id  ) t3 on t3.orderId=t1.id
+        <include refid="page_where"/>
         <choose>
             <when test="sort != null and sort.trim() != ''">
                 order by ${sort} ${order}
             </when>
             <otherwise>
-                order by id desc
+                order by t1.create_time desc
             </otherwise>
         </choose>
-        <if test="offset != null and limit != null">
-            limit #{offset}, #{limit}
-        </if>
+        <!--<if test="offset != null and limit != null">-->
+            <!--limit #{offset}, #{limit}-->
+        <!--</if>-->
     </select>
 
     <select id="count" resultType="int">
-        select count(*) from xjbg_order
+        select count(*)
+        from xjbg_order t1
+        inner join xjbg_room t2 on t1.room_id = t2.id
+        inner join (select ord.id orderId ,IFNULL( sum(item.product_account*product.selling_price),0)
+        otherConsumption from xjbg_order ord left join xjbg_order_item item on ord.id=item.order_id  left join xjbg_product product on item.product_id = product.id group
+        by ord.id  ) t3 on t3.orderId=t1.id
+        <include refid="page_where"/>
+    </select>
+    <sql id="page_where">
         <where>
-            <if test="id != null and id != ''">and id = #{id}</if>
-            <if test="roomId != null and roomId != ''">and room_id = #{roomId}</if>
+            <if test="roomId != null and roomId != ''">and t1.room_id = #{roomId}</if>
             <if test="orderType != null and orderType != ''">and order_type = #{orderType}</if>
             <if test="price != null and price != ''">and price = #{price}</if>
             <if test="paidUp != null and paidUp != ''">and paid_up = #{paidUp}</if>
@@ -55,7 +67,7 @@
             <if test="updateTime != null and updateTime != ''">and update_time = #{updateTime}</if>
             <if test="updateUser != null and updateUser != ''">and update_user = #{updateUser}</if>
         </where>
-    </select>
+    </sql>
 
     <insert id="save" parameterType="com.bootdo.xjbg.domain.OrderDO" useGeneratedKeys="true" keyProperty="id">
 		insert into xjbg_order
@@ -68,7 +80,10 @@
 			`create_time`, 
 			`create_user`, 
 			`update_time`, 
-			`update_user`
+			`update_user`,
+			days,
+			isDebt,
+			checkOut_User
 		)
 		values
 		(
@@ -80,7 +95,10 @@
 			#{createTime}, 
 			#{createUser}, 
 			#{updateTime}, 
-			#{updateUser}
+			#{updateUser},
+			#{days},
+			#{isDebt},
+			#{checkOutUser}
 		)
 	</insert>
 
@@ -93,7 +111,11 @@
             <if test="paidUp != null">`paid_up` = #{paidUp},</if>
             <if test="orderState != null">`order_state` = #{orderState},</if>
             <if test="updateTime != null">`update_time` = #{updateTime},</if>
-            <if test="updateUser != null">`update_user` = #{updateUser}</if>
+            <if test="updateUser != null">`update_user` = #{updateUser},</if>
+            <if test="checkOutTime != null">`checkOut_time` = #{checkOutTime},</if>
+            <if test="days != null">`days` = #{days},</if>
+            <if test="isDebt != null">`isDebt` = #{isDebt},</if>
+            <if test="checkOutUser != null">`checkOut_user` = #{checkOutUser}</if>
         </set>
         where id = #{id}
     </update>

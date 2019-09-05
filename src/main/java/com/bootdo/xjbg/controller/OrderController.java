@@ -15,6 +15,7 @@ import com.bootdo.xjbg.domain.ProductDO;
 import com.bootdo.xjbg.domain.RoomDO;
 import com.bootdo.xjbg.service.ProductService;
 import com.bootdo.xjbg.service.RoomService;
+import com.bootdo.xjbg.vo.OrderVo;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -66,7 +67,7 @@ public class OrderController extends BaseController {
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
         Query query = new Query(params);
-		List<OrderDO> orderList = orderService.list(query);
+		List<OrderVo> orderList = orderService.orderList(query);
 		int total = orderService.count(query);
 		PageUtils pageUtils = new PageUtils(orderList, total);
 		return pageUtils;
@@ -171,9 +172,11 @@ public class OrderController extends BaseController {
 		RoomDO room = roomService.get(id);
 		OrderDO orderDO = orderService.findByRoomId(id);
 		List<ProductDO> products = productService.list(new HashMap<>());
+		List<DictDO> optionUser = dictService.listByType("option_user");
 		model.addAttribute("order", orderDO);
 		model.addAttribute("room", room);
 		model.addAttribute("products",products);
+		model.addAttribute("optionUsers",optionUser);
 		return "xjbg/order/modification";
 	}
 	/**
@@ -191,6 +194,39 @@ public class OrderController extends BaseController {
 			e.printStackTrace();
 		}
 		return new R();
+	}
+	/**
+	 * 退房结账
+	 */
+	@PostMapping("/checkOut")
+	@ResponseBody
+	public R checkOut( Integer orderId ,String checkOutUser,String isDebt) {
+		R r = new R();
+		try {
+			OrderDO orderDO = orderService.checkOut(orderId,checkOutUser,isDebt);
+			r.put("order",orderDO);
+		} catch (Exception e) {
+			r.put("code",500);
+			r.put("msg","服务器出错,请开管理员排除");
+			e.printStackTrace();
+		}
+		return r ;
+	}
+	/**
+	 * 续住
+	 */
+	@PostMapping("/renew")
+	@ResponseBody
+	public R renew(Long orderId) {
+		R r = new R();
+		try {
+			orderService.renew(orderId);
+		} catch (Exception e) {
+			r.put("code",500);
+			r.put("msg","服务器出错,请联系管理员");
+			e.printStackTrace();
+		}
+		return r ;
 	}
 
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
 <body class="gray-bg">
@@ -7,24 +7,43 @@
 		<div class="col-sm-12">
 			<div class="ibox">
 				<div class="ibox-body">
-					<div class="fixed-table-toolbar">
-						<div class="columns pull-left">
-							<button shiro:hasPermission="xjbg:order:add" type="button" class="btn  btn-primary" onclick="add()">
-								<i class="fa fa-plus" aria-hidden="true"></i>添加
-							</button>
-							<button shiro:hasPermission="xjbg:order:batchRemove" type="button" class="btn  btn-danger"
-								onclick="batchRemove()">
-								<i class="fa fa-trash" aria-hidden="true"></i>删除
-							</button>
+					<form class="form-inline" role="form">
+						<div class="form-group">
+							<label  for="roomNo">房间号:</label>
+							<input type="text" class="form-control" id="roomNo"
+								   placeholder="请输入房间号">
 						</div>
-						<div class="columns pull-right">
-							<button class="btn btn-success" onclick="reLoad()">查询</button>
+						<div class="form-group">
+							<label  for="roomType">房间类型:</label>
+							<select name="roomType" id="roomType" style="width: 68%" disabled="true"
+									class="form-control chosen-select" tabindex="2" required>
+								<option th:each="roomType : ${roomTypes}" th:value="${roomType.value}"
+										th:text="${roomType.name}"
+										th:selected="${roomType.value } == ${room.roomType}"></option>
+							</select>
 						</div>
-						<div class="columns pull-right col-md-2 nopadding">
-							<input id="searchName" type="text" class="form-control"
-								placeholder="">
-						</div>
-					</div>
+					</form>
+					<!--<div class="fixed-table-toolbar">-->
+						<!--&lt;!&ndash;<div class="columns ">&ndash;&gt;-->
+							<!--&lt;!&ndash;<button shiro:hasPermission="xjbg:order:add" type="button" class="btn  btn-primary" onclick="add()">&ndash;&gt;-->
+								<!--&lt;!&ndash;<i class="fa fa-plus" aria-hidden="true"></i>添加&ndash;&gt;-->
+							<!--&lt;!&ndash;</button>&ndash;&gt;-->
+							<!--&lt;!&ndash;<button shiro:hasPermission="xjbg:order:batchRemove" type="button" class="btn  btn-danger"&ndash;&gt;-->
+								<!--&lt;!&ndash;onclick="batchRemove()">&ndash;&gt;-->
+								<!--&lt;!&ndash;<i class="fa fa-trash" aria-hidden="true"></i>删除&ndash;&gt;-->
+							<!--&lt;!&ndash;</button>&ndash;&gt;-->
+						<!--&lt;!&ndash;</div>&ndash;&gt;-->
+						<!--<div>-->
+							<!--房间号:<input  id="searchName" type="text" class=" col-md-2" placeholder="">-->
+						<!--</div>-->
+						<!--<div class="columns ">-->
+							<!--<button class="btn btn-success" onclick="reLoad()">查询</button>-->
+						<!--</div>-->
+						<!--&lt;!&ndash;<div class="columns pull-right col-md-2 nopadding">-->
+							<!--<input id="searchName" type="text" class="form-control"-->
+								<!--placeholder="">-->
+						<!--</div>&ndash;&gt;-->
+					<!--</div>-->
 					<table id="exampleTable" data-mobile-responsive="true">
 					</table>
 				</div>
@@ -58,4 +77,5 @@
 	<div th:include="include :: footer"></div>
 	<script type="text/javascript" src="/js/appjs/xjbg/order/order.js"></script>
 </body>
+
 </html>

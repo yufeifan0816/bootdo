@@ -1,10 +1,10 @@
 var prefix = "/xjbg/order";
 $(function () {
-    load();
+    loadRoom();
 
 });
 
-function load() {
+function loadRoom() {
     for (var key in rooms) {
         //第k层
         var rommList = rooms[key];
@@ -23,7 +23,7 @@ function load() {
             var h2 = roomCurrent.find('h1')[0];
             var btn = roomCurrent.find('button')[0];
             $(btn).attr('id', room.roomNo);
-            p.innerHTML = roomTypeName;
+            // p.innerHTML = roomTypeName;
             h2.innerHTML = room.roomNo;
             /**根据房间间状态设置不同颜色*/
             if (room.roomState == 1) {

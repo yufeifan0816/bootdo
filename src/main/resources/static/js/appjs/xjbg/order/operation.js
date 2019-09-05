@@ -1,9 +1,15 @@
 var tr = $("tr")[1];
-var tbody = $("tbody");
+
 $(function () {
-    $("#addProduct").on("click", addProduct);
+    // $("#addProduct").on("click", addProduct);
+    /**初始化删除空白商品明细**/
+    $("#pTable").empty();
+    /**初始化价格*/
+    changePrice();
+    /**初始化消费金额*/
     calBalance();
 });
+
 //添加一条商品
 function addProduct() {
     var target = true;
@@ -72,13 +78,16 @@ function save(){
     /**封装工单明细*/
     var ths = $("#pTable").children();
     ths.each(function(i,val){
+        debugger;
         var orderItem = {};
-        var a = $(val).find(".productId");
-        //商品id
-        orderItem['productId'] = $(val).find(".productId").val();
-        //商品数量
-        orderItem['productAccount'] = $(val).find(".number").val();
-        orderItems.push(orderItem);
+        var productId = $(val).find(".productId").val();
+        if(productId!=null&&productId!="") {
+            //商品id
+            orderItem['productId'] = productId;
+            //商品数量
+            orderItem['productAccount'] = $(val).find(".number").val();
+            orderItems.push(orderItem);
+        }
     });
     order.orderItems = orderItems;
     $.ajax({
@@ -113,6 +122,9 @@ function calBalance(){
     if(balance&&balance<0){
         $("#countPrice").css("color","red")
         $("#balance").css("color","red")
+    }else {
+        $("#countPrice").css("color", "green");
+        $("#balance").css("color", "green");
     }
     $("#countPrice").text(price+'元');
     $("#balance").text(balance+'元');
@@ -121,8 +133,7 @@ function calBalance(){
 function calPrice(){
     var account = 0;
     var roomPrice = $("#price").val();
-    var trs = tbody.children()
-    console.log(trs);
+    var trs = $("#pTable").children()
     trs.each(function (i,val) {
         var number =  $(val).find(".number").val()//商品数量
         var productId =  $(val).find(".productId").val();//商品id
@@ -143,11 +154,12 @@ function  getPriceById(productId) {
 
 
 /**选择入住类型,动态改变房间价格*/
-function changePrice(self) {
-    var orderType = self.val()
+function changePrice() {
+    var orderType =$("#orderType").val();
     $.post("/xjbg/roomPrice/getPrice", {"roomId": room.id, "orderType": orderType}, function (result) {
         $("#price").val(result);
+        calBalance()
     })
-    calBalance()
+
 
 }

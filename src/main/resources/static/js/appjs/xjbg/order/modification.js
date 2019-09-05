@@ -1,7 +1,11 @@
 var tr = $("tr")[1];
 var tbody = $("tbody");
+var orderId = $("#id").val();
 $(function () {
     $("#addProduct").on("click", addProduct);
+    $("#checkOut").on("click", checkOut);
+    /**初始化删除空白商品明细**/
+    $("#pTable").empty();
     $("#paidUp").blur(function () {
         calBalance();
     });
@@ -169,8 +173,11 @@ function calBalance() {
     var price = calPrice();
     var balance = parseInt($("#paidUp").val()) - price;
     if (balance && balance < 0) {
-        $("#countPrice").css("color", "red")
-        $("#balance").css("color", "red")
+        $("#countPrice").css("color", "red");
+        $("#balance").css("color", "red");
+    }else {
+        $("#countPrice").css("color", "green");
+        $("#balance").css("color", "green");
     }
     $("#countPrice").text(price + '元');
     $("#balance").text(balance + '元');
@@ -200,3 +207,44 @@ function getPriceById(productId) {
     }
     return 0;
 }
+/**退房结算**/
+function checkOut(){
+    var balance = $("#balance").text().toString();
+    var msg = "<h3 style=''></h3>";
+    // 判断余额是否大于0
+    if(balance.indexOf('-')!=-1){
+        //需要付款
+        msg = "<h3 style='color: red; margin-left: 90px;margin-top: 20px'>需收款"+balance.replace('-','')+",请确认退房!</h3>";
+    }else{
+        //需要找零
+        msg = "<h3 style='color: green; margin-left: 90px;margin-top: 20px'>需找零"+balance+",请确认退房!</h3>";
+    }
+    msg+="</select>";
+    $("#checkOutForm").append($(msg));
+    $("#myModal").modal('show');
+}
+/**确认退房*/
+function checkOutSubmit(){
+    var isDebt  = $("#isDebt").val();
+    var orderId  = $("#orderId").val();
+    var checkOutUser  = $("#checkOutUser").val();
+    $.post("/xjbg/order/checkOut",{"isDebt":isDebt,"orderId":orderId,"checkOutUser":checkOutUser},function (result) {
+        if(result.code!=0){
+            layer.msg(result.msg);
+        }else{
+            $("#myModal").modal('hide');
+            var index = parent.layer.getFrameIndex(window.name); // 获取窗口索引
+            parent.layer.close(index);
+            // layer.alert("退房成功!");
+            parent.location.reload();
+            setTimeout(function(){layer.msg("退房成功!");},1000);
+        }
+    });
+}
+/**续住*/
+function renew(){
+    $.post("/xjbg/order/renew",{"orderId":orderId},function (result) {
+        console.log(result);
+    });
+}
+

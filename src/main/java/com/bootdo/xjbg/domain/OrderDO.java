@@ -21,20 +21,31 @@ public class OrderDO implements Serializable {
 	private Long roomId;
 	//工单类型
 	private String orderType;
-	//
+	//实际开房价格
 	private Integer price;
 	//已付款
 	private Integer paidUp;
 	//工单状态
 	private String orderState;
-	//
+	//退房时间
+	private Date checkOutTime;
+	private Integer days;
+	//是否欠费
+	private String isDebt;
+	//退房操作人
+	private String checkOutUser;
 	private Date createTime;
-	//
 	private String createUser;
-	//
 	private Date updateTime;
-	//
 	private String updateUser;
+
+	public Integer getDays() {
+		return days;
+	}
+
+	public void setDays(Integer days) {
+		this.days = days;
+	}
 
 	private List<OrderItemDO> orderItems;
 
@@ -44,6 +55,30 @@ public class OrderDO implements Serializable {
 
 	public void setOrderItems(List<OrderItemDO> orderItems) {
 		this.orderItems = orderItems;
+	}
+
+	public Date getCheckOutTime() {
+		return checkOutTime;
+	}
+
+	public void setCheckOutTime(Date checkOutTime) {
+		this.checkOutTime = checkOutTime;
+	}
+
+	public String getIsDebt() {
+		return isDebt;
+	}
+
+	public void setIsDebt(String isDebt) {
+		this.isDebt = isDebt;
+	}
+
+	public String getCheckOutUser() {
+		return checkOutUser;
+	}
+
+	public void setCheckOutUser(String checkOutUser) {
+		this.checkOutUser = checkOutUser;
 	}
 
 	/**

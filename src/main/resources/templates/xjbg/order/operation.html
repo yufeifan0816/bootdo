@@ -10,7 +10,7 @@
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
-                    <form class="form-horizontal m-t" id="signupForm">
+                    <div class="form-horizontal m-t" id="signupForm"  >
                         <div class="form-group">
                             <div class="row " style="padding: 8px 0px">
                                 <div class="col-sm-6">
@@ -31,7 +31,7 @@
                             <div class="row" style="padding: 8px 0px">
                                 <div class="col-sm-6">
                                     <label class="col-sm-3 control-label" style="width: 30%">入住类型：</label>
-                                    <select name="orderType" id="orderType" style="width: 68%" onchange="changePrice($(this));"
+                                    <select name="orderType" id="orderType" style="width: 68%" onchange="changePrice();"
                                             class="form-control chosen-select" tabindex="2" required>
                                         <option th:each="orderType : ${orderTypes}" th:value="${orderType.value}"
                                                 th:text="${orderType.name}"></option>
@@ -39,14 +39,14 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="col-sm-3 control-label" style="width: 30%">价格：</label>
-                                    <input id="price" style="width: 68%"  name="price"
+                                    <input id="price" style="width: 68%"  name="price" onblur="calBalance();"
                                            th:value="${room.price}" class="form-control" type="text">
                                 </div>
                             </div>
                             <div class="row" style="padding: 8px 0px">
                                 <div class="col-sm-6">
                                     <label class="col-sm-3 control-label" style="width: 30%">已付款：</label>
-                                    <input id="paidUp" style="width: 68%"  name="paidUp" value=0 class="form-control" type="text">
+                                    <input id="paidUp" style="width: 68%"  name="paidUp" value=0 class="form-control" onblur="calBalance();"  type="text">
                                 </div>
                                 <div class="col-sm-3">
                                     <label class="col-sm-7 control-label" >总消费：</label>
@@ -58,11 +58,9 @@
                                     <h2 id="balance" style="color: #00B83F"></h2>
                                 </div>
                             </div>
-                            <div class="row" style="padding: 8px 0px">
-                                <div class="col-sm-6">
-                                    <button id="addProduct" class="btn btn-info" >添加商品</button>
+                                <div class="col-sm-12">
+                                    <button id="addProduct" onclick="addProduct()" class="btn btn-info" >添加商品</button>
                                 </div>
-                            </div>
                             <div class="col-sm-12" >
                                 <table class="table table-condensed table-bordered" width="100%">
                                     <thead>
@@ -88,7 +86,7 @@
                                         <th >
                                             <div style="width: 100% ;height: 100% ">
                                                 <a class="btn " href="#" mce_href="#" onclick="subtract($(this))"><i class="fa fa-minus"></i></a>
-                                                <input class="number" type="text" style="width: 70px " value="0" >
+                                                <input class="number" type="text" style="width: 70px " onblur="calBalance();" value="0" >
                                                 <a class="btn   " href="#" mce_href="#"  onclick="add($(this))"><i class="fa fa-plus"></i></a>
                                                 <button class="btn btn-danger" onclick="delProduct($(this))" >删除</button>
                                             </div>
@@ -99,12 +97,13 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-8 col-sm-offset-3">
-                                <button id="submit" onclick="save()" class="btn btn-primary">提交</button>
+                            <div class="col-sm-2 col-md-offset-5 ">
+                                <button id="submit" onclick="save()" class="btn btn-primary center-block " style="width: 100%">提交</button>
                             </div>
 
                         </div>
-                    </form>
+                        <input id="hiddenText" type="text" style="display:none" />
+                    </div>
                 </div>
             </div>
         </div>
