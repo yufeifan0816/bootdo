@@ -2,6 +2,7 @@ package com.bootdo.common.service;
 
 import com.bootdo.common.domain.DictDO;
 import com.bootdo.system.domain.UserDO;
+import org.springframework.ui.Model;
 
 import java.util.List;
 import java.util.Map;
@@ -52,5 +53,14 @@ public interface DictService {
 	 * @return
 	 */
 	List<DictDO> listByType(String type);
+	
+	/**
+	 * @Author yufeifan@wondersgroup.com
+	 * @Description //TODO 
+	 * @Date 14:08 2019/9/5
+	 * @Param 
+	 * @return 
+	 **/
+	void setModel(Model model);
 
 }

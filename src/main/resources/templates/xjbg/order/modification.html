@@ -6,6 +6,46 @@
 <script>
 </script>
 <style>
+    * {
+        padding:0;
+        margin:0;
+        font-family:"微软雅黑";
+    }
+    li {
+        list-style:none;
+    }
+    a {
+        text-decoration:none;
+    }
+    img {
+        border:none;
+    }
+    .box {
+        margin-left:20%;
+
+    }
+    .winBox {
+        width:70%;
+        height:40px;
+        overflow:hidden;
+        position:relative;
+        /*background:pink;*/
+        background:url("../../../static/img/timg.jpg") no-repeat;
+    }
+    .scroll {
+        /*width的大小是根据下面li的长度和多少个li而定的，需注意！*/
+        width:auto;
+        position:absolute;
+        left:550px;
+        top:0px;
+    }
+    .scroll li {
+        width: 550px;
+        float:left;
+        line-height:40px;
+        text-align:center;
+    }
+
 </style>
 <body class="gray-bg">
 <div class="wrapper wrapper-content ">
@@ -13,8 +53,15 @@
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
-                    <form class="form-horizontal m-t" id="signupForm">
+                    <div class="form-horizontal m-t" id="signupForm">
                         <div class="form-group">
+                            <div class="box">
+                                <div class="winBox">
+                                    <ul class="scroll">
+                                        <li><h3><a href="#" id="gd">入住天数:days天&emsp;&emsp;预计退房时间:outTime</a></h3></li>
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="row " style="padding: 8px 0px">
                                 <input id="id" name="id" th:value="${order.id}" type="hidden">
                                 <div class="col-sm-6">
@@ -25,7 +72,7 @@
                                 <div class="col-sm-6">
                                     <label class="col-sm-3 control-label" style="width: 30%">房间类型：</label>
                                     <select name="roomType" id="roomType" style="width: 68%" disabled="true"
-                                            class="form-control chosen-select" tabindex="2" required>
+                                            class="form-control chosen-select " tabindex="2" required>
                                         <option th:each="roomType : ${roomTypes}" th:value="${roomType.value}"
                                                 th:text="${roomType.name}"
                                                 th:selected="${roomType.value } == ${room.roomType}"></option>
@@ -39,7 +86,8 @@
                                             onchange="changePrice($(this));"
                                             class="form-control chosen-select" tabindex="2" required>
                                         <option th:each="orderType : ${orderTypes}" th:value="${orderType.value}"
-                                                th:text="${orderType.name}"></option>
+                                                th:text="${orderType.name}"
+                                                th:selected="${orderType.value } == ${order.orderType}"></option>
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
@@ -111,14 +159,14 @@
                                 <button id="submit" onclick="upload()" class="btn btn-primary center-block " style="width: 100%">提交</button>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- 退房结算界面模态框（Modal） -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="width: 400px;">
+        <div class="modal-dialog" style="width: 550px;">
             <form class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -169,11 +217,38 @@
     $(function(){
         //判断如果当前日期是开房时间的第二天，则显示续住按钮
         var createTime  = new Date(Date.parse(order.createTime));//开房日期
-        var current = new Date();//单签日期
-        if(createTime.getDate()!=current.getDate()){
+        var current = new Date();//当前日期
+        if(createTime.getDate()+(order.days-1)!=current.getDate()){//getDate 获取本月的日
             $("#continue").show();
         }
+        //计算天数和退房时间
+        var text  = $("#gd").text();
+        text =  text.replace("days",order.days).replace("outTime",order.outTime);
+        $("#gd").text(text);
+        var goLeftNum = 550;
+        function goLeft() {
+            //goLeftNum >b 时销毁ul
+            //goLeftNum>b-a 时 第二个div出现
+            //750是根据你给的尺寸，可变的
+            if (goLeftNum == -550) {
+                goLeftNum = 550;
+            }
+            goLeftNum -= 1;
+            $(".scroll").css({
+                left: goLeftNum
+            })
+        }
+        //设置滚动速度
+        var timer = setInterval(goLeft, 20);
+        //设置鼠标经过时滚动停止
+        $(".box").hover(function() {
+                clearInterval(timer);
+            },
+            function() {
+                timer = setInterval(goLeft, 20);
+            })
     });
+
 </script>
 <script type="text/javascript" src="/js/appjs/xjbg/order/modification.js">
 

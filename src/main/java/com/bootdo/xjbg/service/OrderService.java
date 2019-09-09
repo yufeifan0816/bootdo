@@ -1,5 +1,6 @@
 package com.bootdo.xjbg.service;
 
+import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;
 import com.bootdo.xjbg.domain.OrderDO;
 import com.bootdo.xjbg.vo.OrderVo;
@@ -78,5 +79,5 @@ public interface OrderService {
 	 **/
     OrderDO renew(Long orderId);
 
-	Page<OrderVo> pageQuery(int offset, int limit, Map param);
+	PageUtils pageQuery( Query param);
 }

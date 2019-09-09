@@ -77,12 +77,12 @@ public class OrderServiceTest extends BaseTest {
     /**分页插件测试*/
     @Test
     public void pageTest() throws Exception {
-        HashMap<Object, Object> param = new HashMap<>();
-        Page<OrderVo> page = orderService.pageQuery(2,5,param);
-        System.out.println(page.size());
-        System.out.println("当前页:"+page.getPageNum());
-        System.out.println("总共条数:"+page.getTotal());
-        System.out.println("没页条数:"+page.getPageSize());
-        System.out.println(JSON.toJSONString(page));
+//        HashMap<Object, Object> param = new HashMap<>();
+//        Page<OrderVo> page = orderService.pageQuery(param);
+//        System.out.println(page.size());
+//        System.out.println("当前页:"+page.getPageNum());
+//        System.out.println("总共条数:"+page.getTotal());
+//        System.out.println("没页条数:"+page.getPageSize());
+//        System.out.println(JSON.toJSONString(page));
     }
 }

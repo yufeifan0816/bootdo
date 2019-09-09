@@ -7,22 +7,29 @@
 		<div class="col-sm-12">
 			<div class="ibox">
 				<div class="ibox-body">
-					<form class="form-inline" role="form">
-						<div class="form-group">
-							<label  for="roomNo">房间号:</label>
-							<input type="text" class="form-control" id="roomNo"
+					<div class="form-inline" role="form">
+						<row class="col-sm-12" style="margin-bottom: 20px">
+						<div class="form-group  col-sm-2">
+							<label  for="roomNo" style="width: 30%;">房间号:</label>
+							<input type="text"  style="width: 68%;" class="form-control" id="roomNo"
 								   placeholder="请输入房间号">
 						</div>
-						<div class="form-group">
-							<label  for="roomType">房间类型:</label>
-							<select name="roomType" id="roomType" style="width: 68%" disabled="true"
-									class="form-control chosen-select" tabindex="2" required>
-								<option th:each="roomType : ${roomTypes}" th:value="${roomType.value}"
-										th:text="${roomType.name}"
-										th:selected="${roomType.value } == ${room.roomType}"></option>
+						<div class="form-group col-sm-2">
+							<label  for="roomType" style="width: 30%;">房间类型:</label>
+							<select name="roomType" id="roomType" class="form-control chosen-select" style="width: 68%;"  >
+								<div th:include="include :: option(${roomTypes})"></div>
 							</select>
 						</div>
-					</form>
+							<div class="form-group col-sm-2">
+								<label  for="createTime" style="width: 30%;">入住时间:</label>
+								<input type="date"  style="width: 68%;" class="form-control" id="createTime"
+									   placeholder="请输入房间号">
+							</div>
+							<div class="columns ">
+							<button class="btn btn-success" onclick="reLoad()">查询</button>
+							</div>
+						</row>
+					</div>
 					<!--<div class="fixed-table-toolbar">-->
 						<!--&lt;!&ndash;<div class="columns ">&ndash;&gt;-->
 							<!--&lt;!&ndash;<button shiro:hasPermission="xjbg:order:add" type="button" class="btn  btn-primary" onclick="add()">&ndash;&gt;-->

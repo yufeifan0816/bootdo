@@ -1,6 +1,10 @@
 package com.bootdo.xjbg.domain;
 
+import com.bootdo.common.utils.ChinaDate;
+
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -38,6 +42,25 @@ public class OrderDO implements Serializable {
 	private String createUser;
 	private Date updateTime;
 	private String updateUser;
+	private String outTime;//退房时间(计算出来用于前台显示)
+
+	public String getOutTime() {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		Calendar instance1 = Calendar.getInstance();
+		instance1.setTime(this.createTime);
+		instance1.add(Calendar.DAY_OF_YEAR,days);
+		String format1 = format.format(instance1.getTime());
+		try {
+			this.outTime= format1+"("+ChinaDate.solarToLunar(instance1.getTime())+")";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return outTime;
+	}
+
+	public void setOutTime(String outTime) {
+		this.outTime = outTime;
+	}
 
 	public Integer getDays() {
 		return days;

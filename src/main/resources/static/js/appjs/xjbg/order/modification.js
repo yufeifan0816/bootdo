@@ -34,8 +34,9 @@ function changePrice(self) {
     var orderType = self.val()
     $.post("/xjbg/roomPrice/getPrice", {"roomId": room.id, "orderType": orderType}, function (result) {
         $("#price").val(result);
+        calBalance();
     })
-    calBalance()
+
 
 }
 
@@ -244,6 +245,10 @@ function checkOutSubmit(){
 /**续住*/
 function renew(){
     $.post("/xjbg/order/renew",{"orderId":orderId},function (result) {
+        if(result.code=="0"){
+            layer.msg("续住成功");
+            $("#continue").hide();
+        }
         console.log(result);
     });
 }

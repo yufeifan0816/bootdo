@@ -2,6 +2,7 @@ package com.bootdo.xjbg.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;
 import com.bootdo.common.utils.ShiroUtils;
 import com.bootdo.xjbg.dao.OrderItemDao;
@@ -17,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -79,6 +81,7 @@ public class OrderServiceImpl implements OrderService {
 	@Transactional
     public void addOrder(OrderDO order) {
 		order.setOrderState("1");//当前工单
+		order.setDays(1);
         List<OrderItemDO> orderItems = order.getOrderItems();
         order.setCreateTime(new Date());
         order.setCreateUser(ShiroUtils.getUserName());
@@ -103,7 +106,9 @@ public class OrderServiceImpl implements OrderService {
 		OrderDO orderDO = orderDao.findByRoomId(id);
 		List<OrderItemDO> OrderItems = orderItemDao.findByOrderId(orderDO.getId().intValue());
 		orderDO.setOrderItems(OrderItems);
-		logger.info(JSONObject.toJSONString(orderDO));
+		if(logger.isInfoEnabled()){
+			logger.info(JSONObject.toJSONString(orderDO));
+		}
 		return orderDO;
 	}
 
@@ -174,13 +179,11 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public Page<OrderVo> pageQuery(int offset,int limit,Map param) {
-		PageHelper.startPage(offset,limit);
+	public PageUtils pageQuery( Query param) {
+		PageHelper.startPage(param.getPage(),param.getLimit());
 		Page<OrderVo> orderVos = (Page<OrderVo>) orderDao.orderList(param);
-		List list = orderDao.orderList(param);
-		System.out.println("Page size = "+orderVos.size());
-		System.out.println("list size = "+list.size());
-		return orderVos;
+		PageUtils pageUtils = new PageUtils(orderVos,(int)(orderVos.getTotal()));
+		return pageUtils;
 	}
 
 }

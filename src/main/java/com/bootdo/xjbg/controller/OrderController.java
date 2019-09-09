@@ -16,6 +16,7 @@ import com.bootdo.xjbg.domain.RoomDO;
 import com.bootdo.xjbg.service.ProductService;
 import com.bootdo.xjbg.service.RoomService;
 import com.bootdo.xjbg.vo.OrderVo;
+import com.github.pagehelper.PageHelper;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -52,12 +53,11 @@ public class OrderController extends BaseController {
 	@Autowired
 	private DictService dictService;
 	@Autowired
-	private UserService userService;
-	@Autowired
 	private ProductService productService;
 	@GetMapping()
 	@RequiresPermissions("xjbg:order:order")
-	String Order(){
+	String Order(Model model){
+		dictService.setModel(model);
 	    return "xjbg/order/order";
 	}
 	
@@ -66,10 +66,8 @@ public class OrderController extends BaseController {
 	@RequiresPermissions("xjbg:order:order")
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
-        Query query = new Query(params);
-		List<OrderVo> orderList = orderService.orderList(query);
-		int total = orderService.count(query);
-		PageUtils pageUtils = new PageUtils(orderList, total);
+		Query query = new Query(params);
+		PageUtils pageUtils = orderService.pageQuery(query);
 		return pageUtils;
 	}
 	

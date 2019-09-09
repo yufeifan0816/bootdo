@@ -51,7 +51,7 @@ public class RoomController {
     @GetMapping()
     @RequiresPermissions("xjbg:room:room")
     String Room(Model model) {
-        this.addDict(model);
+        dictService.setModel(model);
         return "xjbg/room/room";
     }
 

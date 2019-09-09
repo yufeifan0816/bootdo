@@ -2,6 +2,7 @@ package com.bootdo.common.service.impl;
 
 import com.bootdo.common.utils.StringUtils;
 import com.bootdo.system.domain.UserDO;
+import com.bootdo.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +14,15 @@ import java.util.Objects;
 import com.bootdo.common.dao.DictDao;
 import com.bootdo.common.domain.DictDO;
 import com.bootdo.common.service.DictService;
+import org.springframework.ui.Model;
 
 
 @Service
 public class DictServiceImpl implements DictService {
     @Autowired
     private DictDao dictDao;
+    @Autowired
+    private UserService userService;
 
     @Override
     public DictDO get(Long id) {
@@ -104,6 +108,18 @@ public class DictServiceImpl implements DictService {
         Map<String, Object> param = new HashMap<>(16);
         param.put("type", type);
         return dictDao.list(param);
+    }
+
+    @Override
+    public void setModel(Model model) {
+        List<DictDO> roomTypes = this.listByType("room_type");
+        List<DictDO> floors = this.listByType("floor");
+        List<DictDO> roomStates = this.listByType("room_state");
+        List<UserDO> users = userService.listAllUser();
+        model.addAttribute("roomTypes", roomTypes);
+        model.addAttribute("floors", floors);
+        model.addAttribute("roomStates", roomStates);
+        model.addAttribute("users", users);
     }
 
 }

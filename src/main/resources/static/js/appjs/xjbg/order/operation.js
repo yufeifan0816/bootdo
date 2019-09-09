@@ -75,6 +75,7 @@ function save(){
     order.orderType = $("#orderType").val();
     order.price = $("#price").val();
     order.paidUp = $("#paidUp").val();
+    order.days = 1;
     /**封装工单明细*/
     var ths = $("#pTable").children();
     ths.each(function(i,val){
