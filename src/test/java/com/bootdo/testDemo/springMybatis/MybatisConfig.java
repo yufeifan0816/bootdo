@@ -18,28 +18,7 @@ import javax.sql.DataSource;
  **/
 @ComponentScan("com.bootdo.testDemo.springMybatis")
 @YffScan("com.bootdo.testDemo.springMybatis.Mapper")
-//@YffScan2("com.bootdo.testDemo.springMybatis.Mapper")
 //@MapperScan("com.bootdo.testDemo.springMybatis")
 public class MybatisConfig {
-//    @Bean
-//    public SqlSessionFactory sqlSessionFactory() throws Exception {
-//        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-//        sqlSessionFactoryBean.setDataSource(dataSource());
-//        return sqlSessionFactoryBean.getObject();
-//    }
-//    @Bean
-//    public DataSource dataSource(){
-//        DruidDataSource datasouce =  new DruidDataSource();
-//        datasouce.setUsername("root");
-//        datasouce.setPassword("root");
-//        datasouce.setDriverClassName("com.mysql.jdbc.Driver");
-//        datasouce.setUrl("jdbc:mysql://127.0.0.1:3306/bootdo?useUnicode=true&characterEncoding=utf8");
-//        return datasouce;
-//    }
-//    @Bean
-//    public UserMapper userMapper() throws Exception {
-//        SqlSessionTemplate sqlSessionTemplate = new SqlSessionTemplate(sqlSessionFactory());
-//        return sqlSessionTemplate.getMapper(UserMapper.class);
-//    }
 
 }

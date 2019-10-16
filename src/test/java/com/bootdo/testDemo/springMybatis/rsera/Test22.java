@@ -8,6 +8,5 @@ import com.bootdo.testDemo.springMybatis.YffScan;
  * @author: yufeiafn@wondersgroup.com
  * @create: 2019-09-04 13:40
  **/
-@YffScan("123123123")
 public class Test22 {
 }

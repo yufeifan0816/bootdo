@@ -22,8 +22,8 @@ class WebConfigurer implements WebMvcConfigurer {
 			registry.addResourceHandler(BootdoConfig.PRODUCT_PATH+"**").addResourceLocations("file:///"+"D:"+bootdoConfig.getProductPath());
 		}else{
 			System.out.println("这是linux");
-			registry.addResourceHandler(BootdoConfig.UPLOAD_PATH+"**").addResourceLocations("http://39.108.251.77:8888/"+bootdoConfig.getUploadPath());
-			registry.addResourceHandler(BootdoConfig.PRODUCT_PATH+"**").addResourceLocations("http://39.108.251.77:8888/"+bootdoConfig.getProductPath());
+			registry.addResourceHandler(BootdoConfig.UPLOAD_PATH+"**").addResourceLocations("http://49.235.190.19:8888/"+bootdoConfig.getUploadPath());
+			registry.addResourceHandler(BootdoConfig.PRODUCT_PATH+"**").addResourceLocations("http://49.235.190.19:8888/"+bootdoConfig.getProductPath());
 		}
 	}
 

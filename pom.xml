@@ -249,7 +249,11 @@
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.2.10</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>4.3.0</version>
+        </dependency>
         <!--war包部署需要-->
         <!--<dependency>-->
         <!--<groupId>org.springframework.boot</groupId>-->

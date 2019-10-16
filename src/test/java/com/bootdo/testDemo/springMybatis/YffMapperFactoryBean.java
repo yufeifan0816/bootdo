@@ -9,7 +9,6 @@ import org.springframework.beans.factory.FactoryBean;
  * @author: yufeiafn@wondersgroup.com
  * @create: 2019-09-03 15:44
  **/
-@YffScan("12312312")
 public class YffMapperFactoryBean implements FactoryBean {
     Class inteface ;
 

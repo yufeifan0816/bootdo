@@ -1,10 +1,13 @@
 package com.bootdo.system.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
+import com.bootdo.common.config.ApplicationContextRegister;
 import com.bootdo.common.config.Constant;
 import com.bootdo.common.redis.shiro.RedisCacheManager;
 import com.bootdo.common.redis.shiro.RedisManager;
 import com.bootdo.common.redis.shiro.RedisSessionDAO;
+import com.bootdo.system.domain.MenuDO;
+import com.bootdo.system.service.MenuService;
 import com.bootdo.system.shiro.UserRealm;
 //import org.apache.shiro.cache.CacheManager;
 import net.sf.ehcache.CacheManager;
@@ -29,12 +32,14 @@ import org.springframework.core.io.ClassPathResource;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * @author bootdo 1992lcg@163.com
  */
 @Configuration
 public class ShiroConfig {
+
     @Value("${spring.redis.host}")
     private String host;
     @Value("${spring.redis.password}")
@@ -88,6 +93,8 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/wxServer", "anon");
         filterChainDefinitionMap.put("/wxServer2/**", "anon");
         filterChainDefinitionMap.put("/blog/open/**", "anon");
+//        filterChainDefinitionMap.put("/xjbg/room/roomMng","perms[xjbg:room:roomMng]");
+//        filterChainDefinitionMap.put("/xjbg/product","perms[xjbg:product:product]");
         filterChainDefinitionMap.put("/**", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
@@ -122,12 +129,12 @@ public class ShiroConfig {
      * @param securityManager
      * @return
      */
-    @Bean
-    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
-        AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
-        authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
-        return authorizationAttributeSourceAdvisor;
-    }
+//    @Bean
+//    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
+//        AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
+//        authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
+//        return authorizationAttributeSourceAdvisor;
+//    }
 
     /**
      * 配置shiro redisManager

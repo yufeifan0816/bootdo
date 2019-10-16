@@ -11,9 +11,25 @@
 	.room{
 		padding-left:40px;
 	}
+	.title{
+		float: left;
+	}
+	.hint{
+		width: 20px;
+		height: 20px;
+		background-color: red;
+	}
+	.content{
+		display:-webkit-flex; display:flex;
+	}   /*Flex布局*/
 </style>
 <body class="gray-bg">
-	<h1>开房列表</h1>
+<div style="align-content: center; " >
+		<!--<div style="float: left;align-content: center;"><h1>开房列表</h1></div>-->
+		<div style="float: left;" class="hint"></div>
+		<div style="float: left;">:空房</div>
+</div>
+
 
 	<script th:inline="javascript">
         var rooms = [[${rooms}]];
