@@ -221,7 +221,7 @@ public class OrderController extends BaseController {
 			orderService.renew(orderId);
 		} catch (Exception e) {
 			r.put("code",500);
-			r.put("msg","服务器出错,请联系管理员a");
+			r.put("msg","服务器出错,请联系管理员");
 			e.printStackTrace();
 		}
 		return r ;
