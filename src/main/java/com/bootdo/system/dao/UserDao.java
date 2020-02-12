@@ -1,11 +1,10 @@
 package com.bootdo.system.dao;
 
 import com.bootdo.system.domain.UserDO;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 import java.util.Map;
-
-import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 
@@ -38,5 +37,7 @@ public interface UserDao {
 	 * @return java.util.List<com.bootdo.system.domain.UserDO>
 	 **/
 	List<UserDO> listAllUser();
+
+	int queryScoreByUsrId(int userId);
 
 }

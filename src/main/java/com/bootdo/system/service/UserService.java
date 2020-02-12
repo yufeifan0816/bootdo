@@ -1,16 +1,15 @@
 package com.bootdo.system.service;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import com.bootdo.system.vo.UserVO;
-import org.springframework.stereotype.Service;
-
 import com.bootdo.common.domain.Tree;
 import com.bootdo.system.domain.DeptDO;
 import com.bootdo.system.domain.UserDO;
+import com.bootdo.system.vo.UserVO;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @Service
 public interface UserService {
@@ -59,4 +58,9 @@ public interface UserService {
 	 * @return java.util.List<com.bootdo.system.domain.UserDO>
 	 **/
 	List<UserDO> listAllUser();
+
+	/***
+	 * 根据用户ID查询用户游戏分数
+	 */
+	int queryScoreByUsrId(int userId);
 }

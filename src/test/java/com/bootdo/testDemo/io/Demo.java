@@ -41,6 +41,7 @@ public class Demo {
         FileInputStream fileInputStream = new FileInputStream(file);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream,"GBK"));
         String str ;
+
         File file2 = new File("C:\\Users\\Lenovo\\Desktop\\yffff","yffn.txt");
         FileOutputStream fileOutputStream = new FileOutputStream(file2);
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:include="include :: header"></head>
+<head>
+    <meta charset="UTF-8">
+    <title>斗牛测试</title>
+</head>
+<style>
+    img{
+
+        width: 18%;
+
+    }
+</style>
+<body>
+
+<div id="msg" style="height: 170px;">
+    <input type="button" value="发牌" id="closeBtn" onclick="fapai();" />
+    <div style="background-color: #00b7ee">
+        <span>玩家:</span><label th:text="${userName}"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span>分数:</span><label th:text="${score}"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div id="result">
+
+    </div>
+</div>
+<div id="msg2" style="height: 170px; display: none;">
+    <div style="background-color: #00b7ee">
+        <span>玩家:</span><label></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span>分数:</span><label></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div id="result2">
+
+    </div>
+</div>
+</body>
+
+
+
+
+<script th:inline="javascript">
+        var userId = [[${userId}]];
+        var userName = [[${userName}]];
+        var infoStr = [[${infoStr}]];
+        var url ="ws://192.168.137.1/websocket/"+userId;
+        var ws = null;
+        console.log(infoStr);
+        connectWs(url);
+        //实现化WebSocket对象，指定要连接的服务器地址与端口  建立连接
+        //等同于
+       function connectWs(url){
+            ws = new WebSocket(url);
+            //socket = new WebSocket("${basePath}websocket/${cid}".replace("http","ws"));
+            //打开事件
+            ws.onopen = function() {
+                console.log("Socket 已打开");
+                //推送个人信息到房间,同时获取该房间所有人员信息
+                $.ajax({
+                    cache : true,
+                    type : "POST",
+                    data : {"infoStr":infoStr},
+                    url : "/niu/msgToRoom",
+                    async : false
+                });
+
+                //socket.send("这是来自客户端的消息" + location.href + new Date());
+            };
+            //获得消息事件
+            ws.onmessage = function(msg) {
+                var msgJson = eval('(' + msg.data + ')');
+                console.log(msgJson);
+                var type = msgJson.msgType;
+                switch (type){
+                    //接受刚加入房间的玩家信息系
+                    case "1": fMsg1(msgJson)
+                        break;
+                    //接受在自己之前加入房间的所有玩家信息
+                    case "2": fMsg2(msgJson)
+                        break;
+                    //接受自己的牌
+                    case "3": fMsg3(msgJson)
+                        break;
+                    default:
+                        break;
+                }
+            };
+            //关闭事件
+            ws.onclose = function() {
+               // console.log("Socket已关闭");
+            };
+            //发生了错误事件
+            ws.onerror = function() {
+                alert("Socket发生了错误");
+                //此时可以尝试刷新页面
+            }
+
+
+        }
+
+        function fMsg1(msgJson) {
+            if(msgJson.userId!=userId){
+                showInfo(msgJson);
+            }
+            layer.msg(msgJson.userName+"加入房间");
+        }
+
+        function fMsg2(msgJson) {
+            var allInfo  = msgJson.allInfo;
+            if(!allInfo)return;
+            for (var i = 0; i <allInfo.length ; i++) {
+                var info = allInfo[i];
+                fMsg1(info);
+            }
+        }
+        function fMsg3(msgJson) {
+            showData(msg.data);
+        }
+        /**
+         * 显示新加入玩家信息
+         */
+        function showInfo(msgJson) {
+            var msg2 = $("#msg2");
+            var label1 = msg2.find("label").eq(0);
+            var label2 = msg2.find("label").eq(1);
+            label1.text(msgJson.userName);
+            label2.text(msgJson.score);
+            msg2.show();
+        }
+    //显示后台字节数组
+    function onlogin() {
+        var name =document.getElementById("name").value;
+        if(!name||name==""){
+            alert("不能为空");
+            return;
+        }
+        url+=name;
+        connectWs(url);
+    }
+
+    function showData(data) {
+        var result = document.getElementById('result');
+        var pk = data.split("|",5)
+        for (var i=0;i<pk.length;i++){
+            setTimeout(
+                result.innerHTML +="<img src=\"/img/poker/"+pk[i]+".jpg\">"
+                ,200);
+        }
+
+    }
+    function showDataText(data) {
+        var result = document.getElementById('result');
+        result.innerHTML += data + '<br />';
+    }
+    //发送
+    function sendClick() {
+        var text1 = document.getElementById("txt1");
+           ws.send(text1.value);
+    }
+    //关闭
+    function closeClick() {
+        ws.close();
+        ws = null;
+    }
+  function  fapai(){
+      $.ajax({
+          cache : true,
+          type : "POST",
+          url : "/ws/fapai",
+          async : false
+      });
+
+  }
+
+</script>
+<div th:include="include::footer"></div>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:include="include :: header"></head>
+<head>
+    <meta charset="UTF-8">
+    <title>webSocket测试</title>
+</head>
+<body>
+<div id="login">
+    <label>请输入账号：</label>
+    <input type="text" id="name">
+    <button onclick="onlogin();">登陆</button>
+</div>
+<div id="msg" style="display: none;">
+    <input type="button" value="打开链接" onclick="sendClick()"/>
+    <input type="text" id="txt1" />
+    <input type="button" value="发送" id="sendBtn" onclick="sendClick();" />
+    <input type="button" value="关闭" id="closeBtn" onclick="closeClick();" />
+    <div id="result"></div>
+</div>
+
+
+
+</body>
+<script>
+
+        var url ="ws://localhost/websocket/";
+        var ws = null;
+
+        //实现化WebSocket对象，指定要连接的服务器地址与端口  建立连接
+        //等同于
+
+       function connectWs(url){
+            ws = new WebSocket(url);
+            //socket = new WebSocket("${basePath}websocket/${cid}".replace("http","ws"));
+            //打开事件
+            ws.onopen = function() {
+                console.log("Socket 已打开");
+                //socket.send("这是来自客户端的消息" + location.href + new Date());
+            };
+            //获得消息事件
+            ws.onmessage = function(msg) {
+                console.log(msg.data);
+                showData(msg.data);
+                //发现消息进入    开始处理前端触发逻辑
+            };
+            //关闭事件
+            ws.onclose = function() {
+                console.log("Socket已关闭");
+            };
+            //发生了错误事件
+            ws.onerror = function() {
+                alert("Socket发生了错误");
+                //此时可以尝试刷新页面
+            }
+           document.getElementById("login").style.display="none";//隐藏
+           document.getElementById("msg").style.display="";//显
+            //jquery1.8中已经被废弃，3.0中已经移除
+            // $(window).unload(function(){
+            //     socket.close();
+            //});
+        }
+    //显示后台字节数组
+    function onlogin() {
+        var name =document.getElementById("name").value;
+        if(!name||name==""){
+            alert("不能为空");
+            return;
+        }
+        url+=name;
+        connectWs(url);
+    }
+    function showData(data) {
+        var result = document.getElementById('result');
+        result.innerHTML += data + '<br />';
+    }
+    //发送
+    function sendClick() {
+        var text1 = document.getElementById("txt1");
+           ws.send(text1.value);
+    }
+    //关闭
+    function closeClick() {
+        ws.close();
+        ws = null;
+    }
+
+</script>
+</html>

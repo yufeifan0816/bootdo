@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>房间列表</title>
+</head>
+<head th:include="include :: header"></head>
+<body>
+    <a href="/niu/joinRoom" id="room1" style="float: left;background-color: #00B83F;width: 100px;height: 100px" ></a>
+</body>
+<script th:inline="javascript">
+
+    function join() {
+        $.ajax({
+            cache : true,
+            type : "get",
+            data:{"userId":23,"userName":"余非凡","roomNum":1},
+            url : "/niu/joinRoom",
+            async : false
+        });
+    }
+</script>
+<div th:include="include::footer"></div>
+</html>

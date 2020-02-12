@@ -1,15 +1,11 @@
 package com.bootdo.system.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
-import com.bootdo.common.config.ApplicationContextRegister;
 import com.bootdo.common.config.Constant;
 import com.bootdo.common.redis.shiro.RedisCacheManager;
 import com.bootdo.common.redis.shiro.RedisManager;
 import com.bootdo.common.redis.shiro.RedisSessionDAO;
-import com.bootdo.system.domain.MenuDO;
-import com.bootdo.system.service.MenuService;
 import com.bootdo.system.shiro.UserRealm;
-//import org.apache.shiro.cache.CacheManager;
 import net.sf.ehcache.CacheManager;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.mgt.SecurityManager;
@@ -17,22 +13,18 @@ import org.apache.shiro.session.SessionListener;
 import org.apache.shiro.session.mgt.eis.MemorySessionDAO;
 import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
-import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.ehcache.EhCacheCacheManager;
-import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
-import java.util.List;
+
+//import org.apache.shiro.cache.CacheManager;
 
 /**
  * @author bootdo 1992lcg@163.com
@@ -79,6 +71,7 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setUnauthorizedUrl("/403");
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         filterChainDefinitionMap.put("/login","anon");
+        filterChainDefinitionMap.put("/login2","anon");
         filterChainDefinitionMap.put("/css/**", "anon");
         filterChainDefinitionMap.put("/js/**", "anon");
         filterChainDefinitionMap.put("/fonts/**", "anon");
@@ -92,6 +85,10 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/blog", "anon");
         filterChainDefinitionMap.put("/wxServer", "anon");
         filterChainDefinitionMap.put("/wxServer2/**", "anon");
+        filterChainDefinitionMap.put("/ws/**", "anon");
+        filterChainDefinitionMap.put("/websocket /**", "anon");
+        filterChainDefinitionMap.put("/niu/**", "anon");
+        filterChainDefinitionMap.put("/niuniu/**", "anon");
         filterChainDefinitionMap.put("/blog/open/**", "anon");
 //        filterChainDefinitionMap.put("/xjbg/room/roomMng","perms[xjbg:room:roomMng]");
 //        filterChainDefinitionMap.put("/xjbg/product","perms[xjbg:product:product]");
