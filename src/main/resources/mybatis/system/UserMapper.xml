@@ -165,4 +165,11 @@
     <select id="queryScoreByUsrId" resultType="int">
 				select score from game_score where user_id=#{userId}
 	</select>
+    <!--addMoney(String userId, Integer money);-->
+    <update id="addMoney">
+        update game_score set score=score+#{score} where user_id=#{userId}
+    </update>
+    <update id="clearScore">
+        update game_score set score=0
+    </update>
 </mapper>

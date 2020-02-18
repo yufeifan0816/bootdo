@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,14 +34,14 @@ public class webSocketController  {
     @RequestMapping("/fapai")
     public Map fapai(String message) {
         Map result = new HashMap();
-        try {
-            String fivePk = niuniuService.getFivePk();
-            WebsocketService.sendInfo(fivePk);
-            result.put("code", 200);
-            result.put("msg", niuniuService.suanPai(fivePk));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            String fivePk = niuniuService.getFivePk();
+//            WebsocketService.sendInfo(fivePk);
+//            result.put("code", 200);
+//            result.put("msg", niuniuService.suanPai(fivePk));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         return result;
     }
     //推送数据接口

@@ -6,171 +6,636 @@
     <title>斗牛测试</title>
 </head>
 <style>
-    img{
+    img {
 
         width: 18%;
 
     }
 </style>
-<body>
+<body onload="loadFun()">
 
-<div id="msg" style="height: 170px;">
-    <input type="button" value="发牌" id="closeBtn" onclick="fapai();" />
-    <div style="background-color: #00b7ee">
-        <span>玩家:</span><label th:text="${userName}"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span>分数:</span><label th:text="${score}"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div id="msg" style="height: 180px;">
+    <input type="button" style="left: 20px;height: 40px;width: 80px" value="准备" id="ready" onclick="ready();"/>
+    <input style="display: none;height: 40px" type="button" value="取消准备" id="cancle" onclick="cancle();"/>
+    <div id = "btns" class="btn-group" style="display: none;">
+        <button id="1" type="button" class="btn btn-default" onclick="f1()">1快</button>
+        <button id="5" type="button" class="btn btn-default" onclick="f5()"  >5快</button>
+        <button id="10" type="button" class="btn btn-default" onclick="f10()">10快</button>
+        <!--<button id="20" type="button" class="btn btn-default" onclick="f20()">20快</button>-->
     </div>
-    <div id="result">
+    <input style="background-color: red;float: right;height: 40px" type="button" value="退出房间" id="exit" onclick="exit();"/>
+    <div style="background-color: #00b7ee">
+        <span>玩家:</span><label th:text="${userName}" style="margin-right:10px"/>
+        <span>分数:</span><label class="score" th:text="${score}" style="margin-right:10px"/>
+        <input id="tanpai" style="display: none;" type="button" value="摊牌"  onclick="tanpai();"/>
+        <span style="font-weight: bold;float: right;right: 20px">赌注:0元</span>
+    </div>
+    <div class="result">
+    </div>
+</div>
+<div id="msg2" class="othersDiv" style="height: 160px; display: none;">
+    <div style="background-color: #00b7ee">
+        <span>玩家:</span><label style="margin-right:10px"></label>
+        <span>分数:</span><label  class="score" style="margin-right:10px"></label>
+        <span style="font-weight: bold;float: right;right: 20px">赌注:0</span>
+    </div>
+    <div class="result2">
 
     </div>
 </div>
-<div id="msg2" style="height: 170px; display: none;">
-    <div style="background-color: #00b7ee">
-        <span>玩家:</span><label></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span>分数:</span><label></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </div>
-    <div id="result2">
 
-    </div>
-</div>
 </body>
 
 
-
-
 <script th:inline="javascript">
-        var userId = [[${userId}]];
-        var userName = [[${userName}]];
-        var infoStr = [[${infoStr}]];
-        var url ="ws://192.168.137.1/websocket/"+userId;
-        var ws = null;
-        console.log(infoStr);
-        connectWs(url);
-        //实现化WebSocket对象，指定要连接的服务器地址与端口  建立连接
-        //等同于
-       function connectWs(url){
-            ws = new WebSocket(url);
-            //socket = new WebSocket("${basePath}websocket/${cid}".replace("http","ws"));
-            //打开事件
-            ws.onopen = function() {
-                console.log("Socket 已打开");
-                //推送个人信息到房间,同时获取该房间所有人员信息
-                $.ajax({
-                    cache : true,
-                    type : "POST",
-                    data : {"infoStr":infoStr},
-                    url : "/niu/msgToRoom",
-                    async : false
-                });
+    var userId = [[${userId}]];
+    var userName = [[${userName}]];
+    var infoStr = [[${infoStr}]];
+    var isZj = [[${isZj}]];
+    var cash = 0;
+    var roomType = 0;
+    // var url = "ws://192.168.137.1/websocket/" + userId;//六楼
+    // var url = "ws://192.168.19.103/websocket/" + userId;//一楼
+    var url = "ws://49.235.190.19/websocket/" + userId;
+    var ws = null;
+    console.log(infoStr);
+    connectWs(url);
+    //实现化WebSocket对象，指定要连接的服务器地址与端口  建立连接
+    //等同于
+    function connectWs(url) {
+        ws = new WebSocket(url);
+        //socket = new WebSocket("${basePath}websocket/${cid}".replace("http","ws"));
+        //打开事件
+        ws.onopen = function () {
+            console.log("Socket 已打开");
+            //推送个人信息到房间,同时获取该房间所有人员信息
+            $.ajax({
+                cache: true,
+                type: "POST",
+                data: {"infoStr": infoStr},
+                url: "/niu/msgToRoom",
+                async: false
+            });
 
-                //socket.send("这是来自客户端的消息" + location.href + new Date());
-            };
-            //获得消息事件
-            ws.onmessage = function(msg) {
-                var msgJson = eval('(' + msg.data + ')');
-                console.log(msgJson);
-                var type = msgJson.msgType;
-                switch (type){
-                    //接受刚加入房间的玩家信息系
-                    case "1": fMsg1(msgJson)
-                        break;
-                    //接受在自己之前加入房间的所有玩家信息
-                    case "2": fMsg2(msgJson)
-                        break;
-                    //接受自己的牌
-                    case "3": fMsg3(msgJson)
-                        break;
-                    default:
-                        break;
+            //socket.send("这是来自客户端的消息" + location.href + new Date());
+        };
+        //获得消息事件
+        ws.onmessage = function (msg) {
+            var msgJson = eval('(' + msg.data + ')');
+            console.log(msgJson);
+            var type = msgJson.msgType;
+            switch (type) {
+                //1接收单个玩家信息,
+                case "1":
+                    fMsg1(msgJson)
+                    break;
+                //2接收多个玩家信息,
+                case "2":
+                    fMsg2(msgJson)
+                    break;
+                //接受自己的牌
+                case "3":
+                    fMsg3(msgJson)
+                    break;
+                //4,接收退出游戏的人员id
+                case "4":
+                    fMsg4(msgJson)
+                    break;
+                //5,接收其他玩家牌信息
+                case "5":
+                    fMsg5(msgJson)
+                    break;
+                //6,接收结算面板信息
+                case "6":
+                    fMsg6(msgJson)
+                    break;
+                //7,接收结算后所有玩家信息
+                case "7":
+                    fMsg7(msgJson)
+                    break;
+                //8,积分清空消息
+                case "8":
+                    fMsg8(msgJson)
+                    break;
+                //9,踢出游戏
+                case "9":
+                    fMsg9(msgJson)
+                    break;
+                default:
+                    break;
+            }
+        };
+        //关闭事件
+        ws.onclose = function () {
+            // console.log("Socket已关闭");
+        };
+        //发生了错误事件
+        ws.onerror = function () {
+            alert("Socket发生了错误");
+            //此时可以尝试刷新页面
+        }
+
+
+    }
+
+    function fMsg1(msgJson) {
+        showInfo(msgJson);
+
+    }
+
+    function fMsg2(msgJson) {
+        var allInfo = msgJson.allInfo;
+        if (!allInfo) return;
+        for (var i = 0; i < allInfo.length; i++) {
+            var info = allInfo[i];
+            fMsg1(info);
+        }
+    }
+    //接受自己的牌
+    function fMsg3(msgJson) {
+        //游戏开始 修改房间状态
+        roomType=1;
+        //显示牌
+       var pk5  = msgJson.pk5;
+        showSelfData(pk5);
+
+    }
+    function  fMsg4(msgJson){
+        var outId = msgJson.userId;
+        var newZjId = msgJson.newZjId;
+        $("#msg"+outId).remove();
+        //如果庄家退出游戏
+        if(newZjId){
+            if(newZjId==userId){
+                isZj="1";
+                $("#msg").children("div").eq(1).append("<label class=\"zj\" style=\"background-color:#8cc657;margin-right:10px\">庄家</label> ");
+                $("#btns").hide();
+            }else {
+                $("#msg"+newZjId).children("div").eq(0).append("<label class=\"zj\" style=\"background-color: #8cc657;margin-right:10px\">庄家</label> ")
+            }
+        }
+
+    }
+    //5,接收其他玩家牌信息
+    function fMsg5(msgJson) {
+        var userId = msgJson.userId;
+        var msg = $("#msg"+userId);
+        //显示牛数
+        msg.children("div").eq(0).append("<label class=\"niushu\" style=\"background-color:red;margin-right:10px\">"+msgJson.result+"</label> ");
+        //显示牌
+        var pk = msgJson.pk5.split("|", 5);
+        var imgs = msg.find("img");
+        for (var i = 0; i <pk.length ; i++) {
+            imgs.eq(i).attr("src","/img/poker/"+pk[i]+".jpg")
+        }
+        var name = msg.find("label").eq(0).text();
+        layer.msg(name+"说: 我"+msgJson.result);
+    }
+    function fMsg6(msgJson) {
+        //结算面板
+        setTimeout(function () {
+            layer.msg("所有玩家已摊牌,正在计算结果...");
+        },1000);
+        setTimeout(function () {
+            var html = "<ul class=\"layer_notice layui-layer-wrap\" >";
+            var jiesuanMsg =  msgJson.jiesuanMsg;
+            var zjId = msgJson.newZjId
+            $.each(jiesuanMsg,function (key,value) {
+                var uname="";
+                if(userId==key){
+                    uname = userName;
+                }else{
+                    uname = $("#msg"+key).find("label").eq(0).text();
                 }
-            };
-            //关闭事件
-            ws.onclose = function() {
-               // console.log("Socket已关闭");
-            };
-            //发生了错误事件
-            ws.onerror = function() {
-                alert("Socket发生了错误");
-                //此时可以尝试刷新页面
+                if(key==zjId){
+                    uname+="(庄家)";
+                }
+                html+="<li>"+uname+":&nbsp;&nbsp;&nbsp;&nbsp;"+value+"</li>";
+            })
+            html+="</ul>";
+            layer.open({
+                type: 1,
+                skin: 'layui-layer-rim', //加上边框
+                area: ['280px', '240px'], //宽高
+                content: html
+            });
+        },3000)
+
+
+    }
+    function fMsg7(msgJson) {
+        //修改房间状态为未开始
+        roomType=0;
+        //切换为准备按钮
+        var ready =$("#ready");
+        ready.show();
+        var cancle =$("#cancle");
+        cancle.hide();
+        //如果不是庄家,则显示下注按钮
+        var allInfo = msgJson.allInfo;
+        if (!allInfo) return;
+        for (var i = 0; i < allInfo.length; i++) {
+            var info = allInfo[i];
+            var uid = info.userId;
+            if(userId==uid&&info.isZj=='0'){
+                //如果不是庄家,则显示下注按钮
+                $("#btns").show();
             }
-
-
+            fMsg1(info);
         }
 
-        function fMsg1(msgJson) {
-            if(msgJson.userId!=userId){
-                showInfo(msgJson);
-            }
-            layer.msg(msgJson.userName+"加入房间");
+    }
+    function fMsg8(msgJson){
+        var scoreLables = $(".score");
+        for (var i = 0; i <scoreLables.length ; i++) {
+            scoreLables.eq(i).text(0);
         }
+        layer.msg("积分清零了!")
+    }
+    function fMsg9(msgJson) {
+        var uid = msgJson.userId;
+        if(uid==userId){
+            $.ajax({
+                cache: true,
+                type: "POST",
+                data : {"userId":userId},
+                url: "/niu/exit",
+                async: false,
+                success : function(data) {
+                    if (data.code == 0) {
+                        parent.location.href = '/niu/roomList';
+                    } else {
+                        parent.layer.alert(data.msg)
+                    }
 
-        function fMsg2(msgJson) {
-            var allInfo  = msgJson.allInfo;
-            if(!allInfo)return;
-            for (var i = 0; i <allInfo.length ; i++) {
-                var info = allInfo[i];
-                fMsg1(info);
-            }
+                }
+            });
+        }else{
+            layer.msg(msgJson.userName+"被赶出去了");
         }
-        function fMsg3(msgJson) {
-            showData(msg.data);
-        }
-        /**
-         * 显示新加入玩家信息
-         */
-        function showInfo(msgJson) {
-            var msg2 = $("#msg2");
-            var label1 = msg2.find("label").eq(0);
-            var label2 = msg2.find("label").eq(1);
+    }
+    /**
+     * 显示/更新单个玩家信息
+     */
+    function showInfo(msgJson) {
+        //①判断玩家是否是新加入的
+        var userId1 = msgJson.userId;
+        if(userId==userId1){
+            //修改自己的信息
+            var msg = $("#msg");
+            var label1 = msg.find("label").eq(0);
+            var label2 = msg.find("label").eq(1);
             label1.text(msgJson.userName);
             label2.text(msgJson.score);
-            msg2.show();
+            if( msg.children("div").eq(1).children(".zj").length>0){
+                msg.children("div").eq(1).children(".zj").remove();
+            }
+            if(msgJson.isZj=="1"){
+                msg.children("div").eq(1).append("<label class=\"zj\" style=\"background-color: #8cc657;margin-right:10px\">庄家</label> ");
+            }
+            return;
         }
+
+        var msg = $("#msg"+userId1);
+
+        if(msg.length>0){
+            //存在,修改信息
+            var label1 = msg.find("label").eq(0);
+            var label2 = msg.find("label").eq(1);
+            label1.text(msgJson.userName);
+            label2.text(msgJson.score);
+            if(msgJson.isReady&&msgJson.isReady=='1'){//已准备
+                label2.after(" <label class=\"ready\" style=\"background-color: #00B83F;padding-left:10px\">已准备</label>");
+                msg.children("div").eq(0).children("span").eq(2).text("赌注:"+msgJson.cash+"元");
+            }else if(msgJson.isReady&&msgJson.isReady=='0'){//没准备
+                if(msg.find(".ready").length>0){
+                    msg.find(".ready").eq(0).remove();
+                }
+                // msg.children("div").eq(0).children("span").eq(2).text("赌注:0元");
+            }
+            //判断是否是庄家
+
+            if( msg.children("div").eq(0).children(".zj").length>0){
+                msg.children("div").eq(0).children(".zj").remove();
+            }
+            if(msgJson.isZj=="1"){
+                msg.children("div").eq(0).append("<label class=\"zj\" style=\"background-color: #8cc657;margin-right:10px\">庄家</label> ");
+            }
+
+
+        }else{
+            //不存在,新加入的
+            var newMsg = $("#msg2").clone().attr("id","msg"+userId1);
+            var label1 = newMsg.find("label").eq(0);
+            var label2 = newMsg.find("label").eq(1);
+            label1.text(msgJson.userName);
+            label2.text(msgJson.score);
+            if(msgJson.isReady&&msgJson.isReady=='1'){
+                newMsg.prepend(" <label class=\"ready\" style=\"background-color: #00B83F\">已准备</label>");
+                newMsg.children("div").eq(0).children("span").eq(2).text("赌注:"+msgJson.cash+"元");
+            }else if(msgJson.isReady&&msgJson.isReady=='0'){//没准备
+                if(newMsg.find(".ready").length>0)
+                    newMsg.find(".ready").eq(0).remove();
+                msg.children("div").eq(0).children("span").eq(2).text("赌注:0元");
+            }
+            //判断是否是庄家
+            if( newMsg.children("div").eq(0).children(".zj").length>0){
+                newMsg.children("div").eq(0).children(".zj").remove();
+            }
+            if(msgJson.isZj=="1"){
+                newMsg.children("div").eq(0).append("<label class=\"zj\" style=\"background-color: #8cc657;margin-right:10px\">庄家</label>");
+
+            }
+            newMsg.appendTo("body");
+            newMsg.show();
+            layer.msg(msgJson.userName + "加入房间");
+        }
+    }
+
     //显示后台字节数组
     function onlogin() {
-        var name =document.getElementById("name").value;
-        if(!name||name==""){
+        var name = document.getElementById("name").value;
+        if (!name || name == "") {
             alert("不能为空");
             return;
         }
-        url+=name;
+        url += name;
         connectWs(url);
     }
 
-    function showData(data) {
-        var result = document.getElementById('result');
-        var pk = data.split("|",5)
-        for (var i=0;i<pk.length;i++){
-            setTimeout(
-                result.innerHTML +="<img src=\"/img/poker/"+pk[i]+".jpg\">"
-                ,200);
-        }
+    function showSelfData(data) {
+        var pk = data.split("|", 5);
+        //先删除旧牌
+        $("body").eq(0).find("img").remove();
+        //删除牛数
+        $("body").eq(0).find(".niushu").remove();
+        //删除所有的已准备
+        $("body").eq(0).find(".ready").remove();
+        for (var i = 0; i <pk.length ; i++) {
+            (function(i) {
+                setTimeout(function() {
+                    fapai(pk,i);
+                }, (i + 1) *500);
 
+                setTimeout(function() {
+                    $("#tanpai").show()
+                }, 5 *500);
+            })(i)
+        }
+    }
+    function fapai(pk,i) {
+
+        var result = $("#msg").find(".result").eq(0);
+        var results = $("body").find(".result2");
+        result.append("<img src=\"/img/poker/"+pk[i]+".jpg\">");
+        for (var i = 0; i < results.length; i++) {
+            results.eq(i).append("<img src=\"/img/poker/" + "b" + ".jpg\">");
+        }
     }
     function showDataText(data) {
         var result = document.getElementById('result');
         result.innerHTML += data + '<br />';
     }
+
     //发送
     function sendClick() {
         var text1 = document.getElementById("txt1");
-           ws.send(text1.value);
+        ws.send(text1.value);
     }
+
     //关闭
     function closeClick() {
         ws.close();
         ws = null;
     }
-  function  fapai(){
-      $.ajax({
-          cache : true,
-          type : "POST",
-          url : "/ws/fapai",
-          async : false
-      });
 
-  }
 
+    /**准备游戏*/
+    function ready() {
+        if(isZj!='1'&&cash==0){
+            layer.msg("下钱咯,不跟你搞玩滴");
+            return;
+        }
+        var ready =$("#ready");
+        ready.hide();
+        var cancle =$("#cancle");
+        cancle.show();
+        $("#btns").hide();
+        $.ajax({
+            cache: true,
+            type: "POST",
+            data : {"userId":userId,"cash":cash},
+            url: "/niu/ready",
+            async: false,
+            success : function(data) {
+                if (data.code == 0) {
+                   //修改准备为取消
+
+                } else {
+                    parent.layer.alert(data.msg)
+                }
+
+            }
+        });
+
+    }
+    /**取消准备*/
+    function cancle() {
+        //判断房间状态
+        if(roomType==1){
+            layer.msg("这局已经噶事了")
+            return;
+        }
+        if(isZj!="1"){
+            $("#btns").show();
+        }
+        $.ajax({
+            cache: true,
+            type: "POST",
+            data : {"userId":userId},
+            url: "/niu/cancle",
+            async: false,
+            success : function(data) {
+                if (data.code == 0) {
+                    var ready =$("#ready");
+                    ready.show();
+                    var cancle =$("#cancle");
+                    cancle.hide();
+                } else {
+                    parent.layer.alert(data.msg)
+                }
+
+            }
+        });
+    }
+    /**推出房间*/
+    function exit() {
+
+        //判断房间状态
+        if(roomType==1){
+            layer.msg("搞完这把在走啦!")
+            return;
+        }
+        layer.confirm('在玩哈了走啦!!', {
+            btn: ['搞七亏了','那就再搞哈'] //按钮
+        }, function(){
+            layer.closeAll();
+            layer.msg("正在退出..");
+            $.ajax({
+                cache: true,
+                type: "POST",
+                data : {"userId":userId},
+                url: "/niu/exit",
+                async: false,
+                success : function(data) {
+                    if (data.code == 0) {
+                        parent.location.href = '/niu/roomList';
+                    } else {
+                        parent.layer.alert(data.msg)
+                    }
+
+                }
+            });
+            },function(){
+                layer.msg('继续', {icon: 1});
+            });
+    }
+    /**摊牌*/
+    function tanpai() {
+        $("#tanpai").hide();
+        $.ajax({
+            cache: true,
+            type: "POST",
+            data : {"userId":userId},
+            url: "/niu/tanpai",
+            async: false,
+            success : function(data) {
+                if (data.code == 0) {
+                    $("#msg").children("div").eq(1).append("<label class=\"niushu\" style=\"background-color:red;margin-right:10px\">"+data.msg+"</label> ");
+                } else {
+                    parent.layer.alert(data.msg)
+                }
+
+            }
+        });
+    }
+    function f1() {
+        cash=1;
+        $("#msg").children("div").eq(1).children("span").eq(2).text("赌注:1元");
+    }
+    function f5() {
+        cash=5;
+        $("#msg").children("div").eq(1).children("span").eq(2).text("赌注:5元");
+    }
+    function f10() {
+        cash=10;
+        $("#msg").children("div").eq(1).children("span").eq(2).text("赌注:10元");
+    }
+    function f20() {
+        cash=20;
+        $("#msg").children("div").eq(1).children("span").eq(2).text("赌注:20元");
+    }
+    //清空所有玩家积分
+    function clearScore(){
+        layer.confirm('慎重!!', {
+            btn: ['老子就要清空','点错了'] //按钮
+        }, function(){
+            $.ajax({
+                cache: true,
+                type: "POST",
+                url: "/niu/clearScore",
+                async: false,
+                success : function(data) {
+                    if (data.code == 0) {
+                        layer.msg('清空了', {icon: 1});
+                    } else {
+                        layer.msg(data.msg, {icon: 1});
+                    }
+
+                }
+            },function(){
+                layer.msg('好的', {icon: 1});
+            });
+
+        });
+    }
+    var tichuIndex;
+    //踢出玩家
+    function tichu(){
+        if(roomType==1){
+            layer.msg("游戏开始了");
+            return;
+        }
+        //弹出玩家选项
+        var btn = "";
+        //获取房间所有玩家
+        var others = $(".othersDiv");
+        if(others.length<=1){
+            layer.msg("没有人给你踢");
+            return;
+        }
+        for (var i = 1; i <others.length; i++) {
+            var other = others.eq(i);
+            var otherId = other.attr("id").replace("msg","");
+            var otherName = other.find("label").eq(0).text();
+            btn+= "<input style=\"background-color: red;height: 40px;width: 70px;margin-right:10px\" type=\"button\" value=\""+otherName+"\" id=\"exit\" onclick=\"tcyx("+otherId+");\"/>"
+        }
+         tichuIndex = layer.open({
+            type: 1,
+            skin: 'layui-layer-demo', //样式类名
+            anim: 2,
+            shadeClose: true, //开启遮罩关闭
+            content: btn
+        });
+    }
+    function tcyx(userId) {
+
+
+        layer.confirm('确定踢出?', {
+            btn: ['踢','点错了'] //按钮
+        }, function() {
+            $.ajax({
+                cache: true,
+                type: "POST",
+                data: {"userId": userId},
+                url: "/niu/tcyx",
+                async: false,
+                success: function (data) {
+                    if (data.code == 0) {
+                        layer.closeAll();
+                        layer.msg('踢出去了');
+                    } else {
+                        layer.msg(data.msg);
+                    }
+
+                }
+
+            });
+        },function(){
+                layer.msg('好的');
+        });
+
+    }
+    //页面加载完成后执行
+    function loadFun(){
+        if(isZj=="1"){
+            $("#msg").children("div").eq(1).append("<label class=\"zj\" style=\"background-color: #8cc657;margin-right:10px\">庄家</label> ");
+        }else{
+            $("#btns").show();
+        }
+        //如果是yff登录 则添加一个清空积分按钮
+        if(userId=="140"){
+            if($("#qkjf").length==0){
+
+                $("#ready").after("<input id=\"qkjf\" style=\"background-color: #8cc657;float: right;height: 40px\" type=\"button\" value=\"清空积分\" id=\"clearScore\" onclick=\"clearScore();\"/>");
+            }
+            if($("#tcwj").length==0){
+                $("#ready").after("<input id=\"tcwj\" style=\"background-color: #8cc657;float: right;height: 40px\" type=\"button\" value=\"踢出玩家\" id=\"clearScore\" onclick=\"tichu();\"/>");
+            }
+
+        }
+    }
+    window.οnlοad=loadFun;
 </script>
 <div th:include="include::footer"></div>
 </html>

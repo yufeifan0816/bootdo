@@ -5,11 +5,49 @@
     <title>房间列表</title>
 </head>
 <head th:include="include :: header"></head>
-<body>
-    <a href="/niu/joinRoom" id="room1" style="float: left;background-color: #00B83F;width: 100px;height: 100px" ></a>
+<style>
+
+    .child-box {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        background-color: forestgreen;
+    }
+</style>
+<body onload="loadFun()">
+<div class="parent">
+    <div class="parent-box">
+        <a href="/niu/joinRoom" id="room1" class="child-box">[点击]进来就噶事</a>
+    </div>
+</div>
+
 </body>
 <script th:inline="javascript">
+    //页面加载完成后执行
+    function loadFun(){
+        $.ajax({
+            cache : true,
+            type : "get",
+            data:{"userId":23,"userName":"余非凡","roomNum":1},
+            url : "/niu/roomstuts",
+            async : false,
+            success : function(data) {
+                if (data.status==1) {
+                    //开始了
+                   $("#room1").text("("+data.num+"人)已经开始了,等哈");
+                    $("#room1").attr("href","#");
+                    $("#room1").css("background-color","red");
+                }
 
+            }
+        });
+    }
+    window.οnlοad=loadFun;
     function join() {
         $.ajax({
             cache : true,

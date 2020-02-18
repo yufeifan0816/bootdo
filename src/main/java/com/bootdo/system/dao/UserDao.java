@@ -2,6 +2,7 @@ package com.bootdo.system.dao;
 
 import com.bootdo.system.domain.UserDO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -39,5 +40,8 @@ public interface UserDao {
 	List<UserDO> listAllUser();
 
 	int queryScoreByUsrId(int userId);
-
+	/**添加玩家钱数*/
+	int addMoney(@Param("userId") String userId, @Param("score")Integer money);
+	/**清空积分*/
+	int clearScore();
 }
