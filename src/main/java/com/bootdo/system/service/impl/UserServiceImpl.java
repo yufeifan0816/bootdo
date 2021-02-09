@@ -75,7 +75,9 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public int save(UserDO user) {
+
         int count = userMapper.save(user);
+        userMapper.insertGameScore(user.getUserId());
         Long userId = user.getUserId();
         List<Long> roles = user.getRoleIds();
         userRoleMapper.removeByUserId(userId);

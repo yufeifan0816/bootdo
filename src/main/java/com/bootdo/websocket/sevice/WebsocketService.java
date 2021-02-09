@@ -63,12 +63,16 @@ public class WebsocketService {
      */
     @OnClose
     public void onClose() {
-        NiuniuServiceImpl.roomPeople.remove(Long.valueOf(this.sid));
-        NiuniuServiceImpl.cashs.remove(sid);
-        NiuniuServiceImpl.readyUserId.remove(sid);
-        NiuniuServiceImpl.pai.remove(sid);
-        NiuniuServiceImpl.tanpaiPeople.remove(sid);
+//        RoomDo room = NiuniuServiceImpl.getRoomByUserId(sid);
+//        room.getRoomPeople().remove(this.sid);
+//        room.getCashs().remove(sid);
+//        room.getReadyUserId().remove(sid);
+//        room.getPai().remove(sid);
+//        room.getTanpaiPeople().remove(sid);
         webSocketSet.remove(this);  //从set中删除
+        //告诉其他玩家我以退出
+        NiuniuServiceImpl niuniuService = new NiuniuServiceImpl();
+        niuniuService.exit(sid,true);
         subOnlineCount();           //在线数减1
         System.out.println("有一连接关闭！当前在线人数为" + getOnlineCount());
     }
@@ -137,6 +141,19 @@ public class WebsocketService {
                 item.sendMessage(message);
             }
 
+        }
+    }
+    /**
+     * 发送消息给其他窗口,不发送自己
+     * */
+    public static void sendInfoToPeoples(String message,List<String> userIds)  {
+
+        for (WebsocketService item : webSocketSet) {
+            for (String userId : userIds) {
+                if(item.sid.equals(userId)) {
+                    item.sendMessage(message);
+                }
+            }
         }
     }
     /**

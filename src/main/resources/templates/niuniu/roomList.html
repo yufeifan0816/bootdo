@@ -7,42 +7,86 @@
 <head th:include="include :: header"></head>
 <style>
 
-    .child-box {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 100px;
-        height: 100px;
-        margin: auto;
-        background-color: forestgreen;
+    .parent-box {
+        float: left;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-top: 8px;
+        width: 80px;
+        height: 80px;
+        background-color: #93D1FF;
+    }
+    .h{
+        float: left;
+        margin-left: 10px;
     }
 </style>
 <body onload="loadFun()">
 <div class="parent">
-    <div class="parent-box">
-        <a href="/niu/joinRoom" id="room1" class="child-box">[点击]进来就噶事</a>
+    <h3 class="h">1,3,5元(1~3房)   1,5,10元(4~6房)   5,10,20元(7~8房)</h3><br/>
+    <h3>游戏须知:</h3><h4 class="h2" style="color: red">进入房间后,在开始发牌到结算期间请务必保持网络畅通,不要切换网络.以免强制性退出影响其他玩家游戏体验!!!</h4>
+    <div class="parent-box" >
+        <a href="/niu/joinRoom/1" value="1" id="room1" class="room child-box"><span style="font-weight: bold">1号房</span>[点击]进来就噶事</a>
     </div>
+    <div class="parent-box" >
+        <a href="/niu/joinRoom/2" value="2" id="room2" class="room child-box"><span style="font-weight: bold">2号房</span>[点击]进来就噶事</a>
+    </div>
+    <div class="parent-box" >
+        <a href="/niu/joinRoom/3" value="3" id="room3" class="room child-box"><span style="font-weight: bold">3号房</span>[点击]进来就噶事</a>
+    </div>
+    <div class="parent-box" >
+        <a href="/niu/joinRoom/4" value="4" id="room4" class="room child-box"><span style="font-weight: bold">4号房</span>[点击]进来就噶事</a>
+    </div>
+    <div class="parent-box" >
+        <a href="/niu/joinRoom/5" value="5" id="room5" class="room child-box"><span style="font-weight: bold">5号房</span>[点击]进来就噶事</a>
+    </div>
+    <div class="parent-box" >
+        <a href="/niu/joinRoom/6" value="6" id="room6" class="room child-box"><span style="font-weight: bold">6号房</span>[点击]进来就噶事</a>
+    </div>
+    <div class="parent-box" >
+        <a href="/niu/joinRoom/7" value="7" id="room7" class="room child-box"><span style="font-weight: bold">7号房</span>[点击]进来就噶事</a>
+    </div>
+    <div class="parent-box" >
+        <a href="/niu/joinRoom/8" value="8" id="room8" class="room child-box"><span style="font-weight: bold">8号房</span>[点击]进来就噶事</a>
+    </div>
+
 </div>
 
 </body>
 <script th:inline="javascript">
     //页面加载完成后执行
     function loadFun(){
+       var rooms =  $(".room");
+        var arr=new Array();
+        for (var i = 0; i < rooms.length; i++) {
+            var room = rooms.eq(i);
+            arr[i] = room.attr("value");
+        }
         $.ajax({
             cache : true,
-            type : "get",
-            data:{"userId":23,"userName":"余非凡","roomNum":1},
+            type : "post",
+            data:{"roomIds":arr},
+            traditional:true,
             url : "/niu/roomstuts",
             async : false,
-            success : function(data) {
-                if (data.status==1) {
-                    //开始了
-                   $("#room1").text("("+data.num+"人)已经开始了,等哈");
-                    $("#room1").attr("href","#");
-                    $("#room1").css("background-color","red");
-                }
+            success : function(rooms) {
+                    for (var i = 0; i <arr.length ; i++) {
+                       var room  = rooms[arr[i]];
+                        var rooId =  arr[i];
+                       if(room.status==1){
+                           //开始了
+                           $("#room"+rooId).text("("+room.num+"人)已经开始了,等哈");
+                           $("#room"+rooId).attr("href","#");
+                           $("#room"+rooId).css("background-color","red");
+                       }else{
+                           if(room.num==0){
+                               $("#room"+arr[i]).empty();
+                               $("#room"+arr[i]).append("<span style=\"font-weight: bold\">"+arr[i]+"号房</span>[点击]进来就噶事");
+                           }else{
+                               $("#room"+arr[i]).text("("+room.num+"人在线)还没开始");
+                           }
+                       }
+                    }
 
             }
         });

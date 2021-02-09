@@ -8,8 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RequestMapping("/niu")
 @Controller
@@ -26,9 +30,9 @@ public class NiuNiuController {
     /**
      * 进入房间
      */
-    @RequestMapping("/joinRoom")
-    public String joinRoom(Model model ){
-        niuniuService.joinRoom(model);
+    @RequestMapping("/joinRoom/{roomId}")
+    public String joinRoom(Model model,@PathVariable("roomId") String roomId ){
+        niuniuService.joinRoom(model,roomId);
         return "niuniu/room";
     }
     /**
@@ -46,9 +50,16 @@ public class NiuNiuController {
      */
     @RequestMapping("/roomstuts")
     @ResponseBody
-    public R roomstuts(){
-        R r =niuniuService.roomstuts();
-        return r;
+    public Map roomstuts(String[] roomIds){
+       Map<String,  Map<String, String>> rooms = new HashMap<>();
+        for (String roomId : roomIds) {
+            R roomstuts = niuniuService.roomstuts(roomId);
+            Map<String, String> room = new HashMap<>();
+            room.put("status",(String) roomstuts.get("status"));
+            room.put("num",(String) roomstuts.get("num"));
+            rooms.put(roomId,room);
+        }
+        return rooms;
     }
     /**
      * 准备开始游戏
@@ -88,7 +99,7 @@ public class NiuNiuController {
     public R exit(String userId ,Model model ){
         R r = new R();
         try {
-            niuniuService.exit(userId);
+            niuniuService.exit(userId,false);
         } catch (Exception e) {
             e.printStackTrace();
             r = R.error(501,"退出失败");
@@ -112,31 +123,16 @@ public class NiuNiuController {
         return r;
 
     }
-    /**
-     * 计算结果
-     */
-    @RequestMapping("/result")
-    @ResponseBody
-    public R result(){
-        R r = new R();
-        try {
-            niuniuService.result();
-        } catch (Exception e) {
-            e.printStackTrace();
-            r = R.error(501,"计算结果失败");
-        }
-        return r;
 
-    }
     /**
      * 清空积分
      */
     @RequestMapping("/clearScore")
     @ResponseBody
-    public R clearScore(){
+    public R clearScore(String roomId){
         R r = new R();
         try {
-            niuniuService.clearScore();
+            niuniuService.clearScore(roomId);
         } catch (Exception e) {
             e.printStackTrace();
             r = R.error(501,"清空积分失败");

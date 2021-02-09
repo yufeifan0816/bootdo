@@ -28,10 +28,19 @@ public class WsMessageVo {
    private String newZjId;
    private Map<String, Integer> jiesuanMsg;
    private Object data;
+   private String tishiMsg;
    private List<WsMessageVo> allInfo;
 
     public Map<String, Integer> getJiesuanMsg() {
         return jiesuanMsg;
+    }
+
+    public String getTishiMsg() {
+        return tishiMsg;
+    }
+
+    public void setTishiMsg(String tishiMsg) {
+        this.tishiMsg = tishiMsg;
     }
 
     public void setJiesuanMsg(Map<String, Integer> jiesuanMsg) {

@@ -13,12 +13,12 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://39.108.251.77:3306/bootdo?useUnicode=true&characterEncoding=utf8
-    url: jdbc:mysql://49.235.190.19:3306/bootdo?useUnicode=true&characterEncoding=utf8
-#    url: jdbc:mysql://127.0.0.1:3306/bootdo?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://81.68.204.192:3306/bootdo?useUnicode=true&characterEncoding=utf8
+#    url: jdbc:mysql://49.235.190.19:3306/bootdo?useUnicode=true&characterEncoding=utf8
+   # url: jdbc:mysql://127.0.0.1:3306/bootdo?useUnicode=true&characterEncoding=utf8
     username: root
-    #password: root
-    password:
+    password: 123456
+#    password:
     initialSize: 1
     minIdle: 3
     maxActive: 20

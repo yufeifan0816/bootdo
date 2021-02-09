@@ -66,7 +66,7 @@ public class ShiroConfig {
     ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
-        shiroFilterFactoryBean.setLoginUrl("/login");
+        shiroFilterFactoryBean.setLoginUrl("/login2");
         shiroFilterFactoryBean.setSuccessUrl("/index");
         shiroFilterFactoryBean.setUnauthorizedUrl("/403");
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
@@ -86,9 +86,9 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/wxServer", "anon");
         filterChainDefinitionMap.put("/wxServer2/**", "anon");
         filterChainDefinitionMap.put("/ws/**", "anon");
-        filterChainDefinitionMap.put("/websocket /**", "anon");
-        filterChainDefinitionMap.put("/niu/**", "anon");
-        filterChainDefinitionMap.put("/niuniu/**", "anon");
+        filterChainDefinitionMap.put("/websocket/**", "anon");
+//        filterChainDefinitionMap.put("/niu/**", "anon");
+//        filterChainDefinitionMap.put("/niuniu/**", "anon");
         filterChainDefinitionMap.put("/blog/open/**", "anon");
 //        filterChainDefinitionMap.put("/xjbg/room/roomMng","perms[xjbg:room:roomMng]");
 //        filterChainDefinitionMap.put("/xjbg/product","perms[xjbg:product:product]");

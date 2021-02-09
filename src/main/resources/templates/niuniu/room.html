@@ -18,10 +18,11 @@
     <input type="button" style="left: 20px;height: 40px;width: 80px" value="准备" id="ready" onclick="ready();"/>
     <input style="display: none;height: 40px" type="button" value="取消准备" id="cancle" onclick="cancle();"/>
     <div id = "btns" class="btn-group" style="display: none;">
-        <button id="1" type="button" class="btn btn-default" onclick="f1()">1快</button>
+        <!--<button id="1" type="button" class="btn btn-default" onclick="f1()">1快</button>
+        <button id="3" type="button" class="btn btn-default" onclick="f3()">3快</button>
         <button id="5" type="button" class="btn btn-default" onclick="f5()"  >5快</button>
         <button id="10" type="button" class="btn btn-default" onclick="f10()">10快</button>
-        <!--<button id="20" type="button" class="btn btn-default" onclick="f20()">20快</button>-->
+        <button id="20" type="button" class="btn btn-default" onclick="f20()">20快</button>-->
     </div>
     <input style="background-color: red;float: right;height: 40px" type="button" value="退出房间" id="exit" onclick="exit();"/>
     <div style="background-color: #00b7ee">
@@ -52,13 +53,13 @@
     var userName = [[${userName}]];
     var infoStr = [[${infoStr}]];
     var isZj = [[${isZj}]];
+    var roomId = [[${roomId}]];
     var cash = 0;
     var roomType = 0;
-    // var url = "ws://192.168.137.1/websocket/" + userId;//六楼
+    //var url = "ws://192.168.1.104/websocket/" + userId;//六楼
     // var url = "ws://192.168.19.103/websocket/" + userId;//一楼
-    var url = "ws://49.235.190.19/websocket/" + userId;
+     var url = "ws://81.68.204.192/websocket/" + userId;
     var ws = null;
-    console.log(infoStr);
     connectWs(url);
     //实现化WebSocket对象，指定要连接的服务器地址与端口  建立连接
     //等同于
@@ -174,7 +175,7 @@
                 $("#msg"+newZjId).children("div").eq(0).append("<label class=\"zj\" style=\"background-color: #8cc657;margin-right:10px\">庄家</label> ")
             }
         }
-
+        layer.msg(msgJson.tishiMsg);
     }
     //5,接收其他玩家牌信息
     function fMsg5(msgJson) {
@@ -523,6 +524,10 @@
         cash=1;
         $("#msg").children("div").eq(1).children("span").eq(2).text("赌注:1元");
     }
+    function f3() {
+        cash=3;
+        $("#msg").children("div").eq(1).children("span").eq(2).text("赌注:3元");
+    }
     function f5() {
         cash=5;
         $("#msg").children("div").eq(1).children("span").eq(2).text("赌注:5元");
@@ -537,13 +542,14 @@
     }
     //清空所有玩家积分
     function clearScore(){
-        layer.confirm('慎重!!', {
+        layer.confirm('清空当前房间所有玩家积分,慎重!!', {
             btn: ['老子就要清空','点错了'] //按钮
         }, function(){
             $.ajax({
                 cache: true,
                 type: "POST",
                 url: "/niu/clearScore",
+                data:{"roomId":roomId},
                 async: false,
                 success : function(data) {
                     if (data.code == 0) {
@@ -623,16 +629,27 @@
         }else{
             $("#btns").show();
         }
+        if(roomId<4){
+            $("#btns").append("<button id=\"1\" type=\"button\" class=\"btn btn-default\" onclick=\"f1()\">1快</button>");
+            $("#btns").append("<button id=\"3\" type=\"button\" class=\"btn btn-default\" onclick=\"f3()\">3快</button>");
+            $("#btns").append("<button id=\"5\" type=\"button\" class=\"btn btn-default\" onclick=\"f5()\">5快</button>");
+        }else if(roomId<7){
+            $("#btns").append("<button id=\"1\" type=\"button\" class=\"btn btn-default\" onclick=\"f1()\">1快</button>");
+            $("#btns").append("<button id=\"5\" type=\"button\" class=\"btn btn-default\" onclick=\"f5()\">5快</button>");
+            $("#btns").append("<button id=\"10\" type=\"button\" class=\"btn btn-default\" onclick=\"f10()\">10快</button>");
+        }else if(roomId<9){
+            $("#btns").append("<button id=\"5\" type=\"button\" class=\"btn btn-default\" onclick=\"f5()\">5快</button>");
+            $("#btns").append("<button id=\"10\" type=\"button\" class=\"btn btn-default\" onclick=\"f10()\">10快</button>");
+            $("#btns").append("<button id=\"20\" type=\"button\" class=\"btn btn-default\" onclick=\"f20()\">20快</button>");
+        }
         //如果是yff登录 则添加一个清空积分按钮
         if(userId=="140"){
-            if($("#qkjf").length==0){
-
-                $("#ready").after("<input id=\"qkjf\" style=\"background-color: #8cc657;float: right;height: 40px\" type=\"button\" value=\"清空积分\" id=\"clearScore\" onclick=\"clearScore();\"/>");
-            }
             if($("#tcwj").length==0){
                 $("#ready").after("<input id=\"tcwj\" style=\"background-color: #8cc657;float: right;height: 40px\" type=\"button\" value=\"踢出玩家\" id=\"clearScore\" onclick=\"tichu();\"/>");
             }
-
+        }
+        if($("#qkjf").length==0){
+            $("#ready").after("<input id=\"qkjf\" style=\"background-color: #8cc657;float: right;height: 40px\" type=\"button\" value=\"清空积分\" id=\"clearScore\" onclick=\"clearScore();\"/>");
         }
     }
     window.οnlοad=loadFun;

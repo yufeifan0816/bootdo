@@ -44,4 +44,8 @@ public interface UserDao {
 	int addMoney(@Param("userId") String userId, @Param("score")Integer money);
 	/**清空积分*/
 	int clearScore();
+
+    int clearScore2(List<String> roomPeople);
+
+    void insertGameScore(Long userId);
 }

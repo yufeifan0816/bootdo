@@ -1,6 +1,7 @@
 package com.bootdo.testDemo.collection;
 
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @program: bootdo
@@ -15,6 +16,7 @@ public class MapDemo {
         //首次使用的时候才初始化
 
         HashMap<Object, Object> hashMpa = new HashMap<>();
+        ConcurrentHashMap<String, String> stringStringConcurrentHashMap = new ConcurrentHashMap<String, String>();
         /***
          * put()的执行过程
          * ①判断hashMap是否被初始化,如果没有则初始化HashMap
@@ -27,5 +29,8 @@ public class MapDemo {
          * ⑧如果桶满了(默认16*加载因子0.75),就调用resize()扩容,扩容2倍后重排
          **/
         hashMpa.put("1","aaa");
+
     }
+
+  
 }
