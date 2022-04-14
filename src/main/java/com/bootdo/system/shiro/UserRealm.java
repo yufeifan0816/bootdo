@@ -41,6 +41,7 @@ public class UserRealm extends AuthorizingRealm {
 		UserDao userMapper = ApplicationContextRegister.getBean(UserDao.class);
 		// 查询用户信息
 		UserDO user = userMapper.list(map).get(0);
+		user.setPassword(password);
 		// 账号不存在
 		if (user == null) {
 			throw new UnknownAccountException("账号或密码不正确");
